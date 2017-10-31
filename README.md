@@ -28,6 +28,12 @@ git clone https://github.com/boxug/trape.git
 cd trape
 python trape.py -h
 ```
+If it does not work, try to install all the libraries that are located in the file **requirements.txt**
+```
+pip install -r requirements.txt
+```
+
+Example of execution
 ```
 Example: python trape.py --url http://example.com --port 8080
 ```
