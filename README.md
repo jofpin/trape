@@ -41,6 +41,8 @@ Example: python trape.py --url http://example.com --port 8080
 * In the **--port** option you just put the port where you want it to run
 * Do you like to monitor your people? Everything is possible with Trape
 * Do you want to perform phishing attacks? Everything is possible with Trape
+* In the Files directory, located on the path: **/static/files** here you add the files with .exe extension or download files sent to the victim.
+
 
 At an international security event in Colombia, called **DragonJAR Security Conference** 2017, a demonstration was made before the launch. You can watch the video here: [https://www.youtube.com/watch?v=vStSEsznxgE](https://www.youtube.com/watch?v=vStSEsznxgE)
 
