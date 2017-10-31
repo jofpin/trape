@@ -11,11 +11,14 @@ Trape is a recognition tool that allows you to **track people**, the information
 Some benefits
 -----------
 * One of its most enticing functions is the remote recognition of sessions. You can know where a person has logged in, remotely. This occurs through a Bypass made to the **Same Origin Policy** (**SOP**)
-* Currently you can try everything from a web interface.
+* Currently you can try everything from a web interface. (**The console, becomes a preview of the logs and actions**)
 * Registration of victims, requests among other data are obtained in real time.
 * If you get more information from a person behind a computer, you can generate a more direct and sophisticated attack. Trape was used at some point to track down criminals and know their **behavior**.
 * You can do real time phishing attacks
 * Simple hooking attacks
+* Mapping
+* Important details of the objective
+* Capturing credentials
 
 How to use it
 -------
