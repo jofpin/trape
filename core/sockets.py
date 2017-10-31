@@ -64,4 +64,4 @@ def home():
     return render_template("home.html", async_mode=socketio.async_mode)
 
 if __name__ == 'core.sockets':
-    socketio.run(app, host= '127.0.0.1', port=trape.app_port, debug=False)
+    socketio.run(app, host= '0.0.0.0', port=trape.app_port, debug=False)
