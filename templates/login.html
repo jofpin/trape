@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Trape: Login</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+    <meta name="apple-mobile-web-app-title" content="Trape">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#3e396b" />
+    <meta name="google" value="notranslate"/>
+    <meta name="author" content="Boxug, @boxug"/>
+    <meta name="description" content="Learn to track the world, to avoid being traced"/>
+
+    <!-- Styles & Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="static/img/favicon.ico">
+    <link rel="shortcut icon" type="image/png" href="static/img/favicon.png">
+    <link rel="stylesheet" href="static/css/base-icons.css">
+    <link rel="stylesheet" href="static/css/styles.css">
+    <script src="static/js/libs.min.js"></script>
+    <!--[if (gte IE 6) & (lte IE 9)]>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js"></script>
+    <![endif]-->
+</head>
+
+<body class="TrapeBody-Login">
+    <!-- home(TrapeLogin) -->
+    <div class="TrapeLogin">
+
+        <header class="TrapeLogin-Header">
+            <div class="TrapeLogin-Header--logo">
+                <div class="TrapeLogin-Header--logo---Box">
+                    <span class="TrapeLogin-Header--logo---L1">t:</span>
+                </div>
+                <span class="TrapeLogin-Header--logo---L2">trape</span>
+            </div>
+        </header>
+
+        <section class="TrapeLogin-Wrapper">
+            <p class="TrapeLogin-Wrapper--description">Control panel</p>
+            <p class="TrapeLogin-Wrapper--explanation">People tracker on the Internet</p>
+
+            <!-- home(keyIcorrect) -->
+            <div class="TrapeLogin-IncorrectKey">
+                <div class="TrapeLogin-IncorrectKey--Icon"><span class="icon-times"></span></div>
+                <div class="TrapeLogin-IncorrectKey--Text">Hey the key is incorrect, try again.</div> 
+            </div>
+            <!-- end(keyIcorrect) -->
+
+            <!-- home(form) -->
+            <div class="TrapeLogin-Wrapper--Form">
+                <form class="TrapeLogin-Wrapper--Form---Body" method="POST">
+                    <label class="TrapeLogin-Wrapper--iconLabel icon-lock2"></label>
+                    <input type="password" class="TrapeLogin-Wrapper--Form---input" placeholder="Enter the Access key" id="dataKey" name="key" required="true">
+                    <div class="TrapeLogin-Wrapper--Form---buttonRightDefine">
+                        <button type="submit" class="TrapeLogin-Wrapper--Form---button"><span class="TrapeLogin-Wrapper--Form---button----text">Sign In</span> <small class="icon-chevron-right"></small></button>
+                    </div>
+                </form>
+                <div class="TrapeLogin-Wrapper--Form---text">
+                    <span class="TrapeLogin-Wrapper--Form---line">-</span>  Learn to track the world, to avoid being traced <span class="TrapeLogin-Wrapper--Form---line">-</span>
+                </div>
+            </div>
+            <!-- end(form) -->
+
+
+
+            <!-- home(copyright) -->
+            <div class="TrapeLogin-Copyright">
+                <span class="TrapeLogin-Copyright--iconCode"></span> with <span class="TrapeLogin-Copyright--iconLove"></span> by <a class="TrapeLogin-Copyright--link" href="https://boxug.com" title="Boxug: First Your Security"><img class="TrapeLogin-Copyright--logo" width="90" src="static/img/boxug-logo.svg" alt="boxug"></a>
+            </div>
+        </section>
+
+
+    </div>
+    <!-- end(TrapeLogin) -->
+    <script src="static/js/login.js"></script>
+</body>
+</html>
