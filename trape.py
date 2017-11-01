@@ -24,10 +24,10 @@ from core.utils import utils                  #
 from core.trape import Trape                  #
 try:                                          #
     import flask                              #
-except:                                       ###########################################
-    utils.Go("\t\nPlease install requirements.txt libraries, you can do it executing:") #
-    utils.Go("\t\npip install requirements.txt")  #######################################
-###############################################
+except:                                       ############################################
+    utils.Go("\t\nPlease install requirements.txt libraries, you can do it executing:")  #
+    utils.Go("\t\npip install -r requirements.txt")  #####################################
+######################################################
 
 # We generalize the main class of <trape>
 trackPeople = Trape()
