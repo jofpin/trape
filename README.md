@@ -44,8 +44,10 @@ Example: python trape.py --url http://example.com --port 8080
 * In the Files directory, located on the path: **/static/files** here you add the files with .exe extension or download files sent to the victim.
 
 Here are some simple videos to use:
- **Spanish**: https://www.youtube.com/watch?v=ptyuCQmMKiQ
- **English**: https://www.youtube.com/watch?v=FdwyIZhUx3Y
+-------
+**Spanish**: https://www.youtube.com/watch?v=ptyuCQmMKiQ
+
+**English**: https://www.youtube.com/watch?v=FdwyIZhUx3Y
 
 At an international security event in Colombia, called **DragonJAR Security Conference** 2017, a demonstration was made before the launch. You can watch the video here: [https://www.youtube.com/watch?v=vStSEsznxgE](https://www.youtube.com/watch?v=vStSEsznxgE)
 
