@@ -19,6 +19,7 @@ Some benefits
 * Mapping
 * Important details of the objective
 * Capturing credentials
+* Open Source Intelligence (**OSINT**)
 
 How to use it
 -------
