@@ -21,6 +21,22 @@ Some benefits
 * Capturing credentials
 * Open Source Intelligence (**OSINT**)
 
+Recognizes the sessions of the following services
+-------
+* Facebook
+* Twitter
+* VK
+* Reddit
+* Gmail
+* tumblr
+* Instagram
+* Github
+* Bitbucket
+* Dropbox
+* Spotify
+* PayPal
+* Amazon
+ 
 How to use it
 -------
  First unload the tool.
