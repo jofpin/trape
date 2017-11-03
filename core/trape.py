@@ -18,7 +18,6 @@ import socket
 import sys
 import os
 from core.utils import utils
-from core.db import create_db
 
 class Trape(object):
 	def __init__(self):
@@ -67,12 +66,8 @@ class Trape(object):
 				utils.Go(utils.Color["redBold"] + "[x] " + utils.Color["white"] + "You must run in mode " + utils.Color["whiteBold"] + "root" + utils.Color["white"] + " to be able to operate.")
 				exit(0)
 
-	# Database creation.
-	def runDatabase(self):
-		create_db()
-
+	# Detect operating system, to compose the compatibility			
 	def loadCheck(self):
-		# Detect operating system, to compose the compatibility
 		utils.checkOS()
 		
     # the main file (trape.py)

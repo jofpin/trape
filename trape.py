@@ -21,7 +21,8 @@
 ###############################################
                                               #
 from core.utils import utils                  #
-from core.trape import Trape                  #
+from core.trape import Trape
+from core.db import Database                  
 try:                                          #
     import flask                              #
     import flask_socketio                     #
@@ -33,6 +34,9 @@ except:                                       ##################################
 # We generalize the main class of <trape>
 trackPeople = Trape()
 
+# call class database
+generateData = Database()
+
 # check OS
 trackPeople.loadCheck()
 
@@ -40,7 +44,7 @@ trackPeople.loadCheck()
 trackPeople.rootConnection()
 
 # Call the creation of the database when you open this file.
-trackPeople.runDatabase()
+generateData.loadDatabase()
 
 if __name__ == "__main__":
         try:

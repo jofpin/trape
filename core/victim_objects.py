@@ -58,4 +58,3 @@ def attacks_hook_message(data):
         'alert' : "Sending alert ",
         'execute' : "Downloading file "
     }.get(data, False)
-

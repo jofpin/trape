@@ -86,7 +86,7 @@ This development and others, the participants will be mentioned with name, Twitt
 
 Professional Version
 -------
-Yes, we also have a professional version with more sophisticated features. If you would like to get the Professional version or request contact us at hey@boxug.com
+Yes, we also have a professional version with more sophisticated features. If you would like to get the professional version or request contact us at hey@boxug.com
 
 
 Happy hacking!

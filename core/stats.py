@@ -14,11 +14,14 @@
 import urllib2
 from flask import Flask, render_template, session, request, json
 from core.trape import Trape
-from core.db import sentences_stats
+from core.db import Database
 
 # Main parts, to generate relationships among others
 trape = Trape()
 app = Flask(__name__, template_folder='../templates', static_folder='../static')
+
+# call database
+db = Database()
 
 # preview header tool in console
 trape.header()
@@ -41,15 +44,15 @@ def login():
 
 @app.route("/get_data", methods=["POST"])
 def home_get_dat():
-    d = sentences_stats('get_data')
-    n = sentences_stats('all_networks')
+    d = db.sentences_stats('get_data')
+    n = db.sentences_stats('all_networks')
 
     ('clean_online')
-    rows = sentences_stats('get_clicks')
+    rows = db.sentences_stats('get_clicks')
     c = rows[0][0]
-    rows = sentences_stats('get_sessions')
+    rows = db.sentences_stats('get_sessions')
     s = rows[0][0]
-    rows = sentences_stats('get_online')
+    rows = db.sentences_stats('get_online')
     o = rows[0][0]
 
     return json.dumps({'status' : 'OK', 'd' : d, 'n' : n, 'c' : c, 's' : s, 'o' : o});
@@ -57,8 +60,8 @@ def home_get_dat():
 @app.route("/get_preview", methods=["POST"])
 def home_get_preview():
     vId = request.form['vId']
-    d = sentences_stats('get_preview', vId)
-    n = sentences_stats('id_networks', vId)
+    d = db.sentences_stats('get_preview', vId)
+    n = db.sentences_stats('id_networks', vId)
     return json.dumps({'status' : 'OK', 'vId' : vId, 'd' : d, 'n' : n});
 
 @app.route("/get_title", methods=["POST"])
@@ -70,6 +73,6 @@ def home_get_title():
 
 @app.route("/get_requests", methods=["POST"])
 def home_get_requests():
-    d = sentences_stats('get_requests')
+    d = db.sentences_stats('get_requests')
 
     return json.dumps({'status' : 'OK', 'd' : d});
