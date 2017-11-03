@@ -27,7 +27,7 @@ class Trape(object):
 		self.home_path = "h" + utils.generateToken(18)
 		self.stats_key = utils.generateToken(24)
 		self.date_start = time.strftime("%Y-%m-%d - %H:%M:%S")
-		parser = optparse.OptionParser("python" + " " + "%prog -u <<Url>> -c <<Port>>", version="1.0.0")
+		parser = optparse.OptionParser("python" + " " + "%prog -u <<Url>> -p <<Port>>", version="1.0.0")
 		parser.add_option('-u', '--url', dest='url', help='Put the web page url to clone')
 		parser.add_option('-p', '--port', dest='port', help='Insert your port')
 
