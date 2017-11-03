@@ -24,6 +24,7 @@ from core.utils import utils                  #
 from core.trape import Trape                  #
 try:                                          #
     import flask                              #
+    import flask_socketio                     #
 except:                                       ############################################
     utils.Go("\t\nPlease install requirements.txt libraries, you can do it executing:")  #
     utils.Go("\t\npip install -r requirements.txt")  #####################################
@@ -34,6 +35,7 @@ trackPeople = Trape()
 
 # check OS
 trackPeople.loadCheck()
+
 # Request root home to run <trape> with all permissions
 trackPeople.rootConnection()
 
