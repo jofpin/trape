@@ -17,10 +17,10 @@ $(document).ready(function($) {
             };
 
             $.ajax({
-                url: '/regv',
+                url: "/regv",
                 data: datav,
                 dataType: "json",
-                type: 'POST',
+                type: "POST",
                 success: function(response) {
                     socket.emit('my_broadcast_event', {data: 'update-data'});
                 },

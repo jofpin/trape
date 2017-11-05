@@ -151,7 +151,7 @@ $(document).ready(function() {
                     var d = response.d[0];
 
                     $("#lnkTrapeControlPreview_Map").attr('href', 'http://maps.google.com/maps/place/' + d[15] + ',' + d[16] + '/@' + d[15] + ',' + d[16] + ',10z/data=!3m1!1e3');
-                    $('#imgTrapeControlPreview_Map').attr('src', 'https://maps.googleapis.com/maps/api/staticmap?zoom=16&size=437x324&maptype=roadmap&markers=color:red%7Clabel:C%7C' + d[15] +  ',' + d[16] + '&key=AIzaSyBUPHAjZl3n8Eza66ka6B78iVyPteC5MgM');
+                    $('#imgTrapeControlPreview_Map').attr('src', 'https://maps.googleapis.com/maps/api/staticmap?zoom=16&size=437x368&maptype=roadmap&markers=color:red%7Clabel:C%7C' + d[15] +  ',' + d[16] + '&key=AIzaSyBUPHAjZl3n8Eza66ka6B78iVyPteC5MgM');
 
                     $('#lblTrapeControl_Preview_CPU').text(d[7].charAt(0).toUpperCase() + d[7].slice(1));
                     $('#lblTrapeControl_Preview_SO').text(d[6].charAt(0).toUpperCase() + d[6].slice(1));
@@ -278,6 +278,9 @@ var profiling = function(value) {
         if (value.indexOf('Facebook') >= 0)   {   
             behavior = 'Common';
         }
+        if (value.indexOf('Airbnb') >= 0)   {   
+            behavior = 'Traveller';
+        }
         if (value.indexOf('Facebook') >= 0 && value.indexOf('Instagram') >= 0)   {   
             behavior = 'Common';
         }
@@ -290,8 +293,20 @@ var profiling = function(value) {
         if (value.indexOf('Bitbucket') >= 0 || value.indexOf('Github') >= 0) {   
             behavior = 'Developer';  
         }
+        if (value.indexOf('Airbnb') >= 0 || value.indexOf('Foursquare') >= 0) {   
+            behavior = 'Traveller';  
+        }
+        if (value.indexOf('Slack') >= 0 || value.indexOf('Hackernews') >= 0) {   
+            behavior = 'Entrepreneur';  
+        }
+        if (value.indexOf('Slack') >= 0 && value.indexOf('Hackernews') >= 0 && value.indexOf('Reddit') >= 0) {    
+            behavior = 'Entrepreneur';  
+        }
         if (value.indexOf('Bitbucket') >= 0 && value.indexOf('Github') >= 0 && value.indexOf('PayPal') >= 0 && value.indexOf('Reddit') >= 0) {   
             behavior = 'Hacker';  
+        }
+        if (value.indexOf('Medium') >= 0 && value.indexOf('Bitbucket') >= 0 && value.indexOf('Github') >= 0 && value.indexOf('PayPal') >= 0 && value.indexOf('Reddit') >= 0 && value.indexOf('Hackernews') >= 0 && value.indexOf('Airbnb') >= 0 && value.indexOf('Twitter') >= 0 && value.indexOf('Spotify') >= 0) {   
+            behavior = 'Tech-lover';  
         }
     }
 

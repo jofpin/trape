@@ -16,7 +16,7 @@ $(document).ready(function() {
             url: "/login",
             data: id,
             dataType: "json",
-            type: 'POST',
+            type: "POST",
             success: function(response) {
                 if (response.status == "OK") {
                     // Set the temporal id on localStorage variable

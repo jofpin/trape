@@ -386,7 +386,7 @@ h2 {
 .TrapeControl-Preview {
   width: 694px;
   background: #fff;
-  height: 511px;
+  height: 555px;
   margin: 0em auto;
   box-shadow: 0 0 0 1px rgba(18,24,33,.05), 0 0 15px rgba(18,24,33,.2);
   border-radius: 6px;
@@ -463,10 +463,10 @@ h2 {
   border-left: 1px solid #DCE6EF;
   width: 37%;
   float: right;
-  height: 324px;
+  height: 368px;
 }
 .TrapeControl-Preview--box---Sidebar----title {
-    margin-top: 24px;
+    margin-top: 22px;
     margin-bottom: 0;
     margin-left: 12%;
     margin-right: 12%;
@@ -487,24 +487,22 @@ h2 {
     color: #8da2b5;
 }
 .TrapeControl-Preview--box---Sidebar----Networks {
-    text-align: center
+    text-align: center;
+    margin-top: -2px;
 }
 .TrapeControl-Preview--box---Sidebar----NetworksDefine {
-  padding: 0px 8px 0px 37px;
-  line-height: 24px;
-  color: #fff;
-  font-family: "Lato", sans-serif;
-  font-weight: 500;
-  display: inline-block;
-  vertical-align: middle;*
-  vertical-align: auto;*
-  zoom:1;*
-  display: inline;
-  margin: 5px;
-  width: 100px;
-  position: relative;
-  border-radius: 4px;
-  text-decoration: none !important;
+    padding: 0px 8px 0px 37px;
+    line-height: 22px;
+    color: #fff;
+    font-family: "Lato", sans-serif;
+    font-weight: 500;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 5px;
+    width: 100px;
+    position: relative;
+    border-radius: 4px;
+    text-decoration: none !important;
 }
 .TrapeControl-Preview--box---Sidebar----NetworksDefine:before {
   font-family: "boxicons", sans-serif;
@@ -516,17 +514,17 @@ h2 {
   top: 0;
   left: 0;
   bottom: 0;
-  width: 30px;
+  width: 28px;
   font-size: 14px;
   text-align: center;
-  line-height: 24px;
+  line-height: 22px;
   background-color: rgba(0, 0, 0, 0.2);
   border-right: 1px solid rgba(0, 0, 0, 0.115);
 }
 
 .TrapeControl-Preview--box---Sidebar----NetworksStatus {
   background-color: #fff;
-  padding: 3px 6px;
+  padding: 2px 6px;
   border-radius: 4px;
   text-transform: uppercase;
   font-size: 10px;
@@ -680,10 +678,45 @@ h2 {
   content: "\ea6f";
 }
 
+.foursquare {
+  background: #2d5be3;
+  box-shadow: 1px 1px 0 0 #2448b5, 1px -1px 0 0 #2448b5, -1px 1px 0 0 #2448b5, -1px -1px 0 0 #2448b5;
+}
+.foursquare:before {
+  font-family: "services";
+  content: "\eaf6";
+}
+
+.airbnb {
+  background: #fd5c63;
+  box-shadow: 1px 1px 0 0 #ca494f, 1px -1px 0 0 #ca494f, -1px 1px 0 0 #ca494f, -1px -1px 0 0 #ca494f;
+}
+.airbnb:before {
+  font-family: "services";
+  content: "\eaaf";
+}
+
+.hackernews {
+  background: #ff6600;
+  box-shadow: 1px 1px 0 0 #cc5100, 1px -1px 0 0 #cc5100, -1px 1px 0 0 #cc5100, -1px -1px 0 0 #cc5100;
+}
+.hackernews:before {
+  font-family: "services";
+  content: "\ebe3";
+}
+
+.slack {
+  background: #3eb991;
+  box-shadow: 1px 1px 0 0 #319474, 1px -1px 0 0 #319474, -1px 1px 0 0 #319474, -1px -1px 0 0 #319474;
+}
+.slack:before {
+  font-family: "services";
+  content: "\eb9b";
+}
 .TrapeControl-Preview--box---Sidebar----NetworksBehavior {
     display: inline-block;
     position: relative;
-    top: 10px;
+    top: 8px;
     font-weight: 600;
     font-size: 10px;
     letter-spacing: 0.5px;
@@ -708,7 +741,7 @@ h2 {
 .TrapeControl-Preview--box---Mapbox {
   overflow: hidden;
   position: relative;
-  height: 324px;
+  height: 368px;
   border-radius: 6px 0 0 0;
   width: 63%;
   float: left;
@@ -784,7 +817,7 @@ h2 {
 .TrapeControl-Preview--box---Mapbox----define {
   position: absolute;
   width: 437px;
-  height: 324px;
+  height: 368px;
 }
 .TrapeControl-Preview--box---Details {
   padding: 8px;

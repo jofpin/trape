@@ -78,12 +78,31 @@ $(document).ready(function($) {
         path: "/account/signin/?next=/favicon.ico",
         name: "BitBucket",
         login: "/account/signin/"
-
     }, {
         url: "https://www.instagram.com",
         path: "/accounts/login/?next=%2Ffavicon.ico",
         name: "Instagram",
         login: "/accounts/login/"
+    }, {
+        url: "https://foursquare.com",
+        path: "/login?continue=%2Ffavicon.ico",
+        name: "Foursquare",
+        login: "/login"
+    }, {
+        url: "https://www.airbnb.com",
+        path: "/login?redirect_params[action]=favicon.ico&redirect_params[controller]=home",
+        name: "Airbnb",
+        login: "/login"
+    }, {
+        url: "https://news.ycombinator.com",
+        path: "/login?goto=y18.gif",
+        name: "Hackernews",
+        login: "/login"
+    }, {
+        url: "https://slack.com",
+        path: "/checkcookie?redir=https%3A%2F%2Fslack.com%2Ffavicon.ico%23",
+        name: "Slack",
+        login: "/signin"
     }];
 
     $.each(Services, function(index, val) {
