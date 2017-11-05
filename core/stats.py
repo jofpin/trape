@@ -47,12 +47,12 @@ def home_get_dat():
     d = db.sentences_stats('get_data')
     n = db.sentences_stats('all_networks')
 
-    ('clean_online')
     rows = db.sentences_stats('get_clicks')
     c = rows[0][0]
     rows = db.sentences_stats('get_sessions')
     s = rows[0][0]
-    rows = db.sentences_stats('get_online')
+    vId = ('online', )
+    rows = db.sentences_stats('get_online', vId)
     o = rows[0][0]
 
     return json.dumps({'status' : 'OK', 'd' : d, 'n' : n, 'c' : c, 's' : s, 'o' : o});
@@ -60,8 +60,9 @@ def home_get_dat():
 @app.route("/get_preview", methods=["POST"])
 def home_get_preview():
     vId = request.form['vId']
-    d = db.sentences_stats('get_preview', vId)
-    n = db.sentences_stats('id_networks', vId)
+    t = (vId,)
+    d = db.sentences_stats('get_preview', t)
+    n = db.sentences_stats('id_networks', t)
     return json.dumps({'status' : 'OK', 'vId' : vId, 'd' : d, 'n' : n});
 
 @app.route("/get_title", methods=["POST"])
