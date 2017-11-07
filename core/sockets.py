@@ -40,15 +40,21 @@ def background_thread():
 
 @socketio.on("join", namespace="/trape")
 def join(message):
-    join_room(message['room'])
-    session['receive_count'] = session.get('receive_count', 0) + 1
+    try:
+        join_room(message['room'])
+        session['receive_count'] = session.get('receive_count', 0) + 1
+    except Exception as error:
+        pass
 
 @socketio.on("my_room_event", namespace="/trape")
 def send_room_message(message):
-    session['receive_count'] = session.get('receive_count', 0) + 1
-    hookAction = attacks_hook_message(message['data']['type'])
-    utils.Go(utils.Color['white'] + "[" + utils.Color['blueBold'] + "@" + utils.Color['white'] + "]" + " " + hookAction + utils.Color['blue'] + message['data']['message'] + utils.Color['white'] + ' in '  + utils.Color['green'] + message['room'] + utils.Color['white'])
-    emit('my_response', {'data': message['data'], 'count': session['receive_count']},room = message['room'])
+    try:
+        session['receive_count'] = session.get('receive_count', 0) + 1
+        hookAction = attacks_hook_message(message['data']['type'])
+        utils.Go(utils.Color['white'] + "[" + utils.Color['blueBold'] + "@" + utils.Color['white'] + "]" + " " + hookAction + utils.Color['blue'] + message['data']['message'] + utils.Color['white'] + ' in '  + utils.Color['green'] + message['room'] + utils.Color['white'])
+        emit('my_response', {'data': message['data'], 'count': session['receive_count']},room = message['room'])
+    except Exception as error:
+        pass
 
 @socketio.on("disconnect_request", namespace="/trape")
 def disconnect_request(d):
