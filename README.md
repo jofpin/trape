@@ -36,10 +36,10 @@ Recognizes the sessions of the following services
 * Spotify
 * PayPal
 * Amazon
-* Foursquare (new)
-* Airbnb (new)
-* Hackernews (new)
-* Slack (new)
+* Foursquare (*new*)
+* Airbnb (*new*)
+* Hackernews (*new*)
+* Slack (*new*)
  
 How to use it
 -------
