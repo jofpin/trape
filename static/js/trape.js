@@ -414,8 +414,6 @@ var dataSync = function() {
                         tmpTarget = val[2].split('/');
                         tmpTarget = tmpTarget[0] + '//' + tmpTarget[2];
 
-                        console.log(val);
-
                         htmlData += '<!-- -->';
                         htmlData += '<div class="TrapeControl-Requests">';
                           htmlData += '<div class="TrapeControl-Requests--HeaderData">';

