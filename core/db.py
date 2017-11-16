@@ -32,22 +32,22 @@ class Database(object):
         	self.cursor.execute(sentence)
     	else:
         	self.cursor.execute(sentence[0], sentence[1])
-        return self.cursor.fetchall()
+            return self.cursor.fetchall()
 
     def sql_one_row(self, sentence, column):
         if type(sentence) is str:
         	self.cursor.execute(sentence)
     	else:
         	self.cursor.execute(sentence[0], sentence[1])	
-        return self.cursor.fetchone()[column]
+            return self.cursor.fetchone()[column]
 
     def sql_insert(self, sentence):
         if type(sentence) is str:
         	self.cursor.execute(sentence)
     	else:
         	self.cursor.execute(sentence[0], sentence[1])
-        self.conn.commit()
-        return True
+            self.conn.commit()
+            return True
 
     def prop_sentences_stats(self, type, vId = None):
         return {
