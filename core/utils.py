@@ -27,7 +27,7 @@ class utils:
     # Simplification print
     @staticmethod
     def Go(string):
-        print string
+        print(string)
 
     # All color for design terminal UI
     Color = {
