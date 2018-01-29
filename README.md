@@ -88,9 +88,9 @@ This development and others, the participants will be mentioned with name, Twitt
 * Jose Pino - [@jofpin](https://twitter.com/jofpin) - (**Founder at [boxug](https://boxug.com)**) 
 * Jhonathan Espinosa - [@st4nn](https://twitter.com/st4nn) - (**CTO at [boxug](https://boxug.com)**)
 
-Professional Version
+Standard Version
 -------
-Yes, we also have a professional version with more sophisticated features. If you would like to get the professional version or request contact us at hey@boxug.com
+Yes, we also have a standard version with more sophisticated features. If you would like to get the standard version or request contact us at hey@boxug.com
 
 
 Happy hacking!
