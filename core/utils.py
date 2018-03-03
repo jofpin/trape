@@ -71,7 +71,7 @@ class utils:
     # Loader with console cleaning and OS checking    
     @staticmethod
     def checkOS():
-        if "linux" in sys.platform:
+        if "linux" in sys.platform or sys.platform == "darwin":
             os.system("clear")
             utils.Go("Loading" + " " + utils.Color['blue'] + "trape" + utils.Color['white'] + "...")
             time.sleep(0.4)
