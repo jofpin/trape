@@ -92,6 +92,7 @@ Standard Version
 -------
 Yes, we also have a standard version with more sophisticated features. If you would like to get the standard version or request contact us at hey@boxug.com
 
+Purchase here: https://trape.co
 
 Happy hacking!
 -------
