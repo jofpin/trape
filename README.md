@@ -86,7 +86,6 @@ Boxug.
 This development and others, the participants will be mentioned with name, Twitter and charge.
 
 * Jose Pino - [@jofpin](https://twitter.com/jofpin) - (**Founder at [boxug](https://boxug.com)**) 
-* Jhonathan Espinosa - [@st4nn](https://twitter.com/st4nn) - (**CTO at [boxug](https://boxug.com)**)
 
 Standard Version
 -------
