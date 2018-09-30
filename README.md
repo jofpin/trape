@@ -89,7 +89,7 @@ This development and others, the participants will be mentioned with name, Twitt
 
 Standard Version
 -------
-Yes, we also have a standard version with more sophisticated features. If you would like to get the standard version or request contact us at hey@boxug.com
+Yes, we also have a standard version with more sophisticated features. If you would like to get the standard version or request contact us at jofpin@gmail.com
 
 Purchase here: https://trape.co
 
