@@ -9,3 +9,4 @@ dist/*
 main.spec
 trape.config
 *.nlog
+*.DS_Store
