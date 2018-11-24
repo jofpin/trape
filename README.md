@@ -1,4 +1,5 @@
 
+
 trape (stable) v2.0
 ========
 
@@ -7,13 +8,14 @@ People tracker on the Internet: Learn to track the world, to avoid being traced.
 ---
 Trape is a **OSINT** analysis and research tool, which allows people to track and execute intelligent **social engineering** attacks in real time. It was created with the aim of teaching the world how large Internet companies could obtain **confidential information** such as the status of sessions of their websites or services and control over their users through the browser, without them knowing, but It evolves with the aim of helping **government** organizations, companies and **researchers** to track the cybercriminals.
 
-![--trape header](https://i.imgur.com/2ycpXEj.png)
+
+![--trape header](https://i.imgur.com/2ycpXEj.png =x500)
 
 Some benefits
 -----------
 * **LOCATOR OPTIMIZATION:** Trace the path between you and the target you're tracking. Each time you make a move, the path will be updated, by means of this the location of the target is obtained silently through a bypass made in the browsers, allowing you not to skip the location request permit on the victim's side , objective or person and at the same time maintain a precision of **99%** in the locator.
 
-![](https://lh3.googleusercontent.com/qwq4LzzLTdFGwsGd8C3c9gxbDaN191s7lnvz75y0trwIMUGSaIu22QyBRgwKXxRwLBC5HGekBJLw9qgD5lnxgszcFVqJ24RVqv3q_T3HzD6wJeQU6oY4VVF8QT6Y83hstqD4C020)
+![](https://lh3.googleusercontent.com/qwq4LzzLTdFGwsGd8C3c9gxbDaN191s7lnvz75y0trwIMUGSaIu22QyBRgwKXxRwLBC5HGekBJLw9qgD5lnxgszcFVqJ24RVqv3q_T3HzD6wJeQU6oY4VVF8QT6Y83hstqD4C020 =x350)
 * **APPROACH:** When you're close to the target, Trape will tell you.
 
 ![](https://lh4.googleusercontent.com/NFnVGLoDF2BmM_N56w8Vf6cnyg1WWIIKgGC1MeBTKXxcIynMDfC1ZSu43ftoiYnwcBb2gjpVdS4y0zm5K7XAzvXf7bPIt5ZrWQCEq9eQuN8KL-SRPOtBgIZL53AWkJjwhC4gJUcG)
@@ -41,7 +43,7 @@ Some benefits
 
 * **CLICK ATTACK TO GET CREDENTIALS:** Automatically obtains the target credentials, recognizing your connection availability on a social network or Internet service.
 
-![](https://lh4.googleusercontent.com/IN8xWfHjGPRQ__-QwTXebG-087m4JzDIVFWtSlUtrnRpDn2d0U1cnQdNGqLQZA35-fneej1iTpkxgHZCq_pWZLlCd1SmyLZ-WJ5Juj2KbtyNbX4jI1oLUtqupxieH91mX65_ZmHy)
+![](https://lh4.googleusercontent.com/IN8xWfHjGPRQ__-QwTXebG-087m4JzDIVFWtSlUtrnRpDn2d0U1cnQdNGqLQZA35-fneej1iTpkxgHZCq_pWZLlCd1SmyLZ-WJ5Juj2KbtyNbX4jI1oLUtqupxieH91mX65_ZmHy =300x100)
 
 * **NETWORK:** You can get information about the user's network.
 
@@ -49,7 +51,7 @@ Some benefits
 
   --- **HOSTS OR DEVICES:** Here you can get a scan of all the devices that are connected in the target network automatically.
 
-![](https://lh3.googleusercontent.com/gkOWunWn7ge5yJt00lMBN_7GwSUxrAQV2y64ysyrjmD-vz_lO3bu6UkRjPJF8OljxyMTNlWVA9W8gVU3U0iI3RrECNNkr7H44Lz6z5Zj3-bA_hDF5TnTSoV_6584qFvuLkmShTQD)
+![](https://lh3.googleusercontent.com/gkOWunWn7ge5yJt00lMBN_7GwSUxrAQV2y64ysyrjmD-vz_lO3bu6UkRjPJF8OljxyMTNlWVA9W8gVU3U0iI3RrECNNkr7H44Lz6z5Zj3-bA_hDF5TnTSoV_6584qFvuLkmShTQD )
 
 
 * **PROFILE:** Brief summary of the target's behavior and important additional information about your device.
@@ -61,7 +63,7 @@ Some benefits
 -------
 Session recognition is one of trape most interesting attractions, since you as a researcher can know remotely what service the target is connected to.
 
-![](https://lh6.googleusercontent.com/IFxIh7Eemr63kycj2eBzJYvevCzLH5DkQGWUKzPx_Okn4WoExPl0LR7Qj-cSc0WF0rs9Ew6DJMwcyirZd0kdfLpdrqQ2700P_xdxW7wpZ7K6OWi8pluLKivHtU45HD4VtyM0lLwh)
+![](https://lh6.googleusercontent.com/IFxIh7Eemr63kycj2eBzJYvevCzLH5DkQGWUKzPx_Okn4WoExPl0LR7Qj-cSc0WF0rs9Ew6DJMwcyirZd0kdfLpdrqQ2700P_xdxW7wpZ7K6OWi8pluLKivHtU45HD4VtyM0lLwh =x300)
 
 * **USABILITY:** You can delete logs and view alerts for each process or action you run against each target.
  
@@ -143,7 +145,6 @@ Donations
 This is a project made with a lot of motivation to collaborate in the computer security community, if you liked the features. I invite you to make a donation in the following directions.
 
 **BITCOIN:** 36RouFnp6wEf4qu8QzUDJGVKoZ2Ja1ZSyW
-
 
 **ETHEREUM:** 0x6b9c69F0126c8A817c3A7296b2af80EF2e8B2d65
 
