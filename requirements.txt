@@ -2,6 +2,7 @@ Flask
 Flask-Login
 Flask-Session
 flask-socketio
+flask_socketio
 flask_cors
 itsdangerous
 Jinja2
