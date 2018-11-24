@@ -12,7 +12,7 @@
 # Copyright 2018 by Jose Pino (@jofpin) / <jofpin@gmail.com>
 #**
 import time
-import urllib2
+from core.dependence import urllib2
 from flask import Flask, render_template, session, request, json, Response
 from core.user_objects import *
 import core.stats
