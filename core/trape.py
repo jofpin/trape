@@ -13,7 +13,7 @@
 #**
 import time
 import json
-import urllib2
+from core.dependence import urllib2
 import httplib 
 import argparse
 import socket

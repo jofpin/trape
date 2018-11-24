@@ -11,7 +11,7 @@
 #
 # Copyright 2018 by Jose Pino (@jofpin) / <jofpin@gmail.com>
 #**
-import urllib2
+from core.dependence import urllib2
 import sys
 import os
 from flask import Flask, render_template, session, request, json, redirect, url_for, send_from_directory

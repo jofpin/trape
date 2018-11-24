@@ -9,6 +9,9 @@ Trape is a **OSINT** analysis and research tool, which allows people to track an
 
 ![--trape header](https://i.imgur.com/2ycpXEj.png)
 
+
+At the beginning of the year 2018 was presented at **BlackHat Arsenal in Singapore**: https://www.blackhat.com/asia-18/arsenal.html#jose-pino and in multiple security events worldwide.
+
 Some benefits
 -----------
 * **LOCATOR OPTIMIZATION:** Trace the path between you and the target you're tracking. Each time you make a move, the path will be updated, by means of this the location of the target is obtained silently through a bypass made in the browsers, allowing you not to skip the location request permit on the victim's side , objective or person and at the same time maintain a precision of **99%** in the locator.
