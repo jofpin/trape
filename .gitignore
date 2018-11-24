@@ -1,3 +1,11 @@
+*.nlog
 *.pyc
 *.db
+*.zip
+ngrok*
 static/files/*
+build/*
+dist/*
+main.spec
+trape.config
+*.nlog
