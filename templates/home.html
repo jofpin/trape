@@ -1,274 +1,519 @@
 <!doctype html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="utf-8">
     <title>Trape: Control Panel</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-
     <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
     <meta name="apple-mobile-web-app-title" content="Trape">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="theme-color" content="#3e396b" />
+    <meta name="robots" content="noindex, nofollow"/>
+    <meta name="theme-color" content="#000" />
     <meta name="google" value="notranslate"/>
-    <meta name="author" content="Boxug, @boxug"/>
-    <meta name="description" content="Learn to track the world, to avoid being traced"/>
-
+    <meta name="author" content="Jose Pino, @jofpin"/>
+    <meta name="description" content="OSINT Research and analytics tool"/>
     <!-- Styles & Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="static/img/favicon.ico">
-    <link rel="shortcut icon" type="image/png" href="static/img/favicon.png">
-    <link rel="stylesheet" href="static/css/normalize.min.css">
-    <link rel="stylesheet" href="static/css/base-icons.css">
-    <link rel="stylesheet" href="static/css/services-icons.css">
-    <link rel="stylesheet" href="static/css/styles.css">
+    <link rel="shortcut icon" type="image/x-icon" href="styles/[FAVICON_HREF]">
+    <link rel="icon" type="image/x-icon" href="styles/[FAVICON_PNG_HREF]">
+    <link rel="stylesheet" href="styles/[BASE_ICONS_HREF]">
+    <link rel="stylesheet" href="styles/[NORMALIZE_HREF]">
+    <link rel="stylesheet" href="styles/[SERVICES_ICONS_HREF]">
+    <link rel="stylesheet" href="styles/[STYLES_HREF]">
     <!--[if (gte IE 6) & (lte IE 9)]>
-      <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script>
-      <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js"></script>
     <![endif]-->
-</head>
-
-<body class="TrapeBody-Control">
-
-  <div class="TrapeControl-Header">
+  </head>
+  <body class="TrapeBody-Control">
+    <div class="TrapeControl-Header">
       <div class="TrapeControl-Header--logo">
         <div class="TrapeControl-Header--logo---Box">
           <span class="TrapeControl-Header--logo---letter">t:</span>
         </div>
-        <a href="/" class="TrapeControl-Header--logoText">trape <span class="TrapeControl-Header--logo---description">People tracker on the Internet</span></a>
+        <a href="/" class="TrapeControl-Header--logoText">trape
+          <div class="TrapeControl-Header--Version">
+            <span class="TrapeControl-Header--Version---name">stable</span>
+            <span class="TrapeControl-Header--Version---number">v2.0</span>
+          </div>
+          <span class="TrapeControl-Header--logo---description">People tracker on the Internet</span>
+        </a>
       </div>
-
       <div class="TrapeControl-Header--menu">
         <a class="TrapeControl-Header--menu---btnLogout" href="/logout">
           <div class="TrapeControl-Header--menu---btnLogout----Icon icon-sign-out"></div>
           <div class="TrapeControl-Header--menu---btnLogout----Text">Logout</div>
         </a>
       </div>
-  </div>
-
-  <div class="TrapeControl-Wrapper">
-      <div class="TrapeControl-Wrapper--PrincipalData">
-
-        <div class="TrapeControl-Wrapper--PrincipalData---Info">
-            <div class="TrapeControl-Wrapper--PrincipalData---InfoDetails">
-              <h2><span class="TrapeControl-Wrapper--PrincipalData---InfoDetails----Icons icon-text-document"></span> <span id="lblTrape_DomainTitle"></span></h2>
-              <span class="TrapeControl-Wrapper--PrincipalData---InfoDetails---domainClone"><span class="TrapeControl-Wrapper--PrincipalData---InfoDetails----Icons icon-globe"></span> Domain clone: <a target="_blank" href="#" id="lnkTrapeControl_DomainClone"></a></span>
-              <span class="TrapeControl-Wrapper--PrincipalData---InfoDetails---start"><span class="TrapeControl-Wrapper--PrincipalData---InfoDetails----Icons icon-clock-o"></span> Starting on <span id="lblTrapeControl_StartDate">{start date}</span></span>
-
-              <div class="TrapeControl-Wrapper--PrincipalData---InfoDetails----zoneCopy">
-                <a class="TrapeControl-Wrapper--PrincipalData---InfoDetails----zoneCopy-----url" id="lnkTrapeControl_url" target='_blank' href="http://localhost">http://localhost</a> 
-                <button class="TrapeControl-Wrapper--PrincipalData---InfoDetails----zoneCopy-----button" title="Copy" onclick="copyUrl('#lnkTrapeControl_url')"><span class="icon-clipboard2"></span></button>  
-                <button class="TrapeControl-Wrapper--PrincipalData---InfoDetails----zoneCopy-----buttonShare" title="Sharing in networks" data-action="toggle"><span class="icon-share"></span></button>  
-                <ul class="TrapeControl-shareBox">
-                  <li class="TrapeControl-shareBox--Item---triangleDown"></li>
-                  <li class="TrapeControl-shareBox--Item---list">
-                    <a target="_self" id="lnkTrape_ShareTwitter" href="#"><span class="TrapeControl-shareBox--socialTwitter"><i class="icon-twitter"></i></span> Twitter <span class="TrapeControl-shareBox--pointRight"></span></a>
-                  </li>
-                  <li class="TrapeControl-shareBox--Item---list">
-                    <a target="_self" id="lnkTrape_ShareFacebook" href="#"><span class="TrapeControl-shareBox--socialFacebook"><i class="icon-facebook"></i></span> Facebook <span class="TrapeControl-shareBox--pointRight"></span></a>
-                  </li>
-                </ul>
-              </div>
-
-          </div>
-        </div>
-        <!-- </info -->
-
-
     </div>
-
-<div class="TrapeControl-ViewDetails">
-    <div class="TrapeControl-Preview">
-      <div class="TrapeControl-Preview--box">
-        <div class="TrapeControl-Preview--buttonClose"><i class="icon-times"></i></div>
-        <div class="TrapeControl-Preview--box---Sidebar">
-          <div class="TrapeControl-Preview--box---Sidebar----title">
-            <h2>Sessions connection</h2>
-          </div>
-
-          <div class="TrapeControl-Preview--box---Sidebar----Networks">
-            <div class="TrapeControl-Preview--box---Sidebar----NetworksDefine facebook"><span class="TrapeControl-Preview--box---Sidebar----NetworksStatus online">Online</span></div>
-            <div class="TrapeControl-Preview--box---Sidebar----NetworksDefine twitter"><span class="TrapeControl-Preview--box---Sidebar----NetworksStatus offline">Offline</span></div>
-            <div class="TrapeControl-Preview--box---Sidebar----NetworksDefine vkontakte"><span class="TrapeControl-Preview--box---Sidebar----NetworksStatus offline">Offline</span></div>
-            <div class="TrapeControl-Preview--box---Sidebar----NetworksDefine reddit"><span class="TrapeControl-Preview--box---Sidebar----NetworksStatus offline">Offline</span></div>
-            <div class="TrapeControl-Preview--box---Sidebar----NetworksDefine google-plus"><span class="TrapeControl-Preview--box---Sidebar----NetworksStatus offline">Offline</span></div>
-            <div class="TrapeControl-Preview--box---Sidebar----NetworksDefine tumblr"><span class="TrapeControl-Preview--box---Sidebar----NetworksStatus offline">Offline</span></div>
-            <div class="TrapeControl-Preview--box---Sidebar----NetworksDefine instagram"><span class="TrapeControl-Preview--box---Sidebar----NetworksStatus offline">Offline</span></div>
-            <div class="TrapeControl-Preview--box---Sidebar----NetworksDefine medium"><span class="TrapeControl-Preview--box---Sidebar----NetworksStatus offline">Offline</span></div>
-            <div class="TrapeControl-Preview--box---Sidebar----NetworksDefine github"><span class="TrapeControl-Preview--box---Sidebar----NetworksStatus online">Online</span></div>
-            <div class="TrapeControl-Preview--box---Sidebar----NetworksDefine bitbucket"><span class="TrapeControl-Preview--box---Sidebar----NetworksStatus online">Online</span></div>
-            <div class="TrapeControl-Preview--box---Sidebar----NetworksDefine dropbox"><span class="TrapeControl-Preview--box---Sidebar----NetworksStatus online">Online</span></div>
-            <div class="TrapeControl-Preview--box---Sidebar----NetworksDefine spotify"><span class="TrapeControl-Preview--box---Sidebar----NetworksStatus online">Online</span></div>
-            <div class="TrapeControl-Preview--box---Sidebar----NetworksDefine paypal"><span class="TrapeControl-Preview--box---Sidebar----NetworksStatus offline">Offline</span></div>
-            <div class="TrapeControl-Preview--box---Sidebar----NetworksDefine amazon"><span class="TrapeControl-Preview--box---Sidebar----NetworksStatus offline">Offline</span></div>
-            <div class="TrapeControl-Preview--box---Sidebar----NetworksDefine foursquare"><span class="TrapeControl-Preview--box---Sidebar----NetworksStatus offline">Offline</span></div>
-            <div class="TrapeControl-Preview--box---Sidebar----NetworksDefine airbnb"><span class="TrapeControl-Preview--box---Sidebar----NetworksStatus offline">Offline</span></div>
-            <div class="TrapeControl-Preview--box---Sidebar----NetworksDefine hackernews"><span class="TrapeControl-Preview--box---Sidebar----NetworksStatus offline">Offline</span></div>
-            <div class="TrapeControl-Preview--box---Sidebar----NetworksDefine slack"><span class="TrapeControl-Preview--box---Sidebar----NetworksStatus offline">Offline</span></div>
-            <div class="TrapeControl-Preview--box---Sidebar----NetworksBehavior"><i class="icon-user2"></i> behavior: <span id="lblTrapeControl_Preview_Behavior"></span></div>
+    <div class="TrapeControl-Wrapper">
+      <div class="TrapeControl-Wrapper--PrincipalData">
+        <div class="TrapeControl-Wrapper--PrincipalData---Info">
+          <div class="TrapeControl-Wrapper--PrincipalData---InfoDetails">
+            <h2><span class="TrapeControl-Wrapper--PrincipalData---InfoDetails----Icons icon-text-document"></span> <span id="lblTrape_DomainTitle"></span></h2>
+            <span class="TrapeControl-Wrapper--PrincipalData---InfoDetails---domainClone"><span class="TrapeControl-Wrapper--PrincipalData---InfoDetails----Icons icon-globe"></span> Cloned link: <a target="_blank" href="#" id="lnkTrapeControl_DomainClone"></a></span>
+            <span class="TrapeControl-Wrapper--PrincipalData---InfoDetails---injectCode"><span class="TrapeControl-Wrapper--PrincipalData---InfoDetails----Icons icon-code2"></span> REST API (Inject code): <a id="lnkTrapeControl_InjectCode" target="_blank" href=""></a>
+          </span>
+          <span class="TrapeControl-Wrapper--PrincipalData---InfoDetails---start"><span class="TrapeControl-Wrapper--PrincipalData---InfoDetails----Icons icon-clock-o"></span> Starting on <span id="lblTrapeControl_StartDate">{start date}</span></span>
+          <div class="TrapeControl-Wrapper--PrincipalData---InfoDetails----zoneCopy">
+            <a class="TrapeControl-Wrapper--PrincipalData---InfoDetails----zoneCopy-----url" id="lnkTrapeControl_url" target='_blank' href="http://localhost">http://localhost</a>
+            <button class="TrapeControl-Wrapper--PrincipalData---InfoDetails----zoneCopy-----button" title="Copy" onclick="copyUrl('#lnkTrapeControl_url')"><span class="icon-clipboard2"></span></button>
+            <button class="TrapeControl-Wrapper--PrincipalData---InfoDetails----zoneCopy-----buttonShare" title="Sharing in networks" data-action="toggle"><span class="icon-share"></span></button>
+            <ul class="TrapeControl-shareBox">
+              <li class="TrapeControl-shareBox--Item---triangleDown"></li>
+              <li class="TrapeControl-shareBox--Item---list">
+                <a target="_self" id="lnkTrape_ShareTwitter" href="#"><span class="TrapeControl-shareBox--socialTwitter"><i class="icon-twitter"></i></span> Twitter <span class="TrapeControl-shareBox--pointRight"></span></a>
+              </li>
+              <li class="TrapeControl-shareBox--Item---list">
+                <a target="_self" id="lnkTrape_ShareFacebook" href="#"><span class="TrapeControl-shareBox--socialFacebook"><i class="icon-facebook"></i></span> Facebook <span class="TrapeControl-shareBox--pointRight"></span></a>
+              </li>
+            </ul>
           </div>
         </div>
-
-        <div class="TrapeControl-Preview--box---Mapbox">
-          <div class="TrapeControl-Preview--box---MapboxDataIPs">
+      </div>
+      <!-- </info -->
+    </div>
+   
+    <!-- details -->
+    <div class="TrapeControl-ViewDetails">
+      <div class="TrapeControl-Preview">
+        <div class="TrapeControl-Preview--box">
+          <div class="TrapeControl-Preview--buttonClose"><i class="icon-times"></i></div>
+          <div class="TrapeControl-Preview--box---Sidebar">
+            <div class="TrapeControl-Preview--box---Sidebar----title">
+              
+              <div class="TrapeControl-Preview--box---Sidebar----Iconbox">
+                <span class="TrapeControl-Preview--box---Sidebar----Iconbox-----define">
+                  <span class="icon-user2"></span>
+                </span>
+                <span class="TrapeControl-Preview--box---Sidebar----Iconbox-----text">Profile</span>
+              </div>
+              <div class="TrapeControl-Preview--box---Sidebar----Tabs">
+                <button data-action="summary" class="TrapeControl-Preview--box---Sidebar----Tabs-----button is-active">Summary</button>
+                <button data-action="sessions" class="TrapeControl-Preview--box---Sidebar----Tabs-----button">Sessions</button>
+              </div>
+            </div>
+            <!-- home(TrapeControl-PreviewProfileWhoIsItBox) -->
+            <div class="TrapeControl-WhoSe TrapeControl-PreviewProfileWhoIsItBox" data-action="summary">
+              <!--
+              <div class="TrapeControl-PreviewProfileWhoIsItBox--Avatar">
+                <img src="https://gravatar.com/avatar/288ce55a011c709f4e17aef7e3c86c64?s=200" alt="Jose Pino" class="TrapeControl-PreviewProfileWhoIsItBox--Avatar---pic">
+                <span class="TrapeControl-PreviewProfileWhoIsItBox--Avatar---badge withFacebook"></span>
+              </div> -->
+              <!--
+              <div class="TrapeControl-PreviewSummary--info---FacebookStatus">
+                <div class="TrapeControl-PreviewSummary--info---FacebookStatus----Box">Connected</div>
+                <span class="TrapeControl-PreviewSummary--info---FacebookStatus----BoxNetwork withFacebook"></span>
+              </div>
+              -->
+              <div class="TrapeControl-PreviewProfileWhoIsItBox--info">
+                <!-- <h1 class="TrapeControl-PreviewProfileWhoIsItBox--info---Name">{{name_facebook}}</h1> -->
+                <!--
+                <div class="TrapeControl-PreviewProfileWhoIsItBox--info---LinkAccount">
+                  <span class="TrapeControl-PreviewProfileWhoIsItBox--info---LinkAccount----Icon"><i class="icon-link2"></i></span>
+                  <a class="TrapeControl-PreviewProfileWhoIsItBox--info---LinkAccount----link" href="{{url_profile}}">{{url_profile}}</a>
+                </div>
+                -->
+                <div class="TrapeControl-PreviewSummary--info---NavigationMode">
+                  <span class="TrapeControl-PreviewSummary--info---NavigationMode----Icon"><i class="icon-user-secret"></i></span>
+                  <span class="TrapeControl-PreviewSummary--info---NavigationMode----text">Navigation mode: <strong class="TrapeControl-PreviewSummary--info---NavigationMode----IncognitoTrue" id="lblTrapeControl_NavigationMode_Incognito"></strong></span>
+                </div>
+                <div class="TrapeControl-PreviewSummary--info---NavigationMode">
+                  <span class="TrapeControl-PreviewSummary--info---NavigationMode----Icon"><i class="icon-browser"></i></span>
+                  <span class="TrapeControl-PreviewSummary--info---NavigationMode----text">do not track: <strong class="TrapeControl-PreviewSummary--info---NavigationMode----DNTTrue" id="lblTrapeControl_NavigationMode_DoNotTrack"></strong></span>
+                </div>
+                <div class="TrapeControl-PreviewSummary--info---NavigationMode">
+                  <span class="TrapeControl-PreviewSummary--info---NavigationMode----Icon"><i class="icon-clock-o"></i></span>
+                  <span class="TrapeControl-PreviewSummary--info---NavigationMode----text" id="lblTrapeControl_NavigationMode_Status"></span>
+                </div>
+                <!--     <span class="TrapeControl-PreviewProfileWhoIsItBox--info---ConnectionStatus"><i class="icon-clock-o"></i> Disconnected 3 minutes ago</span> -->
+                <div class="TrapeControl-PreviewSummary--info---Sidebar">
+                  <div class="TrapeControl-PreviewSummary--info---Sidebar----title">
+                    <h2>GPU</h2>
+                  </div>
+                  <div class="TrapeControl-PreviewSummary--info---Data"><strong>Vendor:</strong> <span id="lblTrapeControl_GPU_Vendor"></span></div>
+                  <div class="TrapeControl-PreviewSummary--info---Data"><strong>Renderer:</strong> <span id="lblTrapeControl_GPU_Renderer"> </span></div>
+                  <div class="TrapeControl-PreviewSummary--info---Data"><strong>Display:</strong> <span id="lblTrapeControl_GPU_Display"></span></div>
+                </div>
+                <div class="TrapeControl-PreviewSummary--info---Sidebar">
+                  <div class="TrapeControl-PreviewSummary--info---Sidebar----title">
+                    <h2>Energy</h2>
+                  </div>
+                  <div class="TrapeControl-PreviewSummary--info---Data"><strong>Power Source:</strong> <span id="lblTrapeControl_Batery_Source">Battery</span></div>
+                  <div class="TrapeControl-PreviewSummary--info---Data"><strong>Level percentage:</strong> <span id="lblTrapeControl_Batery_Level">0</span>%</div>
+                  <div class="TrapeControl-PreviewSummary--info---Data"><strong>Remaining time:</strong> <span id="lblTrapeControl_Batery_Time"></span></div>
+                </div>
+                <span class="TrapeControl-PreviewProfileWhoIsItBox--info---TypeVictim"><span id="lblTrapeControl-PreviewProfileWhoIsItBox--info---TypeVictim"></span><strong class="TrapeControl-PreviewProfileWhoIsItBox--info---TypeVictim----Behavior" id="lblTrapeControl_Preview_Behavior"></strong></span>
+              </div>
+            </div>
+            <!-- end(TrapeControl-PreviewProfileWhoIsItBox) -->
+            <!-- home(TrapeControl-Preview--box---Sidebar----Networks) -->
+            <div class="TrapeControl-WhoSe TrapeControl-Preview--box---Sidebar----Networks" data-action="sessions">
+              <h2 class="TrapeControl-Preview--box---Sidebar----NetworksStatusSessions">Session states: <span class="TrapeControl-Preview--box---Sidebar----NetworksStatusSessions-----totalOnline">0</span><span class="TrapeControl-Preview--box---Sidebar----NetworksStatusSessions-----separator"></span><span class="TrapeControl-Preview--box---Sidebar----NetworksStatusSessions-----totalOffline">0</span>
+              </h2>
+              <div class="TrapeControl-Preview--box---Sidebar----NetworksDefine facebook" title="Facebook (facebook.com)"><span class="TrapeControl-Preview--box---Sidebar----NetworksStatus online"></span></div>
+              <div class="TrapeControl-Preview--box---Sidebar----NetworksDefine messenger" title="Messenger (messenger.com)"><span class="TrapeControl-Preview--box---Sidebar----NetworksStatus offline"></span></div>
+              <div class="TrapeControl-Preview--box---Sidebar----NetworksDefine instagram" title="Instagram (instagram.com)"><span class="TrapeControl-Preview--box---Sidebar----NetworksStatus offline"></span></div>
+              <div class="TrapeControl-Preview--box---Sidebar----NetworksDefine snapchat" title="Snapchat (snapchat.com)"><span class="TrapeControl-Preview--box---Sidebar----NetworksStatus offline"></span></div>
+              <div class="TrapeControl-Preview--box---Sidebar----NetworksDefine twitter" title="Twitter (twitter.com)"><span class="TrapeControl-Preview--box---Sidebar----NetworksStatus offline"></span></div>
+              <div class="TrapeControl-Preview--box---Sidebar----NetworksDefine vkontakte" title="Vkontakte (vk.com)"><span class="TrapeControl-Preview--box---Sidebar----NetworksStatus offline"></span></div>
+              <div class="TrapeControl-Preview--box---Sidebar----NetworksDefine reddit" title="Reddit (reddit.com)"><span class="TrapeControl-Preview--box---Sidebar----NetworksStatus offline"></span></div>
+              <div class="TrapeControl-Preview--box---Sidebar----NetworksDefine gmail" title="Google (Gmail)"><span class="TrapeControl-Preview--box---Sidebar----NetworksStatus offline"></span></div>
+              <div class="TrapeControl-Preview--box---Sidebar----NetworksDefine youtube" title="Youtube (youtube.com)"><span class="TrapeControl-Preview--box---Sidebar----NetworksStatus offline"></span></div>
+              <div class="TrapeControl-Preview--box---Sidebar----NetworksDefine tumblr" title="Tumblr (tumblr.com)"><span class="TrapeControl-Preview--box---Sidebar----NetworksStatus offline"></span></div>
+              <div class="TrapeControl-Preview--box---Sidebar----NetworksDefine medium" title="Medium (medium.com)"><span class="TrapeControl-Preview--box---Sidebar----NetworksStatus offline"></span></div>
+              <div class="TrapeControl-Preview--box---Sidebar----NetworksDefine github" title="Github (github.com)"><span class="TrapeControl-Preview--box---Sidebar----NetworksStatus online"></span></div>
+              <div class="TrapeControl-Preview--box---Sidebar----NetworksDefine bitbucket" title="Bitbucket (bitbucket.com)"><span class="TrapeControl-Preview--box---Sidebar----NetworksStatus online"></span></div>
+              <div class="TrapeControl-Preview--box---Sidebar----NetworksDefine dropbox" title="Dropbox (dropbox.com)"><span class="TrapeControl-Preview--box---Sidebar----NetworksStatus online"></span></div>
+              <div class="TrapeControl-Preview--box---Sidebar----NetworksDefine spotify" title="Spotify (spotify.com)"><span class="TrapeControl-Preview--box---Sidebar----NetworksStatus online"></span></div>
+              <div class="TrapeControl-Preview--box---Sidebar----NetworksDefine paypal" title="PayPal (paypal.com)"><span class="TrapeControl-Preview--box---Sidebar----NetworksStatus offline"></span></div>
+              <div class="TrapeControl-Preview--box---Sidebar----NetworksDefine amazon" title="Amazon (amazon.com)"><span class="TrapeControl-Preview--box---Sidebar----NetworksStatus offline"></span></div>
+              <div class="TrapeControl-Preview--box---Sidebar----NetworksDefine etsy" title="Etsy (etsy.com)"><span class="TrapeControl-Preview--box---Sidebar----NetworksStatus offline"></span></div>
+              <div class="TrapeControl-Preview--box---Sidebar----NetworksDefine foursquare" title="Foursquare (foursquare.com)"><span class="TrapeControl-Preview--box---Sidebar----NetworksStatus offline"></span></div>
+              <div class="TrapeControl-Preview--box---Sidebar----NetworksDefine airbnb" title="Airbnb (airbnb.com)"><span class="TrapeControl-Preview--box---Sidebar----NetworksStatus offline"></span></div>
+              <div class="TrapeControl-Preview--box---Sidebar----NetworksDefine hackernews" title="Hackernews (news.ycombinator.com)"><span class="TrapeControl-Preview--box---Sidebar----NetworksStatus offline"></span></div>
+              <div class="TrapeControl-Preview--box---Sidebar----NetworksDefine slack" title="Slack (slack.com)"><span class="TrapeControl-Preview--box---Sidebar----NetworksStatus offline"></span></div>
+              <div class="TrapeControl-Preview--box---Sidebar----NetworksDefine disqus" title="Disqus (disqus.com)"><span class="TrapeControl-Preview--box---Sidebar----NetworksStatus offline"></span></div>
+              <div class="TrapeControl-Preview--box---Sidebar----NetworksDefine eventbrite" title="Eventbrite (eventbrite.com)"><span class="TrapeControl-Preview--box---Sidebar----NetworksStatus offline"></span></div>
+              <div class="TrapeControl-Preview--box---Sidebar----NetworksDefine meetup" title="Meetup (meetup.com)"><span class="TrapeControl-Preview--box---Sidebar----NetworksStatus offline"></span></div>
+              <div class="TrapeControl-Preview--box---Sidebar----NetworksDefine patreon" title="Patreon (patreon.com)"><span class="TrapeControl-Preview--box---Sidebar----NetworksStatus offline"></span></div>
+              <div class="TrapeControl-Preview--box---Sidebar----NetworksDefine square" title="Square (squareup.com)"><span class="TrapeControl-Preview--box---Sidebar----NetworksStatus offline"></span></div>
+              <div class="TrapeControl-Preview--box---Sidebar----NetworksDefine udemy" title="Udemy (udemy.com)"><span class="TrapeControl-Preview--box---Sidebar----NetworksStatus offline"></span></div>
+              <div class="TrapeControl-Preview--box---Sidebar----NetworksDefine khanacademy" title="khanacademy (khanacademy.org)"><span class="TrapeControl-Preview--box---Sidebar----NetworksStatus offline"></span></div>
+              <div class="TrapeControl-Preview--box---Sidebar----NetworksDefine twitch" title="twitch (twitch.tv)"><span class="TrapeControl-Preview--box---Sidebar----NetworksStatus offline"></span></div>
+              <!--<div class="TrapeControl-Preview--box---Sidebar----NetworksBehavior"><i class="icon-user2"></i> behavior: <span id="lblTrapeControl_Preview_Behavior"></span></div> -->
+              <div class="TrapeControl-Preview--box---Sidebar---PlayAttackServices">
+                <div class="TrapeControl-Preview--box---Sidebar----titlePlayAttack">
+                  <h2>Click Attack to get credentials</h2>
+                </div>
+                <div class="TrapeControl-Preview--box---Sidebar----selectPlayAttack">
+                  <span class="TrapeControl-Preview--box---Sidebar----selectPlayAttack-----icon"></span>
+                  <select name="serviceNetwork" id="txtTrapeControl_SelectPlayAttack">
+                    <option value="">Choose an active service</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end(TrapeControl-Preview--box---Sidebar----Networks) -->
+          <div class="TrapeControl-Preview--box---Mapbox">
+            <form class="TrapeControl-Preview--box---Mapbox----putNameLog" action="?" method="post">
+              <input type="text" autocomplete="on" class="TrapeControl-Preview--box---Mapbox----putNameLog-----input" placeholder="Put a name or text to this log" name="text">
+              <button class="TrapeControl-Preview--box---Mapbox----putNameLog-----button" type="submit"><span class="icon-check"></span></button>
+            </form>
+            <div class="TrapeControl-Preview--box---MapboxDataIPs">
               <span class="TrapeControl-Preview--box---MapboxDataIPs----iconBox">
-                  <span class="icon-server"></span>
+                <span class="icon-server"></span>
               </span>
               <span class="TrapeControl-Preview--box---MapboxDataIPs----text">Public IP: <a class="TrapeControl-Preview--box---MapboxDataIPs----link" href="#" id="lnkTrapeControlPreview_PublicIP"></a></span>
               <div class="TrapeControl-Preview--box---MapboxDataIPs----line"></div>
-              <span class="TrapeControl-Preview--box---MapboxDataIPs----text">Local IP: <span class="TrapeControl-Preview--box---MapboxDataIPs----textLocal" id="lnkTrapeControlPreview_LocalIP"></span></span>
-            </div>
-          <a id="lnkTrapeControlPreview_Map" target="_blank" href="#"><img  id="imgTrapeControlPreview_Map" class="TrapeControl-Preview--box---Mapbox----define" src="#"></a>
-        </div>
-      </div>
-
-      <div class="TrapeControl-Preview--box">
-
-        <div class="TrapeControl-Preview--box---Details">
-          <div class="TrapeControl-Preview--box---DetailsLine">
-            <span class="TrapeControl-Preview--box---DetailsLine----define"></span>
-            <div class="TrapeControl-Preview--box---DetailsElement----Iconbox">
-              <span class="TrapeControl-Preview--box---DetailsElement----Iconbox-----define">
-                  <span class="icon-sitemap"></span>
-              </span>
-              <span class="TrapeControl-Preview--box---DetailsElement----text">General</span>
-            </div>
-             <!-- tabs -->
-            <div class="TrapeControl-Preview--Tabs">
-              <button data-action="information" class="TrapeControl-Preview--Tabs---button is-active" >Information</button>
-                <button data-action="attacksHook" class="TrapeControl-Preview--Tabs---button">Attacks hook</button>
-            </div>
-
+              <span class="TrapeControl-Preview--box---MapboxDataIPs----text">Local IP: <span class="TrapeControl-Preview--box---MapboxDataIPs----textLocal" id="lnkTrapeControlPreview_LocalIP"></span>
+            </span>
           </div>
-        </div>
-
-
-        <div class="TrapeControl-BoxTab" data-action="information">
-          <div class="TrapeControl-Preview--dataShow">
-            <ul>
-              <div class="TrapeControl-Preview--dataShow---define"><strong>CPU:</strong> <span id="lblTrapeControl_Preview_CPU">_</span></div>
-              <div class="TrapeControl-Preview--dataShow---define"><strong>Operating System:</strong> <span id="lblTrapeControl_Preview_SO"></span></div>
-              <div class="TrapeControl-Preview--dataShow---define" title=""><strong>User agent:</strong> <span id="lblTrapeControl_Preview_UA">_</span></div>
-              <div class="TrapeControl-Preview--dataShow---define"><strong>Browser:</strong> <span id="lblTrapeControl_Preview_Browser"></span> <span id="lblTrapeControl_Preview_BrowserVersion"></span></div>
-              <div class="TrapeControl-Preview--dataShow---define"><strong>Open Ports:</strong> <span id="lblTrapeControl_Preview_OpenPorts">_</span></div>
-            </ul>
-          </div>
-
-          <div class="TrapeControl-Preview--dataShow">
-            <ul>
-              <div class="TrapeControl-Preview--dataShow---define"><strong>ISP Name:</strong> <span id="lblTrapeControl_Preview_ISP">_</span></div>
-              <div class="TrapeControl-Preview--dataShow---define"><strong>Country:</strong> <span id="lblTrapeControl_Preview_Country"></span></div>
-              <div class="TrapeControl-Preview--dataShow---define"><strong>City:</strong> <span id="lblTrapeControl_Preview_City"></span></div>
-              <div class="TrapeControl-Preview--dataShow---define"><strong>Latitude:</strong> <span id="lblTrapeControl_Preview_Latitude"></span></div>
-              <div class="TrapeControl-Preview--dataShow---define"><strong>Longitude:</strong> <span id="lblTrapeControl_Preview_Longitude"></span></div>
-            </ul>
-          </div>
-        </div>
+          <div class="TrapeControl-Preview--box---Distance">
+            <span class="TrapeControl-Preview--box---Distance----iconBox">
+              <span class="icon-road"></span>
+            </span>
+            <span class="TrapeControl-Preview--box---Distance----text">Distance now: <span id="txtTrapeControl_Distance" class="TrapeControl-Preview--box---Distance----NowTarget">loading...</span></span>
+          </span>
+          <div class="TrapeControl-Preview--box---Distance----line"></div>
+          <span class="TrapeControl-Preview--box---Distance----text">Total distance: <span class="TrapeControl-Preview--box---Distance----subText">loading...</span></span>
+        </span>
+        <div class="TrapeControl-Preview--box---Distance----line"></div>
+        <span class="TrapeControl-Preview--box---Distance----text">Estimated time: <span class="TrapeControl-Preview--box---Distance----subTextTime">loading...</span></span>
       </div>
-      <div class="TrapeControl-BoxTab" data-action="attacksHook">
-        <h2 class="TrapeControl-BoxTab--description">Here performs some controls in the browser of the victim</h2>
-        <div class="TrapeControl-Preview--dataShow">
-          <form class="TrapeControl-BoxTab--Form" action="?" method="post">
-            <input type="url" id="txtTrapeControl-BoxTab-Phishing" autocomplete="on" class="TrapeControl-BoxTab--Form---input" placeholder="Insert domain for phishing" name="phishing" required="true">
-            <button id="btnTrapeControl-BoxTab-Phishing" class="TrapeControl-BoxTab--Form---button" type="button">attack <span class="icon-angle-right"></span></button>
-          </form>
-
-          <form class="TrapeControl-BoxTab--Form" action="?" method="post">
-            <input type="url" id="txtTrapeControl-BoxTab-Redirect" autocomplete="on" class="TrapeControl-BoxTab--Form---input" placeholder="Insert link to redirect" name="redirect" required="true">
-            <button id="btnTrapeControl-BoxTab-Redirect" class="TrapeControl-BoxTab--Form---button" type="button">redirect <span class="icon-angle-right"></span></button>
-          </form>
+      <div class="TrapeControl-Preview--box---SummaryLocation">
+        <span class="TrapeControl-Preview--box---SummaryLocation----iconBox">
+          <span class="icon-map"></span>
+        </span>
+        <span class="TrapeControl-Preview--box---SummaryLocation----text">Postal code: <span class="TrapeControl-Preview--box---SummaryLocation----subText" id="mapPostalCode">loading...</span></span>
+        <div class="TrapeControl-Preview--box---SummaryLocation----line"></div>
+        <span class="TrapeControl-Preview--box---MapboxDataIPs----text">Address: <span class="TrapeControl-Preview--box---SummaryLocation----subText" id="lblTrapeContol_Address">loading...</span>
+      </span>
+    </div>
+    <div id="cntTrapeControlPreview_Map" class="TrapeControl-Preview--box---Mapbox----define"></div>
+    <!-- notification action/status -->
+    <!-- HIDE: TrapeControl-Preview--NotificationHide -->
+    <div class="TrapeControl-Preview--NotificationAlert">
+      <div class="TrapeControl-Preview--NotificationAlert---define TrapeControl-Preview--NotificationAlert---offline">
+        <div class="TrapeControl-Preview--NotificationAlert---define----Icon">
+          <i class="icon-close"></i>
         </div>
-
-        <div class="TrapeControl-Preview--dataShow">
-          <form class="TrapeControl-BoxTab--FormRight" action="?" method="post">
-            <input id="txtTrapeControl-BoxTab-Alert" type="text" autocomplete="on" class="TrapeControl-BoxTab--Form---input" placeholder="Create alert for victim" name="alert" required="true">
-            <button id="btnTrapeControl-BoxTab-Alert" class="TrapeControl-BoxTab--Form---button" type="button">execute <span class="icon-angle-right"></span></button>
-          </form>
-
-          <form class="TrapeControl-BoxTab--FormRight" action="?" method="post">
-            <input id="txtTrapeControl-BoxTab-Execute" type="text" autocomplete="on" class="TrapeControl-BoxTab--Form---input" placeholder="Enter a file to download" name="download" required="true">
-            <button id="btnTrapeControl-BoxTab-Execute" class="TrapeControl-BoxTab--Form---button" type="button">Send <span class="icon-angle-right"></span></button>
-          </form>
+        <div class="TrapeControl-Preview--NotificationAlert---define----Content">
+          <p>Actions cannot be executed because the user is <strong>offline</strong></p>
         </div>
       </div>
-    </div> <!-- end(box) -->
-  </div> <!-- end/modal -->
-    <!-- end details -->
-
-
-    <div class="TrapeControl-Wrapper--Stats">
-      <div class="TrapeControl-Wrapper--Stats---Item">
-        <h2 class="TrapeControl-Wrapper--Stats---Item----text">Online</h2>
-        <span class="TrapeControl-Wrapper--Stats---Item----number" id="lblTrapeControl_Stats_Online">0</span>
+      <div class="TrapeControl-Preview--NotificationAlert---define TrapeControl-Preview--NotificationAlert---online">
+        <div class="TrapeControl-Preview--NotificationAlert---define----Icon">
+          <i class="icon-check"></i>
+        </div>
+        <div class="TrapeControl-Preview--NotificationAlert---define----Content">
+          <p>The user has been <strong>connected</strong> again. Execute actions!</p>
+        </div>
       </div>
-      <div class="TrapeControl-Wrapper--Stats---lineSeparation"></div>
-      <div class="TrapeControl-Wrapper--Stats---Item">
-        <h2 class="TrapeControl-Wrapper--Stats---Item----text">victims</h2>
-        <span class="TrapeControl-Wrapper--Stats---Item----number" id="lblTrapeControl_Stats_Victims">0</span>
-      </div>
-      
-      <div class="TrapeControl-Wrapper--Stats---lineSeparation"></div>
-      <div class="TrapeControl-Wrapper--Stats---Item">
-        <h2 class="TrapeControl-Wrapper--Stats---Item----text">clicks</h2>
-        <span class="TrapeControl-Wrapper--Stats---Item----number" id="lblTrapeControl_Stats_Clicks">0</span>
-      </div>
-      <div class="TrapeControl-Wrapper--Stats---lineSeparation"></div>
-      <div class="TrapeControl-Wrapper--Stats---Item">
-        <h2 class="TrapeControl-Wrapper--Stats---Item----text">sessions</h2>
-        <span class="TrapeControl-Wrapper--Stats---Item----number" id="lblTrapeControl_Stats_Sessions">0</span>
-      </div>
-      <div class="TrapeControl-Wrapper--Stats---lineSeparation"></div>
-      <div class="TrapeControl-Wrapper--Stats---Item">
-        <h2 class="TrapeControl-Wrapper--Stats---Item----text">requests</h2>
-        <span class="TrapeControl-Wrapper--Stats---Item----number" id="lblTrapeControl_Stats_Requests">0</span>
-      </div>
-      <div class="TrapeControl-Wrapper--Stats---lineSeparation"></div>
-      <div class="TrapeControl-Wrapper--Stats---Item">
-        <h2 class="TrapeControl-Wrapper--Stats---Item----text">Locations</h2>
-        <span class="TrapeControl-Wrapper--Stats---Item----number" id="lblTrapeControl_Stats_Locations"></span>
+      <div class="TrapeControl-Preview--NotificationAlert---define TrapeControl-Preview--NotificationAlert---success">
+        <div class="TrapeControl-Preview--NotificationAlert---define----Icon">
+          <i class="icon-bolt"></i>
+        </div>
+        <div class="TrapeControl-Preview--NotificationAlert---define----Content">
+          <p>Has processed a successful <strong>process hook</strong></p>
+        </div>
       </div>
     </div>
-
-    <!-- list requests & history -->
-    <div class="TrapeControl-History">
-      <div class="TrapeControl-History--Tabs">
-        <button data-action="logs" class="TrapeControl-History--Tabs---button is-active"><span class="TrapeControl-History--Tabs---button----iconLogs"></span>Logs Victims</button>
-        <button data-action="requests" class="TrapeControl-History--Tabs---button"><span class="TrapeControl-History--Tabs---button----iconRequests"></span>Request History</button>
-      </div>
-
-      <div class="TrapeControl-History--line"></div>
-
-      <div id="cntTrapeControl_Logs" class="TrapeControl-History--Logs" data-action="logs">
-
-      </div> 
-      <!-- </.Logs -->
-
-      <!-- requests -->
-      <div id="cntTrapeControl_Requests" class="TrapeControl-History--Logs" data-action="requests">
-                 
-      </div>
-               <!-- end(requests)-->
-
-      <div class="TrapeControl-Copyright">
-        <span class="TrapeControl-Copyright--iconCode"></span> with <span class="TrapeControl-Copyright--iconLove"></span> by <a class="TrapeControl-Copyright--link" href="https://boxug.com" title="Boxug: First Your Security"><img class="TrapeControl-Copyright--logo" width="90" src="static/img/boxug-logo.svg" alt="boxug"></a>
-      </div>
-    </div><!-- </.Re -->
-    <!-- fin list -->
-
+    <!-- notification end -->
   </div>
 </div>
-<!-- log -->
+<!-- HOOKS -->
+<!-- You've processed a successful </strong>alert</strong> dispatch -->
+<!-- You've processed successful <strong>code</strong> sending -->
+<!-- The <strong>URL JavaScript</strong> is saved successfully -->
+<!-- Successfully processed <strong>redirect</strong> -->
+<!-- The <strong>phishing attack</strong> has been sent -->
+<!-- <strong>Download file</strong> has been successfully sent -->
+<!-- The <strong>audio message</strong> has been delivered -->
+<!-- <strong>Click attack</strong> has been processed -->
+<div class="TrapeControl-Preview--box">
+  <div class="TrapeControl-Preview--box---Details">
+    <div class="TrapeControl-Preview--box---DetailsLine">
+      <span class="TrapeControl-Preview--box---DetailsLine----define"></span>
+      <div class="TrapeControl-Preview--box---DetailsElement----Iconbox">
+        <span class="TrapeControl-Preview--box---DetailsElement----Iconbox-----define">
+          <span class="icon-bars"></span>
+        </span>
+        <span class="TrapeControl-Preview--box---DetailsElement----text">Options</span>
+      </div>
+      <!-- tabs -->
+      <div class="TrapeControl-Preview--Tabs">
+        <button data-action="information" class="TrapeControl-Preview--Tabs---button is-active" >Information</button>
+        <button data-action="network" class="TrapeControl-Preview--Tabs---button">Network status</button>
+        <button data-action="processHooks" class="TrapeControl-Preview--Tabs---button">Process hook</button>
+      </div>
+    </div>
+  </div>
+  <div class="TrapeControl-BoxTab" data-action="information">
+    <div class="TrapeControl-Preview--dataShow">
+      <ul>
+        <div class="TrapeControl-Preview--dataShow---define"><strong>CPU:</strong> <span id="lblTrapeControl_Preview_CPU">_</span></div>
+        <div class="TrapeControl-Preview--dataShow---define"><strong>Operating System:</strong> <span id="lblTrapeControl_Preview_SO"></span></div>
+        <div class="TrapeControl-Preview--dataShow---define" title=""><strong>User agent:</strong> <span id="lblTrapeControl_Preview_UA">_</span></div>
+        <div class="TrapeControl-Preview--dataShow---define"><strong>Browser:</strong> <span id="lblTrapeControl_Preview_Browser"></span> <span id="lblTrapeControl_Preview_BrowserVersion"></span></div>
+        <div class="TrapeControl-Preview--dataShow---define"><strong>Open Ports:</strong> <span id="lblTrapeControl_Preview_OpenPorts">_</span></div>
+        <!-- <div class="TrapeControl-Preview--dataShow---define"><strong>Connection:</strong> <span id="lblTrapeControl_Preview_Connection"></span></div> -->
+      </ul>
+    </div>
+    <div class="TrapeControl-Preview--dataShow">
+      <ul>
+        <div class="TrapeControl-Preview--dataShow---define"><strong>ISP Name:</strong> <span id="lblTrapeControl_Preview_ISP">_</span></div>
+        <div class="TrapeControl-Preview--dataShow---define"><strong>Country:</strong> <span id="lblTrapeControl_Preview_Country"></span></div>
+        <div class="TrapeControl-Preview--dataShow---define"><strong>City:</strong> <span id="lblTrapeControl_Preview_City"></span></div>
+        <div class="TrapeControl-Preview--dataShow---define"><strong>Latitude:</strong> <span id="lblTrapeControl_Preview_Latitude"></span></div>
+        <div class="TrapeControl-Preview--dataShow---define"><strong>Longitude:</strong> <span id="lblTrapeControl_Preview_Longitude"></span></div>
+        <div class="TrapeControl-Preview--dataShow---define"><strong></strong> <span></span></div>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="TrapeControl-BoxTab" data-action="processHooks">
+  <!-- hooks options -->
+  <div class="TrapeControl-BoxTab--options">
+    <h2 class="TrapeControl-BoxTab--options---Text">Controls in the browser of the user</h2>
+    <div class="TrapeControl-BoxTab--options---Tabs">
+      <button data-action="Hseveral" class="TrapeControl-BoxTab--options---Tabs----button is-active">Several</button>
+      <button data-action="Hinjecjs" class="TrapeControl-BoxTab--options---Tabs----button">Inject JS</button>
+      <button data-action="Hspeech" class="TrapeControl-BoxTab--options---Tabs----button">Speech</button>
+    </div>
+  </div>
+  <!-- end hooks options -->
+  <div class="TrapeControl-Preview--SubTabsShow" data-action="Hseveral">
+    <div class="TrapeControl-Preview--dataShow">
+      <form class="TrapeControl-BoxTab--Form" action="?" method="post">
+        <input type="url" id="txtTrapeControl-BoxTab-Phishing" autocomplete="on" class="TrapeControl-BoxTab--Form---input" placeholder="Insert domain for phishing" name="phishing" required="true">
+        <button id="btnTrapeControl-BoxTab-Phishing" class="TrapeControl-BoxTab--Form---button" type="button">reflect <span class="icon-angle-right"></span></button>
+      </form>
+      <form class="TrapeControl-BoxTab--Form" action="?" method="post">
+        <input type="url" id="txtTrapeControl-BoxTab-Redirect" autocomplete="on" class="TrapeControl-BoxTab--Form---input" placeholder="Insert link to redirect" name="redirect" required="true">
+        <button id="btnTrapeControl-BoxTab-Redirect" class="TrapeControl-BoxTab--Form---button" type="button">redirect <span class="icon-angle-right"></span></button>
+      </form>
+    </div>
+    <div class="TrapeControl-Preview--dataShow">
+      <form class="TrapeControl-BoxTab--FormRight" action="?" method="post">
+        <input id="txtTrapeControl-BoxTab-Alert" type="text" autocomplete="on" class="TrapeControl-BoxTab--Form---input" placeholder="Create alert for user" name="alert" required="true">
+        <button id="btnTrapeControl-BoxTab-Alert" class="TrapeControl-BoxTab--Form---button" type="button">execute <span class="icon-angle-right"></span></button>
+      </form>
+      <form class="TrapeControl-BoxTab--FormRight" action="?" method="post">
+        <input id="txtTrapeControl-BoxTab-Execute" type="text" autocomplete="on" class="TrapeControl-BoxTab--Form---input" placeholder="Enter a file to download" name="download" required="true">
+        <button id="btnTrapeControl-BoxTab-Execute" class="TrapeControl-BoxTab--Form---button" type="button">Send <span class="icon-angle-right"></span></button>
+      </form>
+    </div>
+  </div>
+  <div class="TrapeControl-Preview--SubTabsShow" data-action="Hinjecjs">
+    <div class="TrapeControl-Preview--dataShow">
+      <form class="TrapeControl-BoxTab--FormLeftDown" action="?" method="post">
+        <input type="url" autocomplete="off" class="TrapeControl-BoxTab--Form---input" placeholder="Insert JavaScript code URL" name="urlJS" id="txtTrapeControl_InjectCode" required="true">
+        <button class="TrapeControl-BoxTab--Form---button" type="button" id="txtTrapeControl_InjectCode">save</button>
+      </form>
+    </div>
+    <div class="TrapeControl-Preview--dataShow">
+      <div class="TrapeControl-BoxTab--FormRight" action="?" method="post">
+        <textarea type="text" autocomplete="on" class="TrapeControl-BoxTab--Form---textarea" placeholder="Write JavaScript code" name="codeJS" required="true" id="txtTrapeControl_RunCode"></textarea>
+        <button class="TrapeControl-BoxTab--Form---button" type="button" id="btnTrapeControl_RunCode">run code <span class="icon-angle-right"></span></button>
+      </div>
+    </div>
+  </div>
+  <div class="TrapeControl-Preview--SubTabsShow" data-action="Hspeech">
+    <form class="TrapeControl-BoxTab--FormSpeech" action="?" method="post">
+      <textarea name="speech" id="txtTrapeControl_BoxTab_Speech" class="TrapeControl-BoxTab--Form---textareaSpeech" placeholder="Write the words you want to play by voice..."></textarea>
+      <div class="TrapeControl-BoxTab--Form---buttonsVoice">
+        <button class="TrapeControl-BoxTab--Form---buttonsVoice----btn" type="button" data-vt="0"><span class="icon-sound"></span> English Female <span class="icon-angle-right"></span></button>
+        <button class="TrapeControl-BoxTab--Form---buttonsVoice----btn" type="button" data-vt="1"><span class="icon-sound"></span> Spanish Female <span class="icon-angle-right"></span></button>
+        <button class="TrapeControl-BoxTab--Form---buttonsVoice----btn" type="button" data-vt="2"><span class="icon-sound"></span> English Male <span class="icon-angle-right"></span></button>
+        <button class="TrapeControl-BoxTab--Form---buttonsVoice----btn" type="button" data-vt="3"><span class="icon-sound"></span> Spanish Male <span class="icon-angle-right"></span></button>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="TrapeControl-BoxTab" data-action="network">
+  <div class="TrapeControl-BoxTab--options">
+    <h2 class="TrapeControl-BoxTab--options---Text">Information on network connections</h2>
+    <div class="TrapeControl-BoxTab--options---subTabs">
+      <button data-action="dataSpeed" class="TrapeControl-BoxTab--options---subTabs----button is-active">Speed</button>
+      <button data-action="dataHosts" class="TrapeControl-BoxTab--options---subTabs----button">Hosts</button>
+    </div>
+  </div>
+  <div class="TrapeControl-Preview--SubTabsNH" data-action="dataSpeed">
+    <div class="TrapeControl-Preview--dataNetwork">
+      <div class="TrapeControl-Preview--dataNetwork---Item">
+        <h2 class="TrapeControl-Preview--dataNetwork---Item----text"><span class="TrapeControl-Preview--dataNetwork---Item----iconPing"></span> Ping</h2>
+        <span id="lblTrapeControl_dataNetwork_Ping" class="TrapeControl-Preview--dataNetwork---Item----result">0</span>
+      </div>
+      <div class="TrapeControl-Preview--dataNetwork---lineSeparation"></div>
+      <div class="TrapeControl-Preview--dataNetwork---Item">
+        <h2 class="TrapeControl-Preview--dataNetwork---Item----text"><span class="TrapeControl-Preview--dataNetwork---Item----iconDownloadSpeed"></span> Download speed</h2>
+        <span id="lblTrapeControl_dataNetwork_Download" class="TrapeControl-Preview--dataNetwork---Item----result">0</span>
+      </div>
+      <div class="TrapeControl-Preview--dataNetwork---lineSeparation"></div>
+      <div class="TrapeControl-Preview--dataNetwork---Item">
+        <h2 class="TrapeControl-Preview--dataNetwork---Item----text"><span class="TrapeControl-Preview--dataNetwork---Item----iconUploadSpeed"></span> Upload speed</h2>
+        <span id="lblTrapeControl_dataNetwork_Upload" class="TrapeControl-Preview--dataNetwork---Item----result">0</span>
+      </div>
+      
+      <div class="TrapeControl-Preview--dataNetwork---lineSeparation"></div>
+      <div class="TrapeControl-Preview--dataNetwork---Item">
+        <h2 class="TrapeControl-Preview--dataNetwork---Item----text"><span class="TrapeControl-Preview--dataNetwork---Item----iconTypeNetwork"></span> Type connection</h2>
+        <span id="lblTrapeControl_dataNetwork_Type" class="TrapeControl-Preview--dataNetwork---Item----result">loading...</span>
+      </div>
+    </div>
+  </div>
+  <div class="TrapeControl-Preview--SubTabsNH" data-action="dataHosts">
+    <div class="TrapeControl-Preview--dataHostsPositionGeneral">
+      <div class="TrapeControl-Preview--dataHostsElement---Item">
+        <h2 class="TrapeControl-Preview--dataHostsElement---Item----text"><span class="TrapeControl-Preview--dataHostsElement---Item----icon"></span> Total hosts</h2>
+        <span class="TrapeControl-Preview--dataHostsElement---Item----result">8 found</span>
+      </div>
+      <div class="TrapeControl-Preview--dataHostsElement---lineSeparation"></div>
+      <div class="TrapeControl-Preview--dataHosts">
+        <div class="TrapeControl-Preview--dataHosts---host">
+          <span class="TrapeControl-Preview--dataHosts---host----iconBox">
+            1
+          </span>
+          <span class="TrapeControl-Preview--dataHosts---host----text">host: <span class="TrapeControl-Preview--dataHosts---host----subText">192.168.0.1</span></span>
+          <div class="TrapeControl-Preview--dataHosts---host----line"></div>
+          <span class="TrapeControl-Preview--dataHosts---host----text">time: <span class="TrapeControl-Preview--dataHosts---host----subText">1.19 ms</span>
+        </span>
+        <div class="TrapeControl-Preview--dataHosts---host----line"></div>
+        <span class="TrapeControl-Preview--dataHosts---host----text">date: <span class="TrapeControl-Preview--dataHosts---host----subText">2018-02-15 - 16:28:56</span>
+      </span>
+    </div>
+  </div>
+</div>
+</div>
+<div class="TrapeControl-Preview--dataShow">
+<ul>
+</ul>
+</div>
+<div class="TrapeControl-Preview--dataShow">
+<ul>
+</ul>
+</div>
+</div>
+</div> <!-- end(box) -->
+</div> <!-- end/modal -->
+<!-- end details -->
+<div class="TrapeControl-Wrapper--Stats">
+<div class="TrapeControl-Wrapper--Stats---Item">
+<h2 class="TrapeControl-Wrapper--Stats---Item----text">Online</h2>
+<span class="TrapeControl-Wrapper--Stats---Item----number" id="onlineUsers">0</span>
+</div>
+<div class="TrapeControl-Wrapper--Stats---lineSeparation"></div>
+<div class="TrapeControl-Wrapper--Stats---Item">
+<h2 class="TrapeControl-Wrapper--Stats---Item----text">Users</h2>
+<span class="TrapeControl-Wrapper--Stats---Item----number" id="usersTotal">0</span>
+</div>
 
-<script src="static/js/libs.min.js"></script>
-<script src="static/js/trape.js"></script>
+<div class="TrapeControl-Wrapper--Stats---lineSeparation"></div>
+<div class="TrapeControl-Wrapper--Stats---Item">
+<h2 class="TrapeControl-Wrapper--Stats---Item----text">clicks</h2>
+<span class="TrapeControl-Wrapper--Stats---Item----number" id="clicksTotal">0</span>
+</div>
+<div class="TrapeControl-Wrapper--Stats---lineSeparation"></div>
+<div class="TrapeControl-Wrapper--Stats---Item">
+<h2 class="TrapeControl-Wrapper--Stats---Item----text">sessions</h2>
+<span class="TrapeControl-Wrapper--Stats---Item----number" id="sessionsTotal">0</span>
+</div>
+<div class="TrapeControl-Wrapper--Stats---lineSeparation"></div>
+<div class="TrapeControl-Wrapper--Stats---Item">
+<h2 class="TrapeControl-Wrapper--Stats---Item----text">requests</h2>
+<span class="TrapeControl-Wrapper--Stats---Item----number" id="requestsTotal">0</span>
+</div>
+<div class="TrapeControl-Wrapper--Stats---lineSeparation"></div>
+<div class="TrapeControl-Wrapper--Stats---Item">
+<h2 class="TrapeControl-Wrapper--Stats---Item----text">Locations</h2>
+<span class="TrapeControl-Wrapper--Stats---Item----number" id="locationsTotal">0</span>
+</div>
+</div>
+<!-- list requests & history -->
+<div class="TrapeControl-History">
+<div class="TrapeControl-History--Tabs">
+<button data-action="logs" class="TrapeControl-History--Tabs---button is-active"><span class="TrapeControl-History--Tabs---button----iconLogs"></span>Logs users</button>
+<button data-action="requests" class="TrapeControl-History--Tabs---button"><span class="TrapeControl-History--Tabs---button----iconRequests"></span>Request History</button>
+<button data-action="socialimpact" class="TrapeControl-History--Tabs---button"><span class="TrapeControl-History--Tabs---button----iconSocialImpact"></span>Social impact</button>
+</div>
+<div class="TrapeControl-History--line"></div>
+<div id="listLogs" class="TrapeControl-History--Logs" data-action="logs">
+</div>
+<!-- </.Logs -->
+<!-- requests -->
+<div id="listRequests" class="TrapeControl-History--Logs" data-action="requests">
+
+</div>
+<!-- end(requests)-->
+<!-- socialimpact -->
+<div class="TrapeControl-History--Logs" id="cntTrapeContro_SocialImpact" data-action="socialimpact" style="overflow-x: hidden;">
+</div>
+<!-- end(socialimpact)-->
+<div class="TrapeControl-Copyright">
+Powered by <a class="TrapeControl-Copyright--link" href="https://twitter.com/jofpin" title="Author">Jose Pino</a>
+</div>
+</div><!-- </.Re -->
+<!-- fin list -->
+</div>
+</div>
+<!-- log -->
+<script src="static/js/[LIBS_SRC]"></script>
+<script src="static/js/[TRAPE_SRC]"></script>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=[OWN_API_KEY_HERE]&callback=initMap">
+</script>
 <script type="text/javascript">
-function copyUrl(id) {
-        var $temp = $("<input>");
-        $("body").append($temp);
-        $temp.val($(id).text()).select();
-        document.execCommand("copy");
-        $temp.remove();
-    }
+var copyUrl = function(id) {
+  var $temp = $("<input>");
+  $("body").append($temp);
+  $temp.val($(id).text()).select();
+  document.execCommand("copy");
+  $temp.remove();
+}
+window.gMapsApiKey="[OWN_API_KEY_HERE]";
 </script>
 </body>
 </html>

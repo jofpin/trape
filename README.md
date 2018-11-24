@@ -1,51 +1,77 @@
-trape (community)
+
+trape (stable) v2.0
 ========
 
 People tracker on the Internet: Learn to track the world, to avoid being traced.
 
 ---
-Trape is a recognition tool that allows you to **track people**, the information you can get is very detailed. We want to teach the world through this, as large Internet companies could monitor you, obtaining information beyond your IP.
+Trape is a **OSINT** analysis and research tool, which allows people to track and execute intelligent **social engineering** attacks in real time. It was created with the aim of teaching the world how large Internet companies could obtain **confidential information** such as the status of sessions of their websites or services and control over their users through the browser, without them knowing, but It evolves with the aim of helping **government** organizations, companies and **researchers** to track the cybercriminals.
 
-![--trape header](https://i.imgur.com/Y0wAPO9.png)
+![--trape header](https://i.imgur.com/2ycpXEj.png)
 
 Some benefits
 -----------
-* One of its most enticing functions is the remote recognition of sessions. You can know where a person has logged in, remotely. This occurs through a Bypass made to the **Same Origin Policy** (**SOP**)
-* Currently you can try everything from a web interface. (**The console, becomes a preview of the logs and actions**)
-* Registration of victims, requests among other data are obtained in real time.
-* If you get more information from a person behind a computer, you can generate a more direct and sophisticated attack. Trape was used at some point to track down criminals and know their **behavior**.
-* You can do real time phishing attacks
-* Simple hooking attacks
-* Mapping
-* Important details of the objective
-* Capturing credentials
-* Open Source Intelligence (**OSINT**)
+* **LOCATOR OPTIMIZATION:** Trace the path between you and the target you're tracking. Each time you make a move, the path will be updated, by means of this the location of the target is obtained silently through a bypass made in the browsers, allowing you not to skip the location request permit on the victim's side , objective or person and at the same time maintain a precision of **99%** in the locator.
 
-Recognizes the sessions of the following services
+![](https://lh3.googleusercontent.com/qwq4LzzLTdFGwsGd8C3c9gxbDaN191s7lnvz75y0trwIMUGSaIu22QyBRgwKXxRwLBC5HGekBJLw9qgD5lnxgszcFVqJ24RVqv3q_T3HzD6wJeQU6oY4VVF8QT6Y83hstqD4C020)
+* **APPROACH:** When you're close to the target, Trape will tell you.
+
+![](https://lh4.googleusercontent.com/NFnVGLoDF2BmM_N56w8Vf6cnyg1WWIIKgGC1MeBTKXxcIynMDfC1ZSu43ftoiYnwcBb2gjpVdS4y0zm5K7XAzvXf7bPIt5ZrWQCEq9eQuN8KL-SRPOtBgIZL53AWkJjwhC4gJUcG)
+
+*  **REST API:** Generates an API (random or custom), and through this you can control and monitor other Web sites on the Internet remotely, getting the traffic of all visitors.
+
+![](https://lh6.googleusercontent.com/DtQiYYLoL9di3LPcSSTCZ3AuVMlQaNcDkBdv_fZFX7rztjg_epWmIaA2AlGsWCr5Mwr2nVfLcsg1I5PXEcx87ErLS8JaruvRsEUIkScydXA3JhvbsmJov7qxbKooGgD5u32kmBHW)
+
+* **PROCESS HOOKS:** Manages social engineering attacks or processes in the target's browser.
+    
+  --- **SEVERAL:** You can issue a phishing attack of any domain or service in real time as well as send malicious files to compromise the device of a target.
+    
+
+  ---  **INJECT JS:** You keep the JavaScript code running free in real time, so you can manage the execution of a **keylogger** or your own custom functions in JS which will be reflected in the target's browser.
+    
+  ---   **SPEECH:** A process of audio creation is maintained which is played in the browser of the objective, by means of this you can execute personalized messages in different voices with languages in Spanish and English.
+    
+
+  
+
+* **PUBLIC NETWORK TUNNEL:** Trape has its own **API** that is linked to [ngrok.com](https://ngrok.com) to allow the automatic management of public network tunnels; By this you can publish your content of trape server executed locally to the Internet, to manage hooks or public attacks.
+
+![](https://lh5.googleusercontent.com/_f3zaCeZya_5AKaCoaPexyJVpNA7fiRqYQ9WBRiGLsHcx1W5V61V-VENeIRF2QbqvpenyOJ1AYyreTmOr2MWbf9PYu4qXF-tbYWi7qp6ZWeOwvoG3LYUdpjp3pAK9mIAQZzPJwAO)
+
+
+* **CLICK ATTACK TO GET CREDENTIALS:** Automatically obtains the target credentials, recognizing your connection availability on a social network or Internet service.
+
+![](https://lh4.googleusercontent.com/IN8xWfHjGPRQ__-QwTXebG-087m4JzDIVFWtSlUtrnRpDn2d0U1cnQdNGqLQZA35-fneej1iTpkxgHZCq_pWZLlCd1SmyLZ-WJ5Juj2KbtyNbX4jI1oLUtqupxieH91mX65_ZmHy)
+
+* **NETWORK:** You can get information about the user's network.
+
+  ---  **SPEED:** Viewing the target's network speed. (Ping, download, upload, type connection)
+
+  --- **HOSTS OR DEVICES:** Here you can get a scan of all the devices that are connected in the target network automatically.
+
+![](https://lh3.googleusercontent.com/gkOWunWn7ge5yJt00lMBN_7GwSUxrAQV2y64ysyrjmD-vz_lO3bu6UkRjPJF8OljxyMTNlWVA9W8gVU3U0iI3RrECNNkr7H44Lz6z5Zj3-bA_hDF5TnTSoV_6584qFvuLkmShTQD)
+
+
+* **PROFILE:** Brief summary of the target's behavior and important additional information about your device.
+
+  ---   **GPU**
+  ---   **ENERGY**
+
+30-session recognition
 -------
-* Facebook
-* Twitter
-* VK
-* Reddit
-* Gmail
-* tumblr
-* Instagram
-* Github
-* Bitbucket
-* Dropbox
-* Spotify
-* PayPal
-* Amazon
-* Foursquare (*new*)
-* Airbnb (*new*)
-* Hackernews (*new*)
-* Slack (*new*)
+Session recognition is one of trape most interesting attractions, since you as a researcher can know remotely what service the target is connected to.
+
+![](https://lh6.googleusercontent.com/IFxIh7Eemr63kycj2eBzJYvevCzLH5DkQGWUKzPx_Okn4WoExPl0LR7Qj-cSc0WF0rs9Ew6DJMwcyirZd0kdfLpdrqQ2700P_xdxW7wpZ7K6OWi8pluLKivHtU45HD4VtyM0lLwh)
+
+* **USABILITY:** You can delete logs and view alerts for each process or action you run against each target.
+ 
+ ![](https://lh4.googleusercontent.com/dXx1lRG2z-ZlSIlQyTx_ra7sbkgKG2jeqGjIt86GebFiAaZyFDA4vy3QBLACd-1wOz4zdSIARWvo3hK2mEvrSJ6VPDSiOZgMLB4rUYXKDHrone0xIB3bwhAKPnsJUcuKW9xf_-sG)
  
 How to use it
 -------
  First unload the tool.
 ```
-git clone https://github.com/boxug/trape.git
+git clone https://github.com/jofpin/trape.git
 cd trape
 python trape.py -h
 ```
@@ -58,19 +84,44 @@ Example of execution
 ```
 Example: python trape.py --url http://example.com --port 8080
 ```
-* In the option **--url** you must put the lure, can be a news page, an article something that serves as a presentation page.
-* In the **--port** option you just put the port where you want it to run
-* Do you like to monitor your people? Everything is possible with Trape
-* Do you want to perform phishing attacks? Everything is possible with Trape
-* In the Files directory, located on the path: **/static/files** here you add the files with .exe extension or download files sent to the victim.
 
-Here are some simple videos to use:
--------
-**Spanish**: https://www.youtube.com/watch?v=ptyuCQmMKiQ
+**HELP  AND OPTIONS**
+```
+user:~$ python trape.py --help
+usage: python trape.py -u <> -p <> [-h] [-v] [-u URL] [-p PORT]
+                                              [-ak ACCESSKEY] [-l LOCAL]
+                                              [--update] [-n] [-ic INJC]
 
-**English**: https://www.youtube.com/watch?v=FdwyIZhUx3Y
+optional arguments:
+  -h, --help            show this help message and exit
+  -v, --version         show program's version number and exit
+  -u URL, --url URL     Put the web page url to clone
+  -p PORT, --port PORT  Insert your port
+  -ak ACCESSKEY, --accesskey ACCESSKEY
+                        Insert your custom key access
+  -l LOCAL, --local LOCAL
+                        Insert your home file
+  -n, --ngrok           Insert your ngrok Authtoken
+  -ic INJC, --injectcode INJC
+                        Insert your custom REST API path
+```
 
-At an international security event in Colombia, called **DragonJAR Security Conference** 2017, a demonstration was made before the launch. You can watch the video here: [https://www.youtube.com/watch?v=vStSEsznxgE](https://www.youtube.com/watch?v=vStSEsznxgE)
+**--url**  In this option you add the URL you use to clone Live, which works as a decoy.
+
+**--port**  Here you insert the port, where you are going to run the  **trape server**.
+
+**--accesskey**  You enter a custom key for the  **trape panel**, if you do not insert it will generate an  **automatic key**.
+
+**--injectcode**  trape contains a  **REST API**  to play anywhere, using this option you can customize the name of the file to include, if it does not, generates a random name allusive to a token.
+
+**--local**  Using this option you can call a local **HTML file**, this is the replacement of the  **--url**  option made to run a local lure in trape.
+
+**--ngrok**  In this option you can enter a token, to run at the time of a process. This would replace the token saved in configurations.
+
+**--version**  You can see the version number of trape.
+
+**--help**  It is used to see all the above options, from the executable.
+
 
 Disclaimer
 -------
@@ -78,32 +129,31 @@ This tool has been published educational purposes in order to teach people how b
 
 We are totally convinced that if we teach how vulnerable things are, we can make the Internet a safer place.
 
-Developers or participants
+Developer
 -------
-The following people are part of the core of development and research in
-Boxug.
-
 This development and others, the participants will be mentioned with name, Twitter and charge.
 
-* Jose Pino - [@jofpin](https://twitter.com/jofpin) - (**Founder at [boxug](https://boxug.com)**) 
+* **CREATOR**
 
-Standard Version
+  --- Jose Pino - [@jofpin](https://twitter.com/jofpin) - (**Security Researcher**) 
+
+
+Donations
 -------
-Yes, we also have a standard version with more sophisticated features. If you would like to get the standard version or request contact us at jofpin@gmail.com
+This is a project made with a lot of motivation to collaborate in the computer security community, if you liked the features. I invite you to make a donation in the following directions.
 
-Purchase here: https://trape.co
+**BITCOIN:** 36RouFnp6wEf4qu8QzUDJGVKoZ2Ja1ZSyW
+**ETHEREUM:** 0x6b9c69F0126c8A817c3A7296b2af80EF2e8B2d65
 
 Happy hacking!
 -------
 I invite you, if you use this tool helps to share, collaborate. Let's make the Internet a safer place, let's report.
-
--------------
 
 
 ## License
 
 The content of this project itself is licensed under the [Creative Commons Attribution 3.0 license](http://creativecommons.org/licenses/by/3.0/us/deed.en_US), and the underlying source code used to format and display that content is licensed under the [MIT license](http://opensource.org/licenses/mit-license.php).
 
-Copyright, 2017 by [boxug](https://boxug.com) - First Your Security
+Copyright, 2018 by [Jose Pino](https://twitter.com/jofpin) 
 
 -------------

@@ -7,19 +7,20 @@
 #########
 #
 # trape depends of this file
-# For full copyright information this visit: https://github.com/boxug/trape
+# For full copyright information this visit: https://github.com/jofpin/trape
 #
-# Copyright 2017 by boxug / <hey@boxug.com>
+# Copyright 2018 by Jose Pino (@jofpin) / <jofpin@gmail.com>
 #**
 from socket import gethostname, gethostbyname 
 from threading import Lock
 from flask import Flask, render_template, session, request, json
 from flask_socketio import SocketIO, emit, join_room, rooms, disconnect
 import core.stats 
-import core.victim
-from victim_objects import attacks_hook_message
+import core.user
+from user_objects import attacks_hook_message
 from core.utils import utils
 from core.db import Database
+import sys
 
 # Main parts, to generate relationships among others
 trape = core.stats.trape
@@ -66,13 +67,29 @@ def disconnect_request(d):
     except Exception as error:
         pass
 
+@socketio.on("error", namespace="/trape")
+def socket_def_error(d):
+    pass
+
 @socketio.on_error("/trape")
 def error_handler(e):
     pass
 
 @app.route("/" + trape.home_path)
 def home():
-    return render_template("home.html", async_mode=socketio.async_mode)
+    gMaps_free_api_key = 'AIzaSyBUPHAjZl3n8Eza66ka6B78iVyPteC5MgM'
+    if (trape.gmaps != ''):
+        gMaps_free_api_key = trape.gmaps
+
+    shorten_api = 'AIzaSyCPzcppCT27KTHnxAIQvYhtvB_l8sKGYBs'
+
+    html = trape.injectCSS_Paths(render_template("home.html", async_mode=socketio.async_mode).replace('[OWN_API_KEY_HERE]', gMaps_free_api_key).replace('[LIBS_SRC]', trape.JSFiles[1]['src']).replace('[TRAPE_SRC]', trape.JSFiles[4]['src']))
+    return html
 
 if __name__ == 'core.sockets':
-    socketio.run(app, host= '0.0.0.0', port=trape.app_port, debug=False)
+    try:
+        socketio.run(app, host= '0.0.0.0', port=trape.app_port, debug=False)
+    except KeyboardInterrupt:
+        socketio.stop()
+        trape.validateLicense.terminate()
+        sys.exit(0)
