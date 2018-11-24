@@ -10,11 +10,7 @@ Trape is a **OSINT** analysis and research tool, which allows people to track an
 ![--trape header](https://i.imgur.com/2ycpXEj.png)
 
 
-<<<<<<< HEAD
 At the beginning of the year 2018 was presented at **BlackHat Arsenal in Singapore**: https://www.blackhat.com/asia-18/arsenal.html#jose-pino and in multiple security events worldwide.
-=======
-At the beginning of the year 2018 was presented at **BlackHat Arsenal in Singapore**: Https://www.blackhat.com/asia-18/arsenal.html#jose-pino and in multiple security events worldwide.
->>>>>>> 3064d93e4cc55c84a6f14aca7bc21b09126ce338
 
 Some benefits
 -----------
