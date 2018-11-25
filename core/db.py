@@ -34,21 +34,21 @@ class Database(object):
         return True
 
     def sql_execute(self, sentence):
-    	if type(sentence) is str:
+    	if isinstance(sentence, str):
         	self.cursor.execute(sentence)
     	else:
         	self.cursor.execute(sentence[0], sentence[1])
         return self.cursor.fetchall()
 
     def sql_one_row(self, sentence, column):
-        if type(sentence) is str:
+        if isinstance(sentence, str):
         	self.cursor.execute(sentence)
     	else:
         	self.cursor.execute(sentence[0], sentence[1])	
         return self.cursor.fetchone()[column]
 
     def sql_insert(self, sentence):
-        if type(sentence) is str:
+        if isinstance(sentence, str):
         	self.cursor.execute(sentence)
     	else:
         	self.cursor.execute(sentence[0], sentence[1])

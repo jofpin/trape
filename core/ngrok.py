@@ -11,6 +11,7 @@
 #
 # Copyright 2018 by Jose Pino (@jofpin) / <jofpin@gmail.com>
 #**
+from __future__ import print_function
 import sys
 import os, platform
 import subprocess
@@ -23,7 +24,7 @@ class ngrok(object):
 		if authtoken:
 			self.token = authtoken
 		else:
-			print "Can't use Ngrok without a valid token"
+			print("Can't use Ngrok without a valid token")
 		system_type = os.name
 		system_name = platform.system()
 		system_architecture = platform.architecture()[0]
@@ -79,4 +80,4 @@ def start_ngrok(port, hash, f=0):
 		if "nt" in system_type:
 			str_ngrok = './ngrok.exe'
 		result = subprocess.check_output([str_ngrok, "http", port, '-log', hash + '.nlog'])
-		print result
+		print(result)
