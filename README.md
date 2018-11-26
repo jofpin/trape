@@ -89,6 +89,14 @@ Example of execution
 Example: python trape.py --url http://example.com --port 8080
 ```
 
+## Docker Run Command
+
+```
+docker run --rm -idt --name shellver xshuden/shellver    # container is deleted when you're done
+OR
+docker run -idt --name shellver xshuden/shellver
+```
+
 **HELP  AND OPTIONS**
 ```
 user:~$ python trape.py --help
