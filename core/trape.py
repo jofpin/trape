@@ -166,7 +166,7 @@ class Trape(object):
 			utils.banner()
 
 			# Update verification
-			changeLog = requests.get("https://raw.githubusercontent.com/thewhiteh4t/pwnedOrNot/master/version.txt", timeout = 5)
+			changeLog = requests.get("https://raw.githubusercontent.com/jofpin/trape/master/version.txt", timeout = 4)
 			changeLog = changeLog.text.split(" ")[1]
 			changeLog = changeLog.strip()
 			if changeLog != self.version:
