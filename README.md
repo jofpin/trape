@@ -92,9 +92,9 @@ Example: python trape.py --url http://example.com --port 8080
 ## Docker Run Command
 
 ```
-docker run --rm -idt --name shellver xshuden/shellver    # container is deleted when you're done
+docker run --rm -idt --name trape xshuden/trape    # container is deleted when you're done
 OR
-docker run -idt --name shellver xshuden/shellver
+docker run -idt --name trape xshuden/trape
 ```
 
 **HELP  AND OPTIONS**
