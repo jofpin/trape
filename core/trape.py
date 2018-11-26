@@ -109,7 +109,7 @@ class Trape(object):
 				utils.Go(utils.Color['whiteBold'] + "[" + utils.Color['redBold'] + "x" + utils.Color['whiteBold'] + "]" + utils.Color['redBold'] + " " + "ERROR:" + " " + utils.Color['whiteBold'] + "The port: " + options.port + utils.Color['white'] + " " + "is not available, It was previously used (" + utils.Color['yellow'] + "Use another port" + utils.Text['end'] + ")" + "\n\n")
 				options.port = raw_input(utils.Color['blueBold'] + "-" + utils.Color['white'] + " What is your port to generate the server?" + " " + utils.Color['yellow'] + ":~> " + utils.Color['white'])
 
-			while utils.checkUrl(str(options.url)) == False:
+			#while utils.checkUrl(str(options.url)) == False:
 				options.url = raw_input(utils.Color['blueBold'] + "-" + utils.Color['white'] + " Enter a URL to generate the lure" + " " + utils.Color['yellow'] + ":~> " + utils.Color['white'])
 
 
@@ -128,7 +128,6 @@ class Trape(object):
 			if self.url_to_clone[0:4] != 'http':
 				self.url_to_clone = 'http://' + self.url_to_clone
 			self.victim_path = options.url.replace("http://", "").replace("https://", "")
-
 
 			if (options.ngrok or (self.ngrok != "")):
 				if self.ngrok == '':
@@ -241,7 +240,6 @@ class Trape(object):
     # the main file (trape.py)
 	def main(self):
 		import core.sockets
-
 
 	# Create config file
 	def trape_config(self):

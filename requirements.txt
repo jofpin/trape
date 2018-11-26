@@ -12,8 +12,4 @@ python-socketio
 six
 Werkzeug
 eventlet
-<<<<<<< HEAD
 requests
-=======
-requests
->>>>>>> 8a9c22483da05e8bf82e96036432a08d458a18a7
