@@ -72,9 +72,6 @@ if generateData.firstTime:
 # check OS
 trackPeople.loadCheck()
 
-# check Version
-trackPeople.checkVersion()
-
 # Request root home to run <trape> with all permissions
 trackPeople.rootConnection()
 

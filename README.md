@@ -1,4 +1,5 @@
 
+
 trape (stable) v2.0
 ========
 
@@ -107,6 +108,8 @@ optional arguments:
   -n, --ngrok           Insert your ngrok Authtoken
   -ic INJC, --injectcode INJC
                         Insert your custom REST API path
+  -ud UPDATE, --update UPDATE
+                        Update trape to the latest version
 ```
 
 **--url**  In this option you add the URL you use to clone Live, which works as a decoy.
@@ -122,6 +125,8 @@ optional arguments:
 **--ngrok**  In this option you can enter a token, to run at the time of a process. This would replace the token saved in configurations.
 
 **--version**  You can see the version number of trape.
+
+**--update**  Option especially to upgrade to the latest version of **trape**.
 
 **--help**  It is used to see all the above options, from the executable.
 

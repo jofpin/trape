@@ -12,5 +12,4 @@ python-socketio
 six
 Werkzeug
 eventlet
-urllib2
 requests
