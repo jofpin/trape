@@ -11,17 +11,33 @@
 #
 # Copyright 2018 by Jose Pino (@jofpin) / <jofpin@gmail.com>
 #**
-import random
 import hashlib
-import threading
-import sys
-import os
-import socket
-import time
-import requests, json
-from colorama import init , Style,Fore
 import httplib 
+import json
+import os
+import random
+import socket
+import sys
+import threading
+import time
+
+import requests
+from colorama import Fore, Style, init
 init()
+
+banner = s = """\033[H\033[J
+\t{redBold} _
+\t{redBold}| |_   ____ ____ ____   ____
+\t{redBold}|  _) / ___) _  |  _ \ / _  )
+\t{redBold}| |__| |  ( ( | | | | ( (/ /
+\t{redBold} \___)_|   \_||_| ||_/ \____)
+\t{redBold}                |_|{white} 2018 by {whiteBold}Jose Pino{white} ({blue}@jofpin{white})
+\t-----------------------------------------------
+\t{green}People tracker on internet for OSINT research {white}|=-
+\t-----------------------------------------------
+\t| v{redBold}2.0{white} |
+\t--------\n"""
+
 
 class utils:
     # Functions 1to get is right
@@ -55,22 +71,15 @@ class utils:
       "bold": Style.BRIGHT,
       "end": Style.NORMAL+Fore.WHITE
     }
+    
+    @staticmethod
+    def colorize(fmt):
+        return fmt.format(**utils.Color)
 
     # Banner trape
     @staticmethod
     def banner():
-        utils.Go("\033[H\033[J")
-        utils.Go("\t" + utils.Color['redBold'] + " _                           ")
-        utils.Go("\t" + utils.Color['redBold'] + "| |_   ____ ____ ____   ____ ")
-        utils.Go("\t" + utils.Color['redBold'] + "|  _) / ___) _  |  _ \ / _  )")
-        utils.Go("\t" + utils.Color['redBold'] + "| |__| |  ( ( | | | | ( (/ / ")
-        utils.Go("\t" + utils.Color['redBold'] + " \___)_|   \_||_| ||_/ \____)")
-        utils.Go("\t" + utils.Color['redBold'] + "                |_|" + utils.Color['white'] + " 2018 by " + utils.Color['whiteBold'] + "Jose Pino" + utils.Color['white'] + " (" + utils.Color['blue'] + "@jofpin" + utils.Color['white'] + ")" + utils.Color['white'])
-        utils.Go("\t" + "-----------------------------------------------")
-        utils.Go(utils.Color['green'] + "\t" + "People tracker on internet for OSINT research " + utils.Color['white'] + "|=-" + utils.Color['white'])
-        utils.Go("\t" + "-----------------------------------------------")
-        utils.Go("\t" + "| " + utils.Color['white'] + "v" + utils.Color['redBold'] + "2.0" + utils.Color['white'] + " |")    
-        utils.Go("\t" + "--------" + "\n")
+        utils.Go(utils.colorize(banner))
 
     # Loader with console cleaning and OS checking    
     @staticmethod
@@ -84,7 +93,7 @@ class utils:
             #utils.Go("Currently there is no support for Windows.")
         else:
             pass
-        utils.Go("Loading" + " " + utils.Color['blue'] + "trape" + utils.Color['white'] + "...")
+        utils.Go(utils.colorize("Loading {blue}trape{white}..."))
         time.sleep(0.4)
 
     # Generates a unique token of up to 30 characters.
@@ -101,7 +110,10 @@ class utils:
     @staticmethod
     def portScanner(victimIP):
         clientIP = socket.gethostbyname(victimIP)
-        listPorts = [0, 21, 22, 23, 25, 42, 43, 53, 67, 79, 80, 102, 110, 115, 119, 123, 135, 137, 143, 161, 179, 379, 389, 443, 445, 465, 636, 993, 995, 1026, 1080, 1090, 1433, 1434, 1521, 1677, 1701, 1720, 1723, 1900, 2409, 2082, 2095, 3101, 3306, 3389, 3390, 3535, 4321, 4664, 5190, 5500, 5631, 5632, 5900, 65535, 7070, 7100, 8000, 8080, 8880, 8799, 9100]
+        listPorts = (0, 21, 22, 23, 25, 42, 43, 53, 67, 79, 80, 102, 110, 115, 119, 123, 135, 137, 143, 161, 179, 379, 389,
+                     443, 445, 465, 636, 993, 995, 1026, 1080, 1090, 1433, 1434, 1521, 1677, 1701, 1720, 1723, 1900, 2409,
+                     2082, 2095, 3101, 3306, 3389, 3390, 3535, 4321, 4664, 5190, 5500, 5631, 5632, 5900, 65535, 7070, 7100,
+                     8000, 8080, 8880, 8799, 9100)
         results = []
         for port in listPorts:
             sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -125,10 +137,7 @@ class utils:
                 return False
             else:
                 try:
-                    if int(port) > 0 and int(port) < 65535:
-                        return True
-                    else:
-                        return False
+                    return 0 < int(port) < 65535
                 except Exception as e:
                     return False
         except Exception as e:
