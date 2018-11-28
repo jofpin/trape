@@ -61,10 +61,10 @@ if generateData.firstTime:
     utils.Go("This is a monitoring and research tool " + utils.Color['whiteBold'] + "OSINT" + utils.Color['white'] + ", which is distributed \nfor educational and investigative purposes, the person who has bought \nor uses this tool is responsible for its proper use or actions committed, \n" + utils.Color['whiteBold'] + "Jose Pino" + utils.Color['white'] + " (" + utils.Color['blue'] + "@jofpin" + utils.Color['white'] + ") is not responsible for the use Or the scope that people can have \nthrough this software." + "\n")
     utils.Go(utils.Color['whiteBold']+ "CREATOR" + utils.Color['white'])
     utils.Go("------")
-    utils.Go(utils.Color["white"] + "- " + utils.Color["greenBold"] + "NAME: " + utils.Color['white'] + "Jose Pino" + " " + utils.Color['white'])
-    utils.Go(utils.Color["white"] + "- " + utils.Color["greenBold"] + "DESCRIPTION: " + utils.Color['white'] + "Hacker recognized by large technology companies")
-    utils.Go(utils.Color["white"] + "- " + utils.Color["greenBold"] + "GITHUB: " + utils.Color['white'] + "https://github.com/jofpin")
-    utils.Go(utils.Color["white"] + "- " + utils.Color["greenBold"] + "TWITTER: " + utils.Color['white'] + "https://twitter.com/jofpin" + utils.Color['white'] + "\n")
+    utils.Go("{white}- {greenBold}NAME: {white}Jose Pino {white}".format(**utils.Color))
+    utils.Go("{white}- {greenBold}DESCRIPTION: {white}Hacker recognized by large technology companies".format(**utils.Color))
+    utils.Go("{white}- {greenBold}GITHUB: {white}https://github.com/jofpin".format(**utils.Color))
+    utils.Go("{white}- {greenBold}TWITTER: {white}https://twitter.com/jofpin{white}\n".format(**utils.Color))
     sleep(3)
     utils.Go("Press enter to Continue...")
     raw_input()
@@ -84,4 +84,4 @@ if __name__ == "__main__":
         trackPeople.main()
     except Exception as error:
         # Result of error
-        utils.Go(utils.Color['whiteBold'] + "[" + utils.Color['redBold'] + "x" + utils.Color['whiteBold'] + "]" + utils.Color['redBold'] + " " + "ERROR: " + utils.Color['white'] + "%s" % error)
+        utils.Go("{whiteBold}[{redBold}x{whiteBold}]{redBold} ERROR: {white} %s".format(**utils.Color) % error)
