@@ -25,7 +25,7 @@ import requests
 from colorama import Fore, Style, init
 init()
 
-banner = s = """\033[H\033[J
+banner = """\033[H\033[J
 \t{redBold} _
 \t{redBold}| |_   ____ ____ ____   ____
 \t{redBold}|  _) / ___) _  |  _ \ / _  )
