@@ -79,11 +79,21 @@ class Trape(object):
 			parser.add_argument('-l', '--local', dest='local', help='Insert your home file')
 			parser.add_argument('-n', '--ngrok', dest='ngrok', help='Insert your ngrok Authtoken', action='store_true')
 			parser.add_argument('-ic', '--injectcode', dest='injc', help='Insert your custom REST API path')
-			parser.add_argument('-ud', '--update', dest='update', help='Update trape to the latest version')
+			parser.add_argument('-ud', '--update', dest='update', action='store_true', default=False, help='Update trape to the latest version')
 
 			options = parser.parse_args()
 
 			self.type_lure = 'global'
+
+			# Check current updates
+
+			if options.update:
+				utils.Go("\033[H\033[J")
+				utils.Go("Updating..." + " " + utils.Color['blue'] + "trape" + utils.Color['white'] + "..." + "\n")
+				subprocess.check_output(["git", "reset", "--hard", "origin/master"])
+				subprocess.check_output(["git", "pull"])
+				utils.Go("Trape Updated... Please execute again...")
+				sys.exit(0)
 
 			if options.url is None:
 				utils.Go("\033[H\033[J")
@@ -149,14 +159,6 @@ class Trape(object):
 			if (options.accesskey):
 			    self.stats_key = options.accesskey
 
-			# Check current updates
-			if (options.update):
-				utils.Go("\033[H\033[J")
-				utils.Go("Updating..." + " " + utils.Color['blue'] + "trape" + utils.Color['white'] + "..." + "\n")
-				subprocess.check_output(["git", "reset", "--hard", "origin/master"])
-				subprocess.check_output(["git", "pull"])
-				utils.Go("Trape Updated... Please execute again...")
-				sys.exit(0)
 
 	# Design principal of the header of trape
 	def header(self):
