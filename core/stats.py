@@ -72,10 +72,10 @@ def home_get_dat():
     o = rows[0][0]
 
     injectCode = ''
-if trape.nGrokUrl != '':
-        server_code = str(trape.nGrokUrl)
+    if trape.nGrokUrl != '':
+        injectCode = str(trape.nGrokUrl) + '/' + str(trape.injectURL)
     else:
-        injectCode = 'http://' + str(trape.localIp) + ':' + str(trape.app_port) + '/' + str(trape.injectURL)
+        injectCode = str(trape.localIp) + ':' + str(trape.app_port) + '/' + str(trape.injectURL)
 
     return json.dumps({'status' : 'OK', 'd' : d, 'n' : n, 'c' : c, 's' : s, 'o' : o, "ic" : injectCode})
 
