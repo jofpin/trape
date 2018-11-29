@@ -72,8 +72,8 @@ def home_get_dat():
     o = rows[0][0]
 
     injectCode = ''
-    if trape.nGrokUrl != '':
-        injectCode = 'http://' + str(trape.nGrokUrl) + '/' + str(trape.injectURL)
+if trape.nGrokUrl != '':
+        server_code = str(trape.nGrokUrl)
     else:
         injectCode = 'http://' + str(trape.localIp) + ':' + str(trape.app_port) + '/' + str(trape.injectURL)
 
