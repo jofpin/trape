@@ -13,3 +13,4 @@ six
 Werkzeug
 eventlet
 requests
+colorama
