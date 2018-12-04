@@ -25,13 +25,13 @@ import requests
 from colorama import Fore, Style, init
 init()
 
-banner = """\033[H\033[J
-\t{redBold} _
-\t{redBold}| |_   ____ ____ ____   ____
-\t{redBold}|  _) / ___) _  |  _ \ / _  )
-\t{redBold}| |__| |  ( ( | | | | ( (/ /
-\t{redBold} \___)_|   \_||_| ||_/ \____)
-\t{redBold}                |_|{white} 2018 by {whiteBold}Jose Pino{white} ({blue}@jofpin{white})
+banner = """\033[H\033[J {redBold}
+\t _
+\t| |_   ____ ____ ____   ____
+\t|  _) / ___) _  |  _ \ / _  )
+\t| |__| |  ( ( | | | | ( (/ /
+\t \___)_|   \_||_| ||_/ \____)
+\t                |_|{white} 2018 by {whiteBold}Jose Pino{white} ({blue}@jofpin{white})
 \t-----------------------------------------------
 \t{green}People tracker on internet for OSINT research {white}|=-
 \t-----------------------------------------------
