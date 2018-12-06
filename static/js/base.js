@@ -383,7 +383,7 @@ function locateV(self) {
 }
 
 function workWithNetworks(){
-    $.getJSON('//freegeoip.net/json/?callback=?', function(data) {
+    $.getJSON('//ipinfo.io/json/?callback=?', function(data) {
         var dInfo = {ip : null, vId : null, red : null};
         $.extend( true, dInfo, data);
         dInfo.vId = localStorage.trape_vId
