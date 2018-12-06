@@ -6,7 +6,7 @@ trape (stable) v2.0
 People tracker on the Internet: Learn to track the world, to avoid being traced.
 
 ---
-Trape is a **OSINT** analysis and research tool, which allows people to track and execute intelligent **social engineering** attacks in real time. It was created with the aim of teaching the world how large Internet companies could obtain **confidential information** such as the status of sessions of their websites or services and control over their users through the browser, without them knowing, but It evolves with the aim of helping **government** organizations, companies and **researchers** to track the cybercriminals.
+Trape is an **OSINT** analysis and research tool, which allows people to track and execute intelligent **social engineering** attacks in real time. It was created with the aim of teaching the world how large Internet companies could obtain **confidential information** such as the status of sessions of their websites or services and control their users through their browser, without their knowlege, but It evolves with the aim of helping **government** organizations, companies and **researchers** to track the cybercriminals.
 
 ![--trape header](https://i.imgur.com/2ycpXEj.png)
 
@@ -15,7 +15,7 @@ At the beginning of the year 2018 was presented at **BlackHat Arsenal in Singapo
 
 Some benefits
 -----------
-* **LOCATOR OPTIMIZATION:** Trace the path between you and the target you're tracking. Each time you make a move, the path will be updated, by means of this the location of the target is obtained silently through a bypass made in the browsers, allowing you not to skip the location request permit on the victim's side , objective or person and at the same time maintain a precision of **99%** in the locator.
+* **LOCATOR OPTIMIZATION:** Trace the path between you and the target you're tracking. Each time you make a move, the path will be updated, the location of the target is obtained silently through a bypass made in the browsers, allowing you to skip the location request on the victim's side, and at the same time maintain a precision of **99%** in the locator.
 
 ![](https://lh3.googleusercontent.com/qwq4LzzLTdFGwsGd8C3c9gxbDaN191s7lnvz75y0trwIMUGSaIu22QyBRgwKXxRwLBC5HGekBJLw9qgD5lnxgszcFVqJ24RVqv3q_T3HzD6wJeQU6oY4VVF8QT6Y83hstqD4C020)
 * **APPROACH:** When you're close to the target, Trape will tell you.
@@ -33,12 +33,12 @@ Some benefits
 
   ---  **INJECT JS:** You keep the JavaScript code running free in real time, so you can manage the execution of a **keylogger** or your own custom functions in JS which will be reflected in the target's browser.
     
-  ---   **SPEECH:** A process of audio creation is maintained which is played in the browser of the objective, by means of this you can execute personalized messages in different voices with languages in Spanish and English.
+  ---   **SPEECH:** A process of audio creation is maintained which is played in the browser of the target, by means of this you can execute personalized messages in different voices with languages in Spanish and English.
     
 
   
 
-* **PUBLIC NETWORK TUNNEL:** Trape has its own **API** that is linked to [ngrok.com](https://ngrok.com) to allow the automatic management of public network tunnels; By this you can publish your content of trape server executed locally to the Internet, to manage hooks or public attacks.
+* **PUBLIC NETWORK TUNNEL:** Trape has its own **API** that is linked to [ngrok.com](https://ngrok.com) to allow the automatic management of public network tunnels; So you can publish the content of your trape server which is executed locally to the Internet, to manage hooks or public attacks.
 
 ![](https://lh5.googleusercontent.com/_f3zaCeZya_5AKaCoaPexyJVpNA7fiRqYQ9WBRiGLsHcx1W5V61V-VENeIRF2QbqvpenyOJ1AYyreTmOr2MWbf9PYu4qXF-tbYWi7qp6ZWeOwvoG3LYUdpjp3pAK9mIAQZzPJwAO)
 
@@ -112,7 +112,7 @@ optional arguments:
                         Update trape to the latest version
 ```
 
-**--url**  In this option you add the URL you use to clone Live, which works as a decoy.
+**--url**  In this option you add the URL you want to clone, which works as a decoy.
 
 **--port**  Here you insert the port, where you are going to run the  **trape server**.
 
@@ -126,16 +126,16 @@ optional arguments:
 
 **--version**  You can see the version number of trape.
 
-**--update**  Option especially to upgrade to the latest version of **trape**.
+**--update**  Option used to upgrade to the latest version of **trape**.
 
 **--help**  It is used to see all the above options, from the executable.
 
 
 Disclaimer
 -------
-This tool has been published educational purposes in order to teach people how bad guys could track them or monitor them or obtain information from their credentials, we are not responsible for the use or the scope that may have the People through this project.
+This tool has been published educational purposes. It is intended to teach people how bad guys could track them, monitor them or obtain information from their credentials, we are not responsible for the use or the scope that someone may have through this project.
 
-We are totally convinced that if we teach how vulnerable things are, we can make the Internet a safer place.
+We are totally convinced that if we teach how vulnerable things really are, we can make the Internet a safer place.
 
 Developer
 -------
