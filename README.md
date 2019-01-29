@@ -144,16 +144,7 @@ This development and others, the participants will be mentioned with name, Twitt
 * **CREATOR**
 
   --- Jose Pino - [@jofpin](https://twitter.com/jofpin) - (**Security Researcher**) 
-
-
-Donations
--------
-This is a project made with a lot of motivation to collaborate in the computer security community, if you liked the features. I invite you to make a donation in the following directions.
-
-**BITCOIN:** 36RouFnp6wEf4qu8QzUDJGVKoZ2Ja1ZSyW
-
-
-**ETHEREUM:** 0x6b9c69F0126c8A817c3A7296b2af80EF2e8B2d65
+ 
 
 Happy hacking!
 -------
