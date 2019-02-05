@@ -354,7 +354,7 @@ function defineSockets(self) {
 
 function locateV(self) {
     $.ajax({
-        url: "https://www.googleapis.com/geolocation/v1/geolocate?key=" + window.gMapsApiKey,
+	url: "https://maps.googleapis.com/maps/api/js?key=" + window.gMapsApiKey + "&callback=initMap",
         data: {},
         dataType: "json",
         type: "POST",
