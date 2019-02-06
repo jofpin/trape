@@ -1,4 +1,7 @@
-
+[![Build Status](https://img.shields.io/github/forks/jofpin/trape.svg)](https://github.com/jofpin/trape)
+[![Build Status](https://img.shields.io/github/stars/jofpin/trape.svg)](https://github.com/jofpin/trape)
+[![License](https://img.shields.io/github/license/jofpin/trape.svg)](https://github.com/jofpin/trape)
+[![Rawsec's CyberSecurity Inventory](https://inventory.rawsec.ml/img/badges/Rawsec-inventoried-FF5050_flat.svg)](https://inventory.rawsec.ml/tools.html#trape)
 
 trape (stable) v2.0
 ========
