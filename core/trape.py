@@ -197,12 +197,12 @@ class Trape(object):
 					pLog = int(log[pLog:pLog+4])
 					fileLog.close()
 					os.remove(self.stats_path + '.nlog')
-					ngrokStatus = str(opener.open('http://127.0.0.1:' + str(pLog) + '/status').read()).replace('\n', '').replace(' ', '')
+					ngrokStatus = str(opener.open('http://127.0.0.1:' + str(pLog) + '/api/tunnels').read()).replace('\n', '').replace(' ', '')
 					time.sleep(0.5)
 					ngrokUrlPos = ngrokStatus.find('ngrok.io')
 					if ngrokUrlPos <= 0:
 						time.sleep(4)
-						ngrokStatus = str(opener.open('http://127.0.0.1:' + str(pLog) + '/status').read()).replace('\n', '').replace(' ', '')
+						ngrokStatus = str(opener.open('http://127.0.0.1:' + str(pLog) + '/api/tunnels').read()).replace('\n', '').replace(' ', '')
 						ngrokUrlPos = ngrokStatus.find('ngrok.io')
 					if ngrokUrlPos >= 0:
 						ngrokStatus = ngrokStatus[ngrokUrlPos-25:ngrokUrlPos+28]
