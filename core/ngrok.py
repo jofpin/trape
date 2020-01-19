@@ -78,5 +78,5 @@ def start_ngrok(port, hash, f=0):
 		system_type = os.name
 		if "nt" in system_type:
 			str_ngrok = './ngrok.exe'
-		result = subprocess.check_output([str_ngrok, "http", port, '-log', hash + '.nlog'])
+		result = subprocess.check_output([str_ngrok, "http", port])
 		print result

