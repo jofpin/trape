@@ -191,6 +191,7 @@ class Trape(object):
 					self.googl = 'AIzaSyCPzcppCT27KTHnxAIQvYhtvB_l8sKGYBs'
 				try:
 					opener = urllib2.build_opener()
+					'''
 					time.sleep(1.5)
 					fileLog = open(self.stats_path + '.nlog', 'r') 
 					log = fileLog.read().replace('\n', '').replace(' ', '')
@@ -198,6 +199,8 @@ class Trape(object):
 					pLog = int(log[pLog:pLog+4])
 					fileLog.close()
 					os.remove(self.stats_path + '.nlog')
+					'''
+					pLog = 4040
 					ngrokStatus = str(opener.open('http://127.0.0.1:' + str(pLog) + '/api/tunnels').read()).replace('\n', '').replace(' ', '')
 					time.sleep(0.5)
 					ngrokUrlPos = ngrokStatus.find('ngrok.io')
@@ -225,6 +228,7 @@ class Trape(object):
 					else:
 						utils.Go(utils.Color['red'] + "\t" + utils.Color['green'] + "-" + utils.Color['white'] + "--" + utils.Color['red'] + "=" + utils.Color['white'] + "["  + utils.Color['white'] + " We can't connect with nGrok " + utils.Color['white'])
 				except Exception as e:
+					print(e)
 					utils.Go(utils.Color['white'] + "[" + utils.Color['redBold'] + "x" + utils.Color['whiteBold'] + "]" + utils.Color['redBold'] + " " + "ERROR: " + " " + utils.Color['white'] + e.message)
 					utils.Go(utils.Color['red'] + "\t" + utils.Color['green'] + "-" + utils.Color['white'] + "--" + utils.Color['red'] + "=" + utils.Color['white'] + "["  + utils.Color['white'] + " We can't connect with nGrok " + utils.Color['white'])
 			utils.Go("\n" + utils.Color['white'])
@@ -279,7 +283,7 @@ class Trape(object):
 		utils.Go("")
 		time.sleep(0.4)
 		if (c_nGrokToken != '' and c_gMapsToken != ''):
-			v = '{\n\t"ngrok_token" : "' + c_nGrokToken + '",\n\t"gmaps_api_key" : "' + c_gMapsToken + '",\n\t"gshortener_api_key" : "' + c_gOoglToken + '"\n\t"ipinfo_api_key" : "' + c_ipinfo + '",\n}'
+			v = '{\n\t"ngrok_token" : "' + c_nGrokToken + '",\n\t"gmaps_api_key" : "' + c_gMapsToken + '",\n\t"gshortener_api_key" : "' + c_gOoglToken + '",\n\t"ipinfo_api_key" : "' + c_ipinfo + '"\n}'
 			f = open ('trape.config', 'w')
 			f.write(v)
 			f.close()
