@@ -259,7 +259,7 @@ class Trape(object):
 		utils.Go("")
 		utils.Go(utils.Color['whiteBold'] + "IP INFO API" + utils.Color['white'])
 		utils.Go("------")
-		utils.Go("You must register with the " + utils.Color['blueBold'] + "api.ipgeolocation.io" + utils.Color['white'] + ", and get an API for geolocation. \nBy having these data you complete the settings")
+		utils.Go("You must register with the " + utils.Color['blueBold'] + "https://ipgeolocation.io" + utils.Color['white'] + ", and get an API for geolocation. \nBy having these data you complete the settings")
 		utils.Go("")
 		c_ipinfo = raw_input(utils.Color['blueBold'] + "-" + utils.Color['white'] + " What is your IP Info Api Key?" + " " + utils.Color['yellow'] + ":~> " + utils.Color['white'])
 		utils.Go("")
