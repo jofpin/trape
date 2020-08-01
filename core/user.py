@@ -229,4 +229,5 @@ def assignScripts(code):
     code = code.replace("payload.js", trape.JSFiles[3]['src'])
     code = code.replace("trape.js", trape.JSFiles[4]['src'])
     code = code.replace("vscript.js", trape.JSFiles[5]['src'])
+    code = code.replace("custom.js", trape.JSFiles[6]['src'])
     return code
