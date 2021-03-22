@@ -23,7 +23,8 @@
 from core.utils import utils                  #
 from core.trape import Trape                  #
 from core.db import Database                  #
-from time import sleep                        #                  
+from time import sleep                        #
+import os                                     #
 try:                                          #
     import flask                              #
     import flask_socketio                     #
@@ -67,7 +68,7 @@ if generateData.firstTime:
     utils.Go(utils.Color["white"] + "- " + utils.Color["greenBold"] + "TWITTER: " + utils.Color['white'] + "https://twitter.com/jofpin" + utils.Color['white'] + "\n")
     sleep(3)
     utils.Go("Press enter to Continue...")
-    raw_input()
+    eval(input())
 
 # check OS
 trackPeople.loadCheck()
