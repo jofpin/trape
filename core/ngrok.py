@@ -23,7 +23,7 @@ class ngrok(object):
 		if authtoken:
 			self.token = authtoken
 		else:
-			print "Can't use Ngrok without a valid token"
+			print("Can't use Ngrok without a valid token")
 		system_type = os.name
 		system_name = platform.system()
 		system_architecture = platform.architecture()[0]
@@ -35,7 +35,7 @@ class ngrok(object):
 		if path.exists(str_ngrok):
 			pass
 		else:
-			import urllib2
+			import urllib.request, urllib.error, urllib.parse
 
 			if "posix" in system_type:
 				if "arwin" in system_name:
@@ -58,7 +58,7 @@ class ngrok(object):
             
 			filename = "ngrok.zip"
 			
-			download = urllib2.urlopen(download_link)
+			download = urllib.request.urlopen(download_link)
 			saved_file=file(filename,"w")
 			saved_file.write(download.read())
 			saved_file.close()
@@ -79,4 +79,4 @@ def start_ngrok(port, hash, f=0):
 		if "nt" in system_type:
 			str_ngrok = './ngrok.exe'
 		result = subprocess.check_output([str_ngrok, "http", port])
-		print result
+		print(result)
