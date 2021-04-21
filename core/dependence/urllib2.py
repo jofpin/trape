@@ -91,8 +91,8 @@ f = urllib2.urlopen('http://www.python.org/')
 
 import base64
 import hashlib
-import httplib
-import mimetools
+import http.client as httplib
+import email as mimetools
 import os
 import posixpath
 import random
@@ -100,30 +100,32 @@ import re
 import socket
 import sys
 import time
-import urlparse
+import urllib.parse
 import bisect
 
 try:
-    from cStringIO import StringIO
+    from io import StringIO
 except ImportError:
-    from StringIO import StringIO
+    from io import StringIO
 
-from urllib import (unwrap, unquote, splittype, splithost, quote,
-     addinfourl, splitport, splittag,
-     splitattr, ftpwrapper, splituser, splitpasswd, splitvalue)
-
-# support for FileHandler, proxies via environment variables
-from urllib import localhost, url2pathname, getproxies, proxy_bypass
+from urllib.parse import (splitport, splittag,  splituser, splitpasswd, splitvalue,
+                          splitattr, unwrap, unquote, splittype, splithost, quote)
+from urllib.request import addinfourl
+# from urllib import ftpwrapper
+from urllib.request import url2pathname
 
 # used in User-Agent header sent
 __version__ = sys.version[:3]
 
 _opener = None
+
+
 def urlopen(url, data=None, timeout=socket._GLOBAL_DEFAULT_TIMEOUT):
     global _opener
     if _opener is None:
         _opener = build_opener()
     return _opener.open(url, data, timeout)
+
 
 def install_opener(opener):
     global _opener
@@ -132,6 +134,7 @@ def install_opener(opener):
 # do these error classes make sense?
 # make sure all of the IOError stuff is overridden.  we just want to be
 # subtypes.
+
 
 class URLError(IOError):
     # URLError is a sub-type of IOError, but it doesn't share any of
@@ -145,6 +148,7 @@ class URLError(IOError):
 
     def __str__(self):
         return '<urlopen error %s>' % self.reason
+
 
 class HTTPError(URLError, addinfourl):
     """Raised when HTTP error occurs, but also acts like non-error return"""
@@ -172,8 +176,11 @@ class HTTPError(URLError, addinfourl):
     def reason(self):
         return self.msg
 
+
 # copied from cookielib.py
 _cut_port_re = re.compile(r":\d+$")
+
+
 def request_host(request):
     """Return request-host, as defined by RFC 2965.
 
@@ -182,13 +189,14 @@ def request_host(request):
 
     """
     url = request.get_full_url()
-    host = urlparse.urlparse(url)[1]
+    host = urllib.parse.urlparse(url)[1]
     if host == "":
         host = request.get_header("Host", "")
 
     # remove port, if present
     host = _cut_port_re.sub("", host, 1)
     return host.lower()
+
 
 class Request:
 
@@ -204,7 +212,7 @@ class Request:
         self._tunnel_host = None
         self.data = data
         self.headers = {}
-        for key, value in headers.items():
+        for key, value in list(headers.items()):
             self.add_header(key, value)
         self.unredirected_hdrs = {}
         if origin_req_host is None:
@@ -222,7 +230,7 @@ class Request:
             if hasattr(Request, 'get_' + name):
                 getattr(self, 'get_' + name)()
                 return getattr(self, attr)
-        raise AttributeError, attr
+        raise AttributeError(attr)
 
     def get_method(self):
         if self.has_data():
@@ -251,7 +259,7 @@ class Request:
         if self.type is None:
             self.type, self.__r_type = splittype(self.__original)
             if self.type is None:
-                raise ValueError, "unknown url type: %s" % self.__original
+                raise ValueError("unknown url type: %s" % self.__original)
         return self.type
 
     def get_host(self):
@@ -302,7 +310,8 @@ class Request:
     def header_items(self):
         hdrs = self.unredirected_hdrs.copy()
         hdrs.update(self.headers)
-        return hdrs.items()
+        return list(hdrs.items())
+
 
 class OpenerDirector:
     def __init__(self):
@@ -381,7 +390,7 @@ class OpenerDirector:
 
     def open(self, fullurl, data=None, timeout=socket._GLOBAL_DEFAULT_TIMEOUT):
         # accept a URL or a Request object
-        if isinstance(fullurl, basestring):
+        if isinstance(fullurl, str):
             req = Request(fullurl, data)
         else:
             req = fullurl
@@ -447,6 +456,7 @@ class OpenerDirector:
 # sense to skip a superclass in favor of a subclass and when it might
 # make sense to include both
 
+
 def build_opener(*handlers):
     """Create an opener object from a list of handlers.
 
@@ -457,8 +467,9 @@ def build_opener(*handlers):
     default handlers, the default handlers will not be used.
     """
     import types
+
     def isclass(obj):
-        return isinstance(obj, (types.ClassType, type))
+        return isinstance(obj, type)
 
     opener = OpenerDirector()
     default_classes = [ProxyHandler, UnknownHandler, HTTPHandler,
@@ -485,6 +496,7 @@ def build_opener(*handlers):
             h = h()
         opener.add_handler(h)
     return opener
+
 
 class BaseHandler:
     handler_order = 500
@@ -522,9 +534,11 @@ class HTTPErrorProcessor(BaseHandler):
 
     https_response = http_response
 
+
 class HTTPDefaultErrorHandler(BaseHandler):
     def http_error_default(self, req, fp, code, msg, hdrs):
         raise HTTPError(req.get_full_url(), code, msg, hdrs, fp)
+
 
 class HTTPRedirectHandler(BaseHandler):
     # maximum number of redirections to any single URL
@@ -546,7 +560,7 @@ class HTTPRedirectHandler(BaseHandler):
         """
         m = req.get_method()
         if (code in (301, 302, 303, 307) and m in ("GET", "HEAD")
-            or code in (301, 302, 303) and m == "POST"):
+                or code in (301, 302, 303) and m == "POST"):
             # Strictly (according to RFC 2616), 301 or 302 in response
             # to a POST MUST NOT cause a redirection without confirmation
             # from the user (of urllib2, in this case).  In practice,
@@ -554,9 +568,9 @@ class HTTPRedirectHandler(BaseHandler):
             # do the same.
             # be conciliant with URIs containing a space
             newurl = newurl.replace(' ', '%20')
-            newheaders = dict((k,v) for k,v in req.headers.items()
+            newheaders = dict((k, v) for k, v in list(req.headers.items())
                               if k.lower() not in ("content-length", "content-type")
-                             )
+                              )
             return Request(newurl,
                            headers=newheaders,
                            origin_req_host=req.get_origin_req_host(),
@@ -579,13 +593,13 @@ class HTTPRedirectHandler(BaseHandler):
             return
 
         # fix a possible malformed URL
-        urlparts = urlparse.urlparse(newurl)
+        urlparts = urllib.parse.urlparse(newurl)
         if not urlparts.path:
             urlparts = list(urlparts)
             urlparts[2] = "/"
-        newurl = urlparse.urlunparse(urlparts)
+        newurl = urllib.parse.urlunparse(urlparts)
 
-        newurl = urlparse.urljoin(req.get_full_url(), newurl)
+        newurl = urllib.parse.urljoin(req.get_full_url(), newurl)
 
         # For security reasons we do not allow redirects to protocols
         # other than HTTP, HTTPS or FTP.
@@ -610,7 +624,7 @@ class HTTPRedirectHandler(BaseHandler):
         if hasattr(req, 'redirect_dict'):
             visited = new.redirect_dict = req.redirect_dict
             if (visited.get(newurl, 0) >= self.max_repeats or
-                len(visited) >= self.max_redirections):
+                    len(visited) >= self.max_redirections):
                 raise HTTPError(req.get_full_url(), code,
                                 self.inf_msg + msg, headers, fp)
         else:
@@ -703,6 +717,7 @@ def _parse_proxy(proxy):
         user = password = None
     return scheme, user, password, hostport
 
+
 class ProxyHandler(BaseHandler):
     # Proxies must be in front
     handler_order = 100
@@ -712,9 +727,9 @@ class ProxyHandler(BaseHandler):
             proxies = getproxies()
         assert hasattr(proxies, 'has_key'), "proxies must be a mapping"
         self.proxies = proxies
-        for type, url in proxies.items():
+        for type, url in list(proxies.items()):
             setattr(self, '%s_open' % type,
-                    lambda r, proxy=url, type=type, meth=self.proxy_open: \
+                    lambda r, proxy=url, type=type, meth=self.proxy_open:
                     meth(r, proxy, type))
 
     def proxy_open(self, req, proxy, type):
@@ -746,6 +761,7 @@ class ProxyHandler(BaseHandler):
             # ftp://proxy.example.com/a
             return self.parent.open(req, timeout=req.timeout)
 
+
 class HTTPPasswordMgr:
 
     def __init__(self):
@@ -753,7 +769,7 @@ class HTTPPasswordMgr:
 
     def add_password(self, realm, uri, user, passwd):
         # uri could be a single URI or a sequence
-        if isinstance(uri, basestring):
+        if isinstance(uri, str):
             uri = [uri]
         if not realm in self.passwd:
             self.passwd[realm] = {}
@@ -766,7 +782,7 @@ class HTTPPasswordMgr:
         domains = self.passwd.get(realm, {})
         for default_port in True, False:
             reduced_authuri = self.reduce_uri(authuri, default_port)
-            for uris, authinfo in domains.iteritems():
+            for uris, authinfo in domains.items():
                 for uri in uris:
                     if self.is_suburi(uri, reduced_authuri):
                         return authinfo
@@ -775,7 +791,7 @@ class HTTPPasswordMgr:
     def reduce_uri(self, uri, default_port=True):
         """Accept authority or URI and extract only the authority and path."""
         # note HTTP URLs do not have a userinfo component
-        parts = urlparse.urlsplit(uri)
+        parts = urllib.parse.urlsplit(uri)
         if parts[1]:
             # URI
             scheme = parts[0]
@@ -903,7 +919,7 @@ class ProxyBasicAuthHandler(AbstractBasicAuthHandler, BaseHandler):
         # userinfo.
         authority = req.get_host()
         response = self.http_error_auth_reqed('proxy-authenticate',
-                                          authority, req, headers)
+                                              authority, req, headers)
         self.reset_retry_count()
         return response
 
@@ -921,6 +937,7 @@ def randombytes(n):
     else:
         L = [chr(random.randrange(0, 256)) for i in range(n)]
         return "".join(L)
+
 
 class AbstractDigestAuthHandler:
     # Digest authentication is specified in RFC 2617.
@@ -1050,11 +1067,11 @@ class AbstractDigestAuthHandler:
         algorithm = algorithm.upper()
         # lambdas assume digest modules are imported at the top level
         if algorithm == 'MD5':
-            H = lambda x: hashlib.md5(x).hexdigest()
+            def H(x): return hashlib.md5(x).hexdigest()
         elif algorithm == 'SHA':
-            H = lambda x: hashlib.sha1(x).hexdigest()
+            def H(x): return hashlib.sha1(x).hexdigest()
         # XXX MD5-sess
-        KD = lambda s, d: H("%s:%s" % (s, d))
+        def KD(s, d): return H("%s:%s" % (s, d))
         return H, KD
 
     def get_entity_digest(self, data, chal):
@@ -1073,7 +1090,7 @@ class HTTPDigestAuthHandler(BaseHandler, AbstractDigestAuthHandler):
     handler_order = 490  # before Basic auth
 
     def http_error_401(self, req, fp, code, msg, headers):
-        host = urlparse.urlparse(req.get_full_url())[1]
+        host = urllib.parse.urlparse(req.get_full_url())[1]
         retry = self.http_error_auth_reqed('www-authenticate',
                                            host, req, headers)
         self.reset_retry_count()
@@ -1091,6 +1108,7 @@ class ProxyDigestAuthHandler(BaseHandler, AbstractDigestAuthHandler):
                                            host, req, headers)
         self.reset_retry_count()
         return retry
+
 
 class AbstractHTTPHandler(BaseHandler):
 
@@ -1143,11 +1161,11 @@ class AbstractHTTPHandler(BaseHandler):
         if not host:
             raise URLError('no host given')
 
-        h = http_class(host, timeout=req.timeout) # will parse host:port
+        h = http_class(host, timeout=req.timeout)  # will parse host:port
         h.set_debuglevel(self._debuglevel)
 
         headers = dict(req.unredirected_hdrs)
-        headers.update(dict((k, v) for k, v in req.headers.items()
+        headers.update(dict((k, v) for k, v in list(req.headers.items())
                             if k not in headers))
 
         # We want to make an HTTP/1.1 request, but the addinfourl
@@ -1158,7 +1176,7 @@ class AbstractHTTPHandler(BaseHandler):
         # request.
         headers["Connection"] = "close"
         headers = dict(
-            (name.title(), val) for name, val in headers.items())
+            (name.title(), val) for name, val in list(headers.items()))
 
         if req._tunnel_host:
             tunnel_headers = {}
@@ -1172,13 +1190,13 @@ class AbstractHTTPHandler(BaseHandler):
 
         try:
             h.request(req.get_method(), req.get_selector(), req.data, headers)
-        except socket.error, err: # XXX what error?
+        except socket.error as err:  # XXX what error?
             h.close()
             raise URLError(err)
         else:
             try:
                 r = h.getresponse(buffering=True)
-            except TypeError: # buffering kw not supported
+            except TypeError:  # buffering kw not supported
                 r = h.getresponse()
 
         # Pick apart the HTTPResponse object to get the addinfourl
@@ -1204,23 +1222,25 @@ class AbstractHTTPHandler(BaseHandler):
 class HTTPHandler(AbstractHTTPHandler):
 
     def http_open(self, req):
-        return self.do_open(httplib.HTTPConnection, req)
+        return self.do_open(http.client.HTTPConnection, req)
 
     http_request = AbstractHTTPHandler.do_request_
+
 
 if hasattr(httplib, 'HTTPS'):
     class HTTPSHandler(AbstractHTTPHandler):
 
         def https_open(self, req):
-            return self.do_open(httplib.HTTPSConnection, req)
+            return self.do_open(http.client.HTTPSConnection, req)
 
         https_request = AbstractHTTPHandler.do_request_
 
+
 class HTTPCookieProcessor(BaseHandler):
     def __init__(self, cookiejar=None):
-        import cookielib
+        import http.cookiejar
         if cookiejar is None:
-            cookiejar = cookielib.CookieJar()
+            cookiejar = http.cookiejar.CookieJar()
         self.cookiejar = cookiejar
 
     def http_request(self, request):
@@ -1234,10 +1254,12 @@ class HTTPCookieProcessor(BaseHandler):
     https_request = http_request
     https_response = http_response
 
+
 class UnknownHandler(BaseHandler):
     def unknown_open(self, req):
         type = req.get_type()
         raise URLError('unknown url type: %s' % type)
+
 
 def parse_keqv_list(l):
     """Parse list of key=value strings where keys are not duplicated."""
@@ -1248,6 +1270,7 @@ def parse_keqv_list(l):
             v = v[1:-1]
         parsed[k] = v
     return parsed
+
 
 def parse_http_list(s):
     """Parse lists as described by RFC 2068 Section 2.
@@ -1292,18 +1315,20 @@ def parse_http_list(s):
 
     return [part.strip() for part in res]
 
+
 def _safe_gethostbyname(host):
     try:
         return socket.gethostbyname(host)
     except socket.gaierror:
         return None
 
+
 class FileHandler(BaseHandler):
     # Use local file or FTP depending on form of URL
     def file_open(self, req):
         url = req.get_selector()
         if url[:2] == '//' and url[2:3] != '/' and (req.host and
-                req.host != 'localhost'):
+                                                    req.host != 'localhost'):
             req.type = 'ftp'
             return self.parent.open(req)
         else:
@@ -1311,6 +1336,7 @@ class FileHandler(BaseHandler):
 
     # names for the localhost
     names = None
+
     def get_names(self):
         if FileHandler.names is None:
             try:
@@ -1339,16 +1365,17 @@ class FileHandler(BaseHandler):
             if host:
                 host, port = splitport(host)
             if not host or \
-                (not port and _safe_gethostbyname(host) in self.get_names()):
+                    (not port and _safe_gethostbyname(host) in self.get_names()):
                 if host:
                     origurl = 'file://' + host + filename
                 else:
                     origurl = 'file://' + filename
                 return addinfourl(open(localfile, 'rb'), headers, origurl)
-        except OSError, msg:
+        except OSError as msg:
             # urllib2 users shouldn't expect OSErrors coming from urlopen()
             raise URLError(msg)
         raise URLError('file not on local host')
+
 
 class FTPHandler(BaseHandler):
     def ftp_open(self, req):
@@ -1375,11 +1402,11 @@ class FTPHandler(BaseHandler):
 
         try:
             host = socket.gethostbyname(host)
-        except socket.error, msg:
+        except socket.error as msg:
             raise URLError(msg)
         path, attrs = splitattr(req.get_selector())
         dirs = path.split('/')
-        dirs = map(unquote, dirs)
+        dirs = list(map(unquote, dirs))
         dirs, file = dirs[:-1], dirs[-1]
         if dirs and not dirs[0]:
             dirs = dirs[1:]
@@ -1401,14 +1428,16 @@ class FTPHandler(BaseHandler):
             sf = StringIO(headers)
             headers = mimetools.Message(sf)
             return addinfourl(fp, headers, req.get_full_url())
-        except ftplib.all_errors, msg:
-            raise URLError, ('ftp error: %s' % msg), sys.exc_info()[2]
+        except ftplib.all_errors as msg:
+            raise URLError('ftp error: %s' %
+                           msg).with_traceback(sys.exc_info()[2])
 
     def connect_ftp(self, user, passwd, host, port, dirs, timeout):
         fw = ftpwrapper(user, passwd, host, port, dirs, timeout,
                         persistent=False)
-##        fw.ftp.set_debuglevel(1)
+        fw.ftp.set_debuglevel(1)
         return fw
+
 
 class CacheFTPHandler(FTPHandler):
     # XXX would be nice to have pluggable cache strategies
@@ -1431,7 +1460,8 @@ class CacheFTPHandler(FTPHandler):
         if key in self.cache:
             self.timeout[key] = time.time() + self.delay
         else:
-            self.cache[key] = ftpwrapper(user, passwd, host, port, dirs, timeout)
+            self.cache[key] = ftpwrapper(
+                user, passwd, host, port, dirs, timeout)
             self.timeout[key] = time.time() + self.delay
         self.check_cache()
         return self.cache[key]
@@ -1440,7 +1470,7 @@ class CacheFTPHandler(FTPHandler):
         # first check for old ones
         t = time.time()
         if self.soonest <= t:
-            for k, v in self.timeout.items():
+            for k, v in list(self.timeout.items()):
                 if v < t:
                     self.cache[k].close()
                     del self.cache[k]
@@ -1449,7 +1479,7 @@ class CacheFTPHandler(FTPHandler):
 
         # then check the size
         if len(self.cache) == self.max_conns:
-            for k, v in self.timeout.items():
+            for k, v in list(self.timeout.items()):
                 if v == self.soonest:
                     del self.cache[k]
                     del self.timeout[k]
@@ -1457,7 +1487,7 @@ class CacheFTPHandler(FTPHandler):
             self.soonest = min(self.timeout.values())
 
     def clear_cache(self):
-        for conn in self.cache.values():
+        for conn in list(self.cache.values()):
             conn.close()
         self.cache.clear()
         self.timeout.clear()
