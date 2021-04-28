@@ -17,6 +17,7 @@ import os
 from flask import Flask, render_template, session, request, json, redirect, url_for, send_from_directory
 from flask_cors import CORS
 from trape import Trape
+import urllib
 from core.db import Database
 
 # Main parts, to generate relationships among others
@@ -90,9 +91,9 @@ def home_get_preview():
 
 @app.route("/get_title", methods=["POST"])
 def home_get_title():
-    opener = urllib2.build_opener()
+    opener = urllib.request.build_opener()
     html = opener.open(trape.url_to_clone).read()
-    html = html[html.find('<title>') + 7 : html.find('</title>')]
+    html = html[html.find(b'<title>') + 7 : html.find(b'</title>')]
     return json.dumps({'status' : 'OK', 'title' : html})
 
 @app.route("/get_requests", methods=["POST"])

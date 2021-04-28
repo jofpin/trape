@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3.8
 # -*- coding: utf-8 -*-
 #**
 #
@@ -8,7 +8,7 @@
 #
 # Learn to track the world, to avoid being traced
 #
-# @version     2.0
+# @version     2.1
 # @link        https://github.com/jofpin/trape
 # @author      Jose Pino (@jofpin)
 # @copyright   2018 by Jose Pino / <jofpin@gmail.com>
@@ -67,7 +67,7 @@ if generateData.firstTime:
     utils.Go(utils.Color["white"] + "- " + utils.Color["greenBold"] + "TWITTER: " + utils.Color['white'] + "https://twitter.com/jofpin" + utils.Color['white'] + "\n")
     sleep(3)
     utils.Go("Press enter to Continue...")
-    raw_input()
+    input()
 
 # check OS
 trackPeople.loadCheck()

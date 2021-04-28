@@ -20,7 +20,7 @@ import socket
 import time
 import requests, json
 from colorama import init , Style,Fore
-import httplib
+import http.client
 init()
 
 class utils:
@@ -69,7 +69,7 @@ class utils:
         utils.Go("\t" + "-----------------------------------------------")
         utils.Go(utils.Color['green'] + "\t" + "People tracker on internet for OSINT research " + utils.Color['white'] + "|=-" + utils.Color['white'])
         utils.Go("\t" + "-----------------------------------------------")
-        utils.Go("\t" + "| " + utils.Color['white'] + "v" + utils.Color['redBold'] + "2.0" + utils.Color['white'] + " |")    
+        utils.Go("\t" + "| " + utils.Color['white'] + "v" + utils.Color['redBold'] + "2.1" + utils.Color['white'] + " |")    
         utils.Go("\t" + "--------" + "\n")
 
     # Loader with console cleaning and OS checking    
@@ -136,7 +136,7 @@ class utils:
 
     @staticmethod
     def checkUrl(url):
-        c = httplib.HTTPConnection(url, timeout=5)
+        c = http.client.HTTPConnection(url, timeout=5)
         try:
             c.request("HEAD", "/")
             c.close()
