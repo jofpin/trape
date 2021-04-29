@@ -1,0 +1,7 @@
+Dockerfile
+*.pyc
+*.DS_Store
+.git
+.git/
+.git/*
+.git/**
