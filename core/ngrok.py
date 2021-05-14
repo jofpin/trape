@@ -59,7 +59,7 @@ class ngrok(object):
 			filename = "ngrok.zip"
 			
 			download = urllib.request.urlopen(download_link)
-			saved_file=open(filename,"b+w")
+			saved_file = open(filename,"b+w")
 			saved_file.write(download.read())
 			saved_file.close()
 			
