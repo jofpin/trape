@@ -93,8 +93,8 @@ def home_get_preview():
 def home_get_title():
     opener = urllib.request.build_opener()
     html = opener.open(trape.url_to_clone).read()
-    html = html[html.find(b'<title>') + 7 : html.find(b'</title>')]
-    return json.dumps({'status' : 'OK', 'title' : html})
+    html = html[html.find(b'<title>') + 7: html.find(b'</title>')]
+    return json.dumps({'status' : 'OK', 'title' : html.decode('utf8')})
 
 @app.route("/get_requests", methods=["POST"])
 def home_get_requests():
