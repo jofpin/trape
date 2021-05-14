@@ -73,7 +73,7 @@ class Trape(object):
 			self.googl = config_trape['gshortener_api_key']
 			if self.googl == '':
 				self.googl = 'AIzaSyDHMDTOGo9L1OBl5vRxOVM6vpXOXVp5jCc'
-				
+
 			parser = argparse.ArgumentParser("python trape.py -u <<Url>> -p <<Port>>")
 			parser.add_argument('-u', '--url', dest='url', help='Put the web page url to clone')
 			parser.add_argument('-p', '--port', dest='port', help='Insert your port')
@@ -229,7 +229,7 @@ class Trape(object):
 	def loadCheck(self):
 		utils.checkOS()
 		
-    # the main file (trape.py)
+	# the main file (trape.py)
 	def main(self):
 		import core.sockets
 
