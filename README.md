@@ -1,4 +1,4 @@
-trape v2.1 (rewritten python-code) rewritten by xmi
+trape v2.1 rewritten python-code by xmi
 ========
 
 People tracker on the Internet: Learn to track the world, to avoid being traced.
