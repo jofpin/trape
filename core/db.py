@@ -21,7 +21,7 @@ class Database(object):
         self.conn = sqlite3.connect("database.db", check_same_thread=False)
         self.cursor = self.conn.cursor()
 
-    def loadDatabase(self):
+    def create_database(self):
         self.cursor.execute("""CREATE TABLE IF NOT EXISTS "geo" ( `id` TEXT, `city` TEXT, `country_code` TEXT, `country_name` TEXT, `ip` TEXT, `latitude` TEXT, `longitude` TEXT, `metro_code` TEXT, `region_code` TEXT, `region_name` TEXT, `time_zone` TEXT, `zip_code` TEXT, `isp` TEXT, `ua` TEXT, `connection` TEXT, `latitude_browser` TEXT, `longitude_browser` TEXT, `refer` TEXT, PRIMARY KEY(`id`) )""")
         self.cursor.execute(
             """CREATE TABLE IF NOT EXISTS "networks" ( `id` TEXT, `ip` TEXT, `public_ip` INTEGER, `network` TEXT, `date` TEXT )""")

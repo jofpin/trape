@@ -1,4 +1,4 @@
-trape (stable) v2.0
+trape v2.1 rewritten python-code by xmi
 ========
 
 People tracker on the Internet: Learn to track the world, to avoid being traced.
@@ -166,3 +166,4 @@ The content of this project itself is licensed under the [Creative Commons Attri
 Copyright, 2018 by [Jose Pino](https://twitter.com/jofpin) 
 
 -------------
+
