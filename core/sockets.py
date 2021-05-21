@@ -17,7 +17,7 @@ from flask import Flask, render_template, session, request, json
 from flask_socketio import SocketIO, emit, join_room, rooms, disconnect
 import core.stats 
 import core.user
-from user_objects import attacks_hook_message
+from core.user_objects import attacks_hook_message
 from core.utils import utils
 from core.db import Database
 import sys
