@@ -19,7 +19,7 @@
 #**
 #
 ###############################################
-                                              #
+import os                                     #
 from core.utils import utils                  #
 from core.trape import Trape                  #
 from core.db import Database                  #
@@ -30,7 +30,7 @@ try:                                          #
     import os                                 #
 except:                                       ############################################
     utils.Go("\t\nPlease install requirements.txt libraries, you can do it executing:")  #
-    utils.Go("\t\npip install -r requirements.txt")  #####################################
+    utils.Go("\t\npip3 install -r requirements.txt")  ####################################
 ######################################################
 
 # We generalize the main class of <trape>
