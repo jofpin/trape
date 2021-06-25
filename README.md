@@ -68,6 +68,20 @@ Session recognition is one of trape most interesting attractions, since you as a
 * **USABILITY:** You can delete logs and view alerts for each process or action you run against each target.
  
  ![](https://lh4.googleusercontent.com/dXx1lRG2z-ZlSIlQyTx_ra7sbkgKG2jeqGjIt86GebFiAaZyFDA4vy3QBLACd-1wOz4zdSIARWvo3hK2mEvrSJ6VPDSiOZgMLB4rUYXKDHrone0xIB3bwhAKPnsJUcuKW9xf_-sG)
+
+ ### Docker Build
+
+ ```
+ $ docker build -t xshuden/trape .
+ ```
+
+### Docker Usage
+
+ ```
+ $ docker run --rm -it xshuden/trape
+ $ docker run --rm -it xshuden/trape --url http://example.com --port 8080
+ ```
+
  
 How to use it
 -------
