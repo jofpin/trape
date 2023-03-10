@@ -14,7 +14,8 @@
 from core.dependence import urllib2
 import sys
 import os
-from flask import Flask, render_template, session, request, json, redirect, url_for, send_from_directory
+import simplejson as json
+from flask import Flask, render_template, session, request, redirect, url_for, send_from_directory #json
 from flask_cors import CORS
 from trape import Trape
 import urllib
