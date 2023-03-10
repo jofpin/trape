@@ -199,12 +199,16 @@ class Trape(object):
 					if ngrokUrlPos <= 0:
 						time.sleep(4)
 						ngrokStatus = str(opener.open('http://127.0.0.1:' + str(pLog) + '/api/tunnels').read()).replace('\n', '').replace(' ', '')
+						#get url by key from dictionary instead of hardcoding
+						parse_ngrokStatus = json.loads(str(ngrokStatus)[2:][:-3]) #conv str, rm b'/n', decode json type to dict
+						ngrok_url = parse_ngrokStatus['tunnels'][0]['public_url'] #{'tunnels': []}, dict as first item of list, public_url
 						ngrokUrlPos = ngrokStatus.find('ngrok.io')
 					if ngrokUrlPos >= 0:
 						ngrokStatus = ngrokStatus[ngrokUrlPos-25:ngrokUrlPos+28]
 						ngrokUrlPos = ngrokStatus.find('http')
 						ngrokUrlPos2 = ngrokStatus.find('.io')
-						ngrokStatus = ngrokStatus[ngrokUrlPos: ngrokUrlPos2] + '.io'
+						#ngrokStatus = ngrokStatus[ngrokUrlPos: ngrokUrlPos2] + '.io' #unnecessary
+						ngrokStatus = ngrok_url
 						utils.Go(utils.Color['white'] + "\t" + utils.Color['whiteBold'] + "PUBLIC INFORMATION" + utils.Text['end'])
 						utils.Go("\t" + "-------------------")
 						r = utils.gShortener(self.googl, ngrokStatus.replace('https', 'http') + '/' + self.victim_path)
