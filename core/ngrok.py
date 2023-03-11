@@ -63,7 +63,7 @@ class ngrok(object):
 			saved_file.write(download.read())
 			saved_file.close()
 			
-			if platform.release() < 10:
+			if int(platform.release()) < 10:
 				result = subprocess.check_output(["unzip", filename])
 			else:
 				result = subprocess.check_output(['tar', '-xf', filename, str_ngrok])
