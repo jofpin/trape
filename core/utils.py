@@ -159,7 +159,6 @@ class utils:
         payload = '{"longUrl":"' + p_url + '"}'
         headers = {'content-type': 'application/json'}
         r = requests.post(url, data=payload, headers=headers)
-        print(api_key, p_url, r.content)
         return r
     
     #Short.io shortener service
