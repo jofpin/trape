@@ -166,9 +166,10 @@ class utils:
     def gShortener(api_key, p_url):
 
         url = "https://api.short.io/links"
-
+        #add your short.io test domain here
+        short_io_domain = ""
         payload = {
-            "domain": "83t0.short.gy",
+            "domain": short_io_domain,
             "originalURL": p_url,
             "path": create_url(),
         }
