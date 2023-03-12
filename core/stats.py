@@ -153,7 +153,7 @@ def busted(JSFile):
         mPath = sys._MEIPASS + '/'
     for obj in trape.JSFiles:
         if str(obj['src']) == str(JSFile):
-            s_code = open(mPath + "static/js/" + obj['path'],"r") 
+            s_code = open(mPath + "static/js/" + obj['path'],"r", encoding = 'utf8') 
             code = s_code.read()
             s_code.close()
             break
