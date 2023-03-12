@@ -21,7 +21,14 @@ import time
 import requests, json
 from colorama import init , Style,Fore
 import http.client
+import string
+import random
 init()
+def create_url():
+        N = 7
+        res = ''.join(random.choices(string.ascii_uppercase +
+                                    string.digits, k=N))
+        return str(res)
 
 class utils:
     # Functions 1to get is right
@@ -145,14 +152,67 @@ class utils:
             c.close()
             return False
 
-    # Goo.gl shortener service
+    # Removed Goo.gl shortener service
     @staticmethod
-    def gShortener(api_key, p_url):
+    def _gShortener(api_key, p_url):
         url = "https://www.googleapis.com/urlshortener/v1/url?key=" + api_key
         payload = '{"longUrl":"' + p_url + '"}'
         headers = {'content-type': 'application/json'}
         r = requests.post(url, data=payload, headers=headers)
         return r
+    
+    #Short.io shortener service
+    @staticmethod
+    def gShortener(api_key, p_url):
+
+        url = "https://api.short.io/links"
+        #add your short.io test domain here
+        short_io_domain = ""
+        payload = {
+            "domain": short_io_domain,
+            "originalURL": p_url,
+            "path": create_url(),
+        }
+        headers = {
+            "accept": "application/json",
+            "content-type": "application/json",
+            "Authorization": api_key,
+        }
+
+        response = requests.post(url, json=payload, headers=headers)
+        '''Google Shortener Example API
+            response = {"kind": "urlshortener#url",
+            "id": "http://goo.gl/fbsS",
+            "longUrl": "https://www.rebrandly.com/",
+            "status": "OK"
+            }'''
+        '''Short Example API
+            originalURL': 'http://9e3a-205-204-27-195.ngrok.io/www.instagram.com/', 
+            'DomainId': 652469, 
+            'archived': False, 
+            'lcpath': 'fvfbqtj', 
+            'source': 'api', 
+            'cloaking': False, 
+            'createdAt': '2023-03-11T08:19:19.685Z', 
+            'updatedAt': '2023-03-11T08:19:19.685Z', 
+            'OwnerId': 806676, 
+            'tags': [], 
+            'path': 'FVFBQTJ', 
+            'idString': 'lnk_2JJH_9dCPkor7AOX', 
+            'shortURL': 'https://83t0.short.gy/FVFBQTJ', 
+            'secureShortURL': 'https://83t0.short.gy/FVFBQTJ', 
+            'duplicate': False}'''
+        # Convert the Short.io Response to match the Google Response
+        parse_response = json.loads(str(response.content)[2:][:-1]) 
+        fixed_response = {}
+        fixed_response['longUrl'] = parse_response['originalURL']
+        fixed_response['id'] = parse_response['shortURL']
+        fixed_response['kind'] = parse_response['shortURL']
+        fixed_response['status'] = 'OK'
+        
+        return json.dumps(fixed_response)
+    
+       
 
     # Autocompletion
     @staticmethod

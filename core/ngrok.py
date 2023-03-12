@@ -63,7 +63,10 @@ class ngrok(object):
 			saved_file.write(download.read())
 			saved_file.close()
 			
-			result = subprocess.check_output(["unzip", filename]) 
+			if "nt" in system_type and int(platform.release()) < 10:
+				result = subprocess.check_output(["unzip", filename])
+			else:
+				result = subprocess.check_output(['tar', '-xf', filename, str_ngrok])
 			os.remove(filename)
 
 		subprocess.check_output([str_ngrok, "authtoken", authtoken]) 

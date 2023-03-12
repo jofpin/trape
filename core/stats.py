@@ -14,7 +14,8 @@
 from core.dependence import urllib2
 import sys
 import os
-from flask import Flask, render_template, session, request, json, redirect, url_for, send_from_directory
+import simplejson as json
+from flask import Flask, render_template, session, request, redirect, url_for, send_from_directory #json
 from flask_cors import CORS
 from trape import Trape
 import urllib
@@ -152,7 +153,7 @@ def busted(JSFile):
         mPath = sys._MEIPASS + '/'
     for obj in trape.JSFiles:
         if str(obj['src']) == str(JSFile):
-            s_code = open(mPath + "static/js/" + obj['path'],"r") 
+            s_code = open(mPath + "static/js/" + obj['path'],"r", encoding = 'utf8') 
             code = s_code.read()
             s_code.close()
             break
